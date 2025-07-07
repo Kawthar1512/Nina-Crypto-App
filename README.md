@@ -37,7 +37,7 @@ Getting Started
 - BSC Testnet wallet
 - A `.env` file in the backend where i stored private keys(make sure you don't commit this to github)
 
-For Frontend Setup
+For the Frontend Setup
 
 cd nina-wallet
 pnpm install
