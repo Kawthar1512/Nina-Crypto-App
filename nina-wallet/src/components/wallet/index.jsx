@@ -82,15 +82,27 @@ const Wallet = () => {
   };
 
   return (
-    <div className="wallet-page">
-      <div className="welcome-text">
-        Hello {currentUser.displayName || currentUser.email}, you are now logged in.
+    <div className="wallet-page bg-red-500  grid grid-cols-6  h-screen">
+       <aside className="col-span-1 bg-gray-900 text-white p-4">
+    <h5 className="text-2xl font-bold mb-6">Nina Wallet</h5>
+    <nav className="space-y-4">
+      <a href="#" className="block hover:text-purple-400">Dashboard</a>
+      <a href="#" className="block hover:text-purple-400">Send</a>
+      <a href="#" className="block hover:text-purple-400">Receive</a>
+      <a href="#" className="block hover:text-purple-400">Transactions</a>
+      <a href="#" className="block hover:text-purple-400">Settings</a>
+    </nav>
+  </aside>
+  <main className="col-span-5">
+      <div className="welcome-text ">
+        Hello {currentUser.displayName || currentUser.email}, you are now logged
+        in.
       </div>
 
       <header className="wallet-header">
         <div className="wallet-info">
           <p>Total Balance</p>
-          <h1>$0.0000</h1>
+          <h1>$0.00000</h1>
           <p>Wallet Address: {address || "No address in state"}</p>
         </div>
       </header>
@@ -102,7 +114,11 @@ const Wallet = () => {
 
       {/* Send Modal */}
       <Transition appear show={showSendModal} as={Fragment}>
-        <Dialog as="div" className="dialog-root" onClose={() => setShowSendModal(false)}>
+        <Dialog
+          as="div"
+          className="dialog-root"
+          onClose={() => setShowSendModal(false)}
+        >
           <div className="dialog-container">
             <Dialog.Panel>
               <Dialog.Title className="dialog-title">Send ETH</Dialog.Title>
@@ -124,7 +140,10 @@ const Wallet = () => {
                 </button>
                 {txStatus && <p>{txStatus}</p>}
               </div>
-              <button className="dialog-close-btn" onClick={() => setShowSendModal(false)}>
+              <button
+                className="dialog-close-btn"
+                onClick={() => setShowSendModal(false)}
+              >
                 Close
               </button>
             </Dialog.Panel>
@@ -134,7 +153,11 @@ const Wallet = () => {
 
       {/* Receive Modal */}
       <Transition appear show={showReceiveModal} as={Fragment}>
-        <Dialog as="div" className="dialog-root" onClose={() => setShowReceiveModal(false)}>
+        <Dialog
+          as="div"
+          className="dialog-root"
+          onClose={() => setShowReceiveModal(false)}
+        >
           <div className="dialog-container">
             <Dialog.Panel>
               <Dialog.Title className="dialog-title">Receive ETH</Dialog.Title>
@@ -142,7 +165,10 @@ const Wallet = () => {
                 <p>Your Wallet Address:</p>
                 <p>{address}</p>
               </div>
-              <button className="dialog-close-btn" onClick={() => setShowReceiveModal(false)}>
+              <button
+                className="dialog-close-btn"
+                onClick={() => setShowReceiveModal(false)}
+              >
                 Close
               </button>
             </Dialog.Panel>
@@ -153,6 +179,7 @@ const Wallet = () => {
       <button onClick={handleLogout} className="dialog-close-btn">
         Logout
       </button>
+      </main>
     </div>
   );
 };
