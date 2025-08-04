@@ -4,11 +4,14 @@ const { ethers } = require("ethers");
 const { encryptPrivateKey } = require("../utils/encryption");
 const { saveWallet, getWallet } = require("../utils/storage");
 
-// this will connect to Sepolia via Infura with my api key
+// this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum 
+//This is the fformer provider code for ethereum
+// const provider = new ethers.JsonRpcProvider(
+//   "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
+// );
 const provider = new ethers.JsonRpcProvider(
-  "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
+  "https://bsc-testnet.public.blastapi.io"
 );
-
 router.post("/create", async (req, res) => {
   const { userId } = req.body;
 
@@ -16,34 +19,33 @@ router.post("/create", async (req, res) => {
     let walletData = getWallet(userId);
 
     if (walletData) {
-      // if my  Wallet already exists then fetch the balance
+      // If wallet already exists then fetch the BNB balance
       const balanceInWei = await provider.getBalance(walletData.address);
-      const balanceInEth = ethers.formatEther(balanceInWei);
+      const balanceInBnb = ethers.formatEther(balanceInWei); // Correct for BNB
 
       return res.json({
         success: true,
         address: walletData.address,
-        balance: balanceInEth,
+        balance: balanceInBnb,
       });
     }
 
-    //  this function should create a new wallet
+    // Create a new BSC-compatible wallet
     const wallet = ethers.Wallet.createRandom();
     const encryptedKey = encryptPrivateKey(wallet.privateKey);
 
     saveWallet(userId, wallet.address, encryptedKey);
 
-    // this function will get balance , default is zero (i have a question)
-    const balanceInWei = await provider.getBalance(wallet.address); // wei is the smallest unit of ethers, i have a question here
-    const balanceInEth = ethers.formatEther(balanceInWei);
+    // Fetch balance (usually zero for new wallets)
+    const balanceInWei = await provider.getBalance(wallet.address);
+    const balanceInBnb = ethers.formatEther(balanceInWei);
 
-    res.json({ success: true, address: wallet.address, balance: balanceInEth });
+    res.json({ success: true, address: wallet.address, balance: balanceInBnb });
   } catch (err) {
     console.error("Wallet creation error:", err);
     res.status(500).json({ success: false, error: "Failed to create wallet" });
   }
 });
-
 // test my api route
 router.get("/", (req, res) => {
   res.send("My Nina Wallet API is live!");

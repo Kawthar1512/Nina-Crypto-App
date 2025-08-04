@@ -7,6 +7,7 @@ import {
 import { useAuth } from "../../../contexts/authContext";
 import "../../../styles/login.css";
 import coin from "../../../assets/coin.png";
+import nina from "../../../assets/nina.png";
 
 const Login = () => {
   const { userLoggedIn } = useAuth();
@@ -43,24 +44,32 @@ const Login = () => {
 
   return (
     <>
-      <div className="login-container">
+      <div className="login-container ">
         {userLoggedIn && <Navigate to="/wallet" replace />}
 
-        <div className="side">
-          <div className="forImg">
-            <img src={coin} alt="" />
-          </div>
-          <h2>Simple and Secure. Login to your wallet</h2>
-        </div>
+        <div className="right-side ">
+          <div className="login-header font-helvetica px-14 ">
+            <div className="fimage flex justify-around px-14 ">
+              <img
+                src={nina}
+                alt=""
+                className="w-15  h-15 object-contain ml-[-500px]"
+              />
+              <p className="text-[#f3c759] font-bold ml-[-200px] text-[20px]">
+                NINA
+              </p>
+            </div>
 
-        <div className="right-side">
-          <div className="login-header">
-            <h3>Welcome Back!</h3>
-            <h2>Login to Nina Wallet</h2>
+            <div className="top-text mt-[50px] ">
+              <h3 className="font-helvetica text-[30px]">Welcome Back!</h3>
+              <h2 className="text-[14px]  text-gray-700 mt-4">
+                Please enter your login details below
+              </h2>
+            </div>
           </div>
 
-          <div className="divForm">
-            <form onSubmit={onSubmit} className="login-form">
+          <div className="divForm px-10 mt-6">
+            <form onSubmit={onSubmit} className="login-form px-14">
               {/* Email input */}
               <div className="form-group">
                 <label>Email</label>
@@ -70,6 +79,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="w-[500px] bg-gray-50 p-3"
                 />
               </div>
 
@@ -82,10 +92,13 @@ const Login = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  className="w-[500px] bg-gray-50 p-3"
                 />
-                <a href="" className="forgot">
-                  Forgot password
-                </a>
+                <div className=" flex justify-end w-125">
+                  <a href="#" className="text-sm  hover:underline">
+                    Forgot password?
+                  </a>
+                </div>
               </div>
 
               {errorMessage && (
@@ -95,18 +108,29 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="submit-btn"
+                className="submit-btn w-[500px] bg-gray-50 p-3"
               >
                 {isSigningIn ? "Signing In..." : "Login"}
               </button>
             </form>
-            <p className="signup-link">
+            <div className="signup-link text-[12px] text-center mx-auto">
               Don't have an account?{" "}
-              <Link to="/register" className="signup">
-                Sign up
+              <Link to="/register" className="signup text-bold ">
+                <strong>Sign up</strong>
               </Link>
-            </p>
+            </div>
           </div>
+          {/* <div className="absolute top-4 left-4">
+            <Link to="/" className="text-purple-600 hover:underline text-4xl">
+              ← Home
+            </Link>
+          </div> */}
+        </div>
+        <div className="side">
+          <div className="forImg">
+            <img src={coin} alt="" />
+          </div>
+          <h2>Simple and Secure. Login to your wallet</h2>
         </div>
       </div>
     </>

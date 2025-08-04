@@ -9,7 +9,7 @@ export default function LandPage() {
     <>
       <div className="container">
         <div className="textDiv">
-          <h1>
+          <h1 className="your_wallet">
             Your Wallet. <br />
             Smarter.
           </h1>

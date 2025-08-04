@@ -15,17 +15,17 @@
   justify-content: center;
   text-align: center;
 }
-.side h2{
-    color: white;
+.side h2 {
+  color: white;
 }
-.side img{
-    width: 40%;
-    margin-left: -40px;
+.side img {
+  width: 40%;
+  margin-left: -40px;
 }
-.forImg{
-    padding-top: 170px;
-    /* margin-top: 20px auto; */
-    align-items: center;
+.forImg {
+  padding-top: 170px;
+  /* margin-top: 20px auto; */
+  align-items: center;
   justify-content: center;
   text-align: center;
   align-content: center;
@@ -34,8 +34,7 @@
 
 .right-side {
   width: 50%;
-  padding: 2rem;
-  padding-right: 70px;
+
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -63,23 +62,23 @@
   margin-top: 1rem;
   text-align: center;
 }
-label{
-    display: block;
-    /* margin-bottom: 10px; */
+label {
+  display: block;
+  /* margin-bottom: 10px; */
 }
-input{
-    width: 100%;
-    padding: 15px;
-    margin: 8px 0;
-    outline: none;
-    border-radius: 10px;
-border: 1px solid gray;
-}
+/* input {
+  width: 100%;
+  padding: 15px;
+  margin: 8px 0;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid gray;
+} */
 
-.signup{
-    text-decoration: none;
+.signup {
+  text-decoration: none;
 }
-.redirect-message{
-    margin-top: 1rem;
+.redirect-message {
+  margin-top: 1rem;
   text-align: center;
 }

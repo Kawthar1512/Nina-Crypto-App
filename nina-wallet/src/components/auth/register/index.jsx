@@ -127,8 +127,14 @@ const Register = () => {
                 Continue
               </Link>
             </div>
+             <div className="absolute top-4 left-4">
+          <Link to="/" className="text-red-600 hover:underline text-4xl">
+            ← Home
+          </Link>
+        </div>
           </form>
         </div>
+       
       </div>
     </>
   );
