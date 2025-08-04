@@ -7,6 +7,7 @@ import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
 import empty from "../../assets/empty.png";
 
+
 import {
   FiCopy,
   FiSend,
@@ -16,10 +17,24 @@ import {
   FiEyeOff,
   FiLogOut,
 } from "react-icons/fi";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 
 const Wallet = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    autoplay: true,
+    autoplaySpeed: 3000, // Slide every 3 seconds
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
 
   const [address, setAddress] = useState(null);
   const [showSendModal, setShowSendModal] = useState(false);
@@ -78,6 +93,7 @@ const Wallet = () => {
       createOrFetchWallet();
     }
   }, [currentUser]);
+  
 
   const handleSend = async () => {
     setTxStatus("");
@@ -110,7 +126,11 @@ const Wallet = () => {
     } catch (error) {
       setTxStatus("Transaction failed: " + error.message);
     }
+    
+
   };
+  
+  
 
   return (
     <div className="wallet-page bg-[#5216b9da]  h-screen">

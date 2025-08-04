@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, Link, useNavigate } from "react-router-dom";
 import {
   doSignInWithEmailAndPassword,
   doSignInWithGoogle,
@@ -8,14 +8,31 @@ import { useAuth } from "../../../contexts/authContext";
 import "../../../styles/login.css";
 import coin from "../../../assets/coin.png";
 import nina from "../../../assets/nina.png";
+import screen from "../../../assets/screen.png";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const Login = () => {
   const { userLoggedIn } = useAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +46,10 @@ const Login = () => {
       }
     }
   };
+
+  if (userLoggedIn) {
+    return <Navigate to="/wallet" replace />;
+  }
 
   // const onGoogleSignIn = async (e) => {
   //   e.preventDefault();
@@ -48,20 +69,20 @@ const Login = () => {
         {userLoggedIn && <Navigate to="/wallet" replace />}
 
         <div className="right-side ">
-          <div className="login-header font-helvetica px-14 ">
-            <div className="fimage flex justify-around px-14 ">
+          <div className=" font-helvetica px-14 ">
+            <div className="flex items-center pr-[200px] ml-[-210px] mt-[30px]   py-2 w-[300px] text-left self-start ">
               <img
                 src={nina}
-                alt=""
-                className="w-15  h-15 object-contain ml-[-500px]"
+                alt="Nina logo"
+                className="w-10 h-10 object-contain  "
               />
-              <p className="text-[#f3c759] font-bold ml-[-200px] text-[20px]">
-                NINA
-              </p>
-            </div>
 
+              <div className="text-[#5116B9] font-bold text-[20px]">NINA</div>
+            </div>
             <div className="top-text mt-[50px] ">
-              <h3 className="font-helvetica text-[30px]">Welcome Back!</h3>
+              <h3 className="font-Helvetica text-[30px] font-semibold">
+                Welcome Back!
+              </h3>
               <h2 className="text-[14px]  text-gray-700 mt-4">
                 Please enter your login details below
               </h2>
@@ -108,7 +129,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="submit-btn w-[500px] bg-gray-50 p-3"
+                className="submit-btn w-[500px] p-3"
               >
                 {isSigningIn ? "Signing In..." : "Login"}
               </button>
@@ -126,11 +147,46 @@ const Login = () => {
             </Link>
           </div> */}
         </div>
-        <div className="side">
-          <div className="forImg">
-            <img src={coin} alt="" />
+        {/* <div className="sidee py-15">
+          <div className="w-[450px] h-[450px]  flex justify-center" >
+
+            <img src={screen} alt="" className="w-full h-full object-contain transform  contrast-125 brightness-105" />
           </div>
           <h2>Simple and Secure. Login to your wallet</h2>
+          
+        </div> */}
+         <div className="sidee w-1/2 flex flex-col items-center justify-center p-10 bg-gradient-to-tr from-purple-700 to-purple-900 text-white rounded-lg">
+          <div className="w-[300px] h-[300px] mb-8">
+            <img
+              src={screen}
+              alt="Wallet screenshot"
+              className="w-full h-full object-contain contrast-125 brightness-105"
+            />
+          </div>
+
+          <h2 className="mb-8 text-xl font-semibold">
+            Simple and Secure. Login to your wallet
+          </h2>
+
+          <div className="w-full max-w-md">
+            <Slider {...carouselSettings}>
+              <div>
+                <h2 className="text-center text-lg font-semibold">
+                  Manage your money on the go
+                </h2>
+              </div>
+              <div>
+                <h2 className="text-center text-lg font-semibold">
+                  Access Nina Wallet anywhere
+                </h2>
+              </div>
+              <div>
+                <h2 className="text-center text-lg font-semibold">
+                  Your crypto, your freedom
+                </h2>
+              </div>
+            </Slider>
+          </div>
         </div>
       </div>
     </>
