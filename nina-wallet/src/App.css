@@ -8,5 +8,8 @@
   /* background-color: red; */
 
 }
-
+.slick-slide > div {
+  display: flex !important;
+  justify-content: center;
+}
 

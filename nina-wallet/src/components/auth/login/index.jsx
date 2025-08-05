@@ -155,39 +155,45 @@ const Login = () => {
           <h2>Simple and Secure. Login to your wallet</h2>
           
         </div> */}
-         <div className="sidee w-1/2 flex flex-col items-center justify-center p-10 bg-gradient-to-tr from-purple-700 to-purple-900 text-white rounded-lg">
-          <div className="w-[300px] h-[300px] mb-8">
-            <img
-              src={screen}
-              alt="Wallet screenshot"
-              className="w-full h-full object-contain contrast-125 brightness-105"
-            />
-          </div>
+        <div className="sidee w-1/2 flex items-center justify-center bg-purple-800 p-6">
+  <div className="w-full max-w-md overflow-hidden">
+    <Slider {...carouselSettings}>
+      <div className="!flex !flex-col items-center justify-center w-full h-[400px] bg-purple-900 p-4 ">
+        <img
+          src={screen}
+          alt="Manage money"
+          className="w-[400px] h-[450px] object-contain"
+        />
+        <h2 className="text-center text-lg font-semibold text-white mt-4">
+          Manage your money on the go
+        </h2>
+      </div>
 
-          <h2 className="mb-8 text-xl font-semibold">
-            Simple and Secure. Login to your wallet
-          </h2>
+      <div className="!flex !flex-col items-center justify-center w-full h-[600px] bg-purple-900 p-4">
+        <img
+          src={coin}
+          alt="Access anywhere"
+          className="w-full h-[250px] object-contain"
+        />
+        <h2 className="text-center text-lg font-semibold text-white mt-4">
+          Access Nina Wallet anywhere
+        </h2>
+      </div>
 
-          <div className="w-full max-w-md">
-            <Slider {...carouselSettings}>
-              <div>
-                <h2 className="text-center text-lg font-semibold">
-                  Manage your money on the go
-                </h2>
-              </div>
-              <div>
-                <h2 className="text-center text-lg font-semibold">
-                  Access Nina Wallet anywhere
-                </h2>
-              </div>
-              <div>
-                <h2 className="text-center text-lg font-semibold">
-                  Your crypto, your freedom
-                </h2>
-              </div>
-            </Slider>
-          </div>
-        </div>
+      <div className="!flex !flex-col items-center justify-center w-full h-[400px] bg-purple-900 p-4">
+        <img
+          src={nina}
+          alt="Your freedom"
+          className="w-full h-[250px] object-contain"
+        />
+        <h2 className="text-center text-lg font-semibold text-white mt-4">
+          Your crypto, your freedom
+        </h2>
+      </div>
+    </Slider>
+  </div>
+</div>
+
       </div>
     </>
   );

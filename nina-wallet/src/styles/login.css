@@ -52,3 +52,12 @@ input {
 .signup {
   text-decoration: none;
 }
+.slick-slide > div {
+  display: flex !important;
+  width: 100%;
+}
+.slick-slider,
+.slick-list,
+.slick-track {
+  overflow: hidden !important;
+}
