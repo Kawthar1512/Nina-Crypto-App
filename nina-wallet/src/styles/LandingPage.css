@@ -13,9 +13,7 @@ nav {
   width: 100%;
   color: white;
 }
-.homeNav h2 {
-  margin-left: -20px;
-}
+
 .navLinks {
   text-align: center;
   align-content: center;
@@ -61,7 +59,6 @@ img {
 .your_wallet {
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 .hello {
@@ -81,6 +78,14 @@ img {
   margin-top: -200px;
 }
 .hanging-indent {
-  padding-left: 1.5em;
+  padding-left: 2.5em;
   text-indent: -1.5em;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
