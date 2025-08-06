@@ -1,25 +1,25 @@
 import "../styles/LandingPage.css";
 import nina from "../assets/nina.png";
+
 export default function Nav() {
   return (
-    <nav className="homeNav bg-[#000] z-[1000] fixed  ">
-      <div className="flex item-center">
-        <div>
-          <img
-            src={nina}
-            alt=""
-            className="w-[100px] h-[100px] object-contain"
-          />
-        </div>
-        <h2>NINA</h2>
+    <nav className="homeNav bg-[#0c0c0c] z-[1000] fixed  ">
+      <div className="flex flex-row items-center ml-[-200px] ">
+        <img
+          src={nina}
+          alt="NINA logo"
+          className="w-[100px] h-[100px] object-contain  "
+        />
+        <h2 className=" ml-1 font-bold text-2xl text-[#F3C738]">
+          NINA
+        </h2>
       </div>
-
-      <div className="navLinks">
+      <div className="navLinks text-gray-200">
         <a href="">Features</a>
         <a href="">About</a>
         <a href="">Download</a>
       </div>
-      <button className="getStarted">Download App</button>
+      <button className="getStarted bg-purple-900 text-[#F3C738]">Download App</button>
     </nav>
   );
 }

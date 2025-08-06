@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
-.wallet-page{
+.wallet-page {
   text-align: center;
-  padding-top: 20px;
+  /* padding-top: px; */
 }
 .dialog-root {
   position: fixed;
@@ -39,5 +39,5 @@
   color: #fff;
   border: none;
   cursor: pointer;
-  /* background-color: red; */
+  margin-top: -1px;
 }

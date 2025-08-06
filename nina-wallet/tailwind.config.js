@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+        orbitron: ['Orbitron', 'sans-serif'],
       },
     },
   },

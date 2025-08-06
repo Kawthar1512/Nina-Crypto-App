@@ -2,9 +2,9 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+  overflow-y: hidden;
+  height: auto;
+  overflow-x: hidden;
 }
 nav {
   display: flex;
@@ -17,22 +17,18 @@ nav {
 .navLinks {
   text-align: center;
   align-content: center;
-  margin-left: 140px;
+  margin-left: 220px;
 }
 .navLinks a {
-  color: white;
   text-decoration: none;
-  margin-left: 20px;
+  margin-left: 40px;
 }
 .getStarted {
   margin-left: 250px;
-  color: #5116b9;
   text-decoration: none;
-  background-color: white;
+
   align-content: center;
-  /* width: 50px; */
   align-self: center;
-  /* height: 40px; */
   border: none;
   border-radius: 10px;
   padding: 15px;
@@ -75,7 +71,7 @@ img {
     radial-gradient(at 0% 100%, hsla(287, 49%, 48%, 0.71) 0px, transparent 50%);
 }
 .bigi {
-  margin-top: -200px;
+  margin-top: 150px;
 }
 .hanging-indent {
   padding-left: 2.5em;

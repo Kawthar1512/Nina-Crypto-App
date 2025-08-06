@@ -9,7 +9,7 @@ import "../../../styles/login.css";
 import coin from "../../../assets/coin.png";
 import nina from "../../../assets/nina.png";
 import screen from "../../../assets/screen.png";
-
+import man from "../../../assets/man.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -26,9 +26,9 @@ const Login = () => {
   const carouselSettings = {
     dots: true,
     infinite: true,
-    speed: 700,
+    speed: 800,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -156,44 +156,44 @@ const Login = () => {
           
         </div> */}
         <div className="sidee w-1/2 flex items-center justify-center bg-purple-800 p-6">
-  <div className="w-full max-w-md overflow-hidden">
-    <Slider {...carouselSettings}>
-      <div className="!flex !flex-col items-center justify-center w-full h-[400px] bg-purple-900 p-4 ">
-        <img
-          src={screen}
-          alt="Manage money"
-          className="w-[400px] h-[450px] object-contain"
-        />
-        <h2 className="text-center text-lg font-semibold text-white mt-4">
-          Manage your money on the go
-        </h2>
-      </div>
+          <div className="w-full max-w-md overflow-hidden">
+            <Slider {...carouselSettings}>
+              <div className="!flex !flex-col items-center justify-center w-[400px] h-[400px] m-14  p-6   ">
+                <img
+                  src={man}
+                  alt="Manage money"
+                  className="w-[1300px] h-[1300px] object-contain "
+                />
+                <h2 className="text-center text-sm font-semibold text-white mt-4 ">
+                  You are in control of your Finances, access your wallet
+                  anywhere in the world.
+                </h2>
+              </div>
 
-      <div className="!flex !flex-col items-center justify-center w-full h-[600px] bg-purple-900 p-4">
-        <img
-          src={coin}
-          alt="Access anywhere"
-          className="w-full h-[250px] object-contain"
-        />
-        <h2 className="text-center text-lg font-semibold text-white mt-4">
-          Access Nina Wallet anywhere
-        </h2>
-      </div>
+              <div className="!flex !flex-col items-center justify-center w-full h-[600px] p-4">
+                <img
+                  src={coin}
+                  alt="Access anywhere"
+                  className="w-full h-[250px] object-contain"
+                />
+                <h2 className="text-center text-lg font-semibold text-white mt-4">
+                  Access Nina Wallet anywhere
+                </h2>
+              </div>
 
-      <div className="!flex !flex-col items-center justify-center w-full h-[400px] bg-purple-900 p-4">
-        <img
-          src={nina}
-          alt="Your freedom"
-          className="w-full h-[250px] object-contain"
-        />
-        <h2 className="text-center text-lg font-semibold text-white mt-4">
-          Your crypto, your freedom
-        </h2>
-      </div>
-    </Slider>
-  </div>
-</div>
-
+              <div className="!flex !flex-col items-center justify-center w-full h-[400px] p-4">
+                <img
+                  src={nina}
+                  alt="Your freedom"
+                  className="w-full h-[250px] object-contain"
+                />
+                <h2 className="text-center text-lg font-semibold text-white mt-4">
+                  Your crypto, your freedom
+                </h2>
+              </div>
+            </Slider>
+          </div>
+        </div>
       </div>
     </>
   );

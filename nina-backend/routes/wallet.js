@@ -4,7 +4,7 @@ const { ethers } = require("ethers");
 const { encryptPrivateKey } = require("../utils/encryption");
 const { saveWallet, getWallet } = require("../utils/storage");
 
-// this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum 
+// this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum
 //This is the fformer provider code for ethereum
 // const provider = new ethers.JsonRpcProvider(
 //   "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"

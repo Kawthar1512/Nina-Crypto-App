@@ -6,7 +6,7 @@ import { doSignOut } from "../../firebase/auth";
 import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
 import empty from "../../assets/empty.png";
-
+import nina from "../../assets/nina.png";
 
 import {
   FiCopy,
@@ -20,7 +20,6 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
 
 const Wallet = () => {
   const { currentUser } = useAuth();
@@ -93,7 +92,6 @@ const Wallet = () => {
       createOrFetchWallet();
     }
   }, [currentUser]);
-  
 
   const handleSend = async () => {
     setTxStatus("");
@@ -126,17 +124,19 @@ const Wallet = () => {
     } catch (error) {
       setTxStatus("Transaction failed: " + error.message);
     }
-    
-
   };
-  
-  
 
   return (
-    <div className="wallet-page bg-[#5216b9da]  h-screen">
-      <h5 className="text-2xl font-bold mb-6 ">Nina Wallet</h5>
-
-      <main className=" bg-gray-50 w-[1000px] h-[700px] mx-auto p-10">
+    <div className="wallet-page bg-[#5A178B]  h-screen">
+      <div className="flex flex-row items-center text-center ml-[-350px]">
+        <img
+          src={nina}
+          alt="NINA logo"
+          className="w-[100px] h-[100px] object-contain  "
+        />
+        <h2 className=" ml-[-850px] font-bold text-2xl text-[#F3C738]">NINA</h2>
+      </div>
+      <main className=" bg-gray-50 w-[1000px] h-[694px] mx-auto p-10">
         <div className="top flex justify-between">
           <div className="welcome-text  text-xs  text-left">
             Welcome! {currentUser.displayName || currentUser.email}
