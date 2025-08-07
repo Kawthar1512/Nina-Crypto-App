@@ -69,8 +69,8 @@ const Login = () => {
         <div className="login-container ">
           {userLoggedIn && <Navigate to="/wallet" replace />}
           <div className="first-side bg-purple-900 w-[50%] hidden sm:flex">
-            <div className="w-1/2 h-80  text-center items-center">
-              <img src={man} alt="" className="object-cover object-top  w-20 " />
+            <div className="w-1/2 h-[200px]  text-center items-center">
+              <img src={man} alt="" className="object-cover object-top  h-[400px] border border-amber-50" />
             </div>
                         <h1 className="text-3xl text-white mt-30">Have access to your finance anywhere in the world on nina wallet</h1>
 
