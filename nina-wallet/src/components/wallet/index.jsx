@@ -29,7 +29,7 @@ const Wallet = () => {
     infinite: true,
     speed: 700,
     autoplay: true,
-    autoplaySpeed: 3000, // Slide every 3 seconds
+    autoplaySpeed: 3000, 
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,

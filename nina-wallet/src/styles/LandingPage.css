@@ -2,7 +2,7 @@
 
 html,
 body {
-  overflow-y: hidden;
+  overflow-y: auto;
   height: auto;
   overflow-x: hidden;
 }

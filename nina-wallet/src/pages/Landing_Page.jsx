@@ -11,8 +11,8 @@ import { FaRocket } from "react-icons/fa"; // Rocket icon
 export default function LandPage() {
   return (
     <>
-      <section className="hello min-h-screen w-full ">
-        <main className="   flex items-center justify-center">
+      <section className="hello min-h-screen lg:w-full ">
+        <main className="  flex items-center justify-center">
           <div className="relative"></div>
           <img
             src={circle2}
@@ -21,7 +21,7 @@ export default function LandPage() {
             style={{ animation: "spin 50s linear infinite" }}
           />{" "}
           <div className=" bigi p-10  w-[900px] text-white  text-center">
-            <div className=" text-center ">
+            <div className=" text-center px-10 lg:p-0  ">
               <h2 className="your_wallet font-bold">
                 Step Into the Future of Finance <br />
                 Seamless, Secure, Yours.
@@ -45,7 +45,7 @@ export default function LandPage() {
           </div>
         </main>
         {/* <h1  className="text-red-700  text-[50px]"  >HELOO</h1> */}
-       {/* <div className="flex justify-center items-center mx-auto max-w-lg">
+        {/* <div className="flex justify-center items-center mx-auto max-w-lg">
   <img
     src={phone}
     alt=""
