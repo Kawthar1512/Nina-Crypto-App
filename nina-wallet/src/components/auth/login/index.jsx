@@ -65,37 +65,37 @@ const Login = () => {
 
   return (
     <>
-    <section className="">
-      <div className="login-container ">
-        {userLoggedIn && <Navigate to="/wallet" replace />}
-        <div className="first-side bg-purple-900">
-          <h1>images will appear here</h1>
-          <div className="w-1/2 h-80 border  border-amber-400 text-center items-center">
-          <img src={man} alt=""  className="object-contain "/>
-          </div>
-        </div>
-        <div className="ten pt-20 ">
-          <div className=" font-helvetica px-14 ">
-            <div className="flex items-center pr-[200px] ml-[-210px] mt-[30px]   py-2 w-[300px] text-left self-start ">
-              <img
-                src={nina}
-                alt="Nina logo"
-                className="w-10 h-10 object-contain  "
-              />
-
-              <div className=" font-bold text-2xl text-[#F3C738]">NINA</div>
+      <section className="">
+        <div className="login-container ">
+          {userLoggedIn && <Navigate to="/wallet" replace />}
+          <div className="first-side bg-purple-900 w-[50%] hidden sm:flex">
+            <div className="w-1/2 h-80 border  border-amber-400 text-center items-center">
+              <img src={man} alt="" className="object-cover object-top  w-14  mt-6" />
             </div>
-            <div className="top-text mt-[50px] ">
-              <h3 className="font-Helvetica text-[30px] font-semibold">
-                Welcome Back!
-              </h3>
-              <h2 className="text-[14px]  text-gray-700 mt-4">
-                Please enter your login details below
-              </h2>
-            </div>
-          </div>
+                        <h1>images will appear here</h1>
 
-          
+          </div>
+          <div className="ten pt-20 w-[50%] ">
+            <div className=" font-helvetica px-14 ">
+              <div className="flex items-center pr-[200px] ml-[-210px] mt-[30px]   py-2 w-[300px] text-left self-start ">
+                <img
+                  src={nina}
+                  alt="Nina logo"
+                  className="w-10 h-10 object-contain  "
+                />
+
+                <div className=" font-bold text-2xl text-[#F3C738]">NINA</div>
+              </div>
+              <div className="top-text mt-[50px] ">
+                <h3 className="font-Helvetica text-[30px] font-semibold">
+                  Welcome Back!
+                </h3>
+                <h2 className="text-[14px]  text-gray-700 mt-4">
+                  Please enter your login details below
+                </h2>
+              </div>
+            </div>
+
             <form onSubmit={onSubmit} className="login-form px-14">
               {/* Email input */}
               <div className="form-group">
@@ -146,12 +146,8 @@ const Login = () => {
                 <strong>Sign up</strong>
               </Link>
             </div>
-     
-          
+          </div>
         </div>
-        
-        
-      </div>
       </section>
     </>
   );
