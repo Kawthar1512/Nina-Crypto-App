@@ -65,10 +65,15 @@ const Login = () => {
 
   return (
     <>
-    <section className="hello ">
+    <section className="">
       <div className="login-container ">
         {userLoggedIn && <Navigate to="/wallet" replace />}
-
+        <div className="first-side bg-purple-900">
+          <h1>images will appear here</h1>
+          <div className="w-1/2 h-80 border  border-amber-400 text-center items-center">
+          <img src={man} alt=""  className="object-contain "/>
+          </div>
+        </div>
         <div className="ten pt-20 ">
           <div className=" font-helvetica px-14 ">
             <div className="flex items-center pr-[200px] ml-[-210px] mt-[30px]   py-2 w-[300px] text-left self-start ">
