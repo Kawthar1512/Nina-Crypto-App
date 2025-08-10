@@ -44,8 +44,7 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-        {/* <h1  className="text-red-700  text-[50px]"  >HELOO</h1> */}
-        {/* <div className="flex justify-center items-center mx-auto max-w-lg">
+        {/* <div className="flex justify-center items-center mx-auto max-w-lg">}
   <img
     src={phone}
     alt=""
