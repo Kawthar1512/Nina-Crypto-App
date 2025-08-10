@@ -29,6 +29,7 @@ label {
   display: block;
   width: auto;
   height: auto;
+  /* margin-bottom: 10px; */
 }
 input {
   margin: 8px 0;
@@ -63,6 +64,9 @@ input {
   background-color: rgba(255, 255, 255, 0.301);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+  /* margin: 0 auto; */
  
+    /* opacity: 0.5; */
+  /* height: 200px; */
 }
 

@@ -138,9 +138,12 @@ const Wallet = () => {
       </div>
       <main className=" bg-gray-50 w-[1000px] h-[694px] mx-auto p-10">
         <div className="top flex justify-between">
-          <div className="welcome-text  text-xs  text-left">
+          {/* <div className="welcome-text  text-xs  text-left">
             Welcome! {currentUser.displayName || currentUser.email}
-          </div>
+          </div> */}
+          <div className="welcome-text text-xs text-left">
+  Welcome! {String(currentUser.displayName || currentUser.email || "")}
+</div>
           <button
             title="Notifications"
             className="border border-gray-300 p-2 rounded-full"
@@ -236,7 +239,9 @@ const Wallet = () => {
                   <button className="dialog-action-btn" onClick={handleSend}>
                     Send
                   </button>
-                  {txStatus && <p>{txStatus}</p>}
+                  {/* {txStatus && <p>{txStatus}</p>} */}
+                  {txStatus && <p>{String(txStatus)}</p>}
+
                 </div>
                 <button
                   className="dialog-close-btn"
@@ -263,7 +268,8 @@ const Wallet = () => {
                 </Dialog.Title>
                 <div className="dialog-content">
                   <p>Your Wallet Address:</p>
-                  <p>{address}</p>
+                  {/* <p>{address}</p> */}
+                  <p>{typeof address === "string" ? address : ""}</p>
                 </div>
                 <button
                   className="dialog-close-btn"
