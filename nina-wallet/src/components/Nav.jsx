@@ -10,7 +10,7 @@ export default function Nav() {
           alt="NINA logo"
           className="w-[100px] h-[100px] object-contain  "
         />
-        <h2 className=" ml-1 font-bold text-2xl text-[#F3C738]">NINA</h2>
+        <h2 className=" ml-1 font-bold text-2xl text-[#F3C738]">NINA WALLET</h2>
       </div>
       <div className="navLinks text-gray-200">
         <a href="">Features </a>
@@ -18,7 +18,7 @@ export default function Nav() {
         <a href="">Download</a>
       </div>
       <div className="but self-center">
-        <button className="getStarted text-white bg-inherit px-[40px] py-[15px] ">
+        <button className="getStarted text-white bg-inherit px-[40px] py-[15px] cursor-pointer">
           Log in
         </button>
 
