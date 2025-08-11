@@ -10,16 +10,20 @@ export default function Nav() {
           alt="NINA logo"
           className="w-[100px] h-[100px] object-contain  "
         />
-        <h2 className=" ml-1 font-bold text-2xl text-[#F3C738]">
-          NINA
-        </h2>
+        <h2 className=" ml-1 font-bold text-2xl text-[#F3C738]">NINA</h2>
       </div>
       <div className="navLinks text-gray-200">
         <a href="">Features</a>
         <a href="">About</a>
         <a href="">Download</a>
       </div>
-      <button className="getStarted bg-purple-900 text-[#F3C738]">Download App</button>
+      <button className="getStarted text-purple-900 bg-[#f9eec9] p-[20px]">
+        Log in
+      </button>
+
+      <button className="getStarted bg-purple-900 text-[#F3C738] p-[15px]">
+        Download App
+      </button>
     </nav>
   );
 }
