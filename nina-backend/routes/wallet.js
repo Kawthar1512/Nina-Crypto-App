@@ -30,7 +30,7 @@ router.post("/create", async (req, res) => {
       });
     }
 
-    // Create a new BSC-compatible wallet
+    // Create a new BSC-compatible wallet, since im not using ethereum again
     const wallet = ethers.Wallet.createRandom();
     const encryptedKey = encryptPrivateKey(wallet.privateKey);
 
@@ -49,6 +49,7 @@ router.post("/create", async (req, res) => {
 // test my api route
 router.get("/", (req, res) => {
   res.send("My Nina Wallet API is live!");
+  res.send("update where possible");
 });
 
 module.exports = router;

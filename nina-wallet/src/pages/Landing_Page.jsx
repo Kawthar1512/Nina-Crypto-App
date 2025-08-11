@@ -44,13 +44,13 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-        {/* <div className="flex justify-center items-center mx-auto max-w-lg">}
+        <div className="flex justify-center items-center mx-auto max-w-lg">
   <img
     src={phone}
     alt=""
     className="h-72 w-auto object-contain  mx-auto"
   />
-</div> */}
+</div>
       </section>
     </>
   );
