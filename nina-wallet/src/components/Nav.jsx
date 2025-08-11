@@ -17,7 +17,7 @@ export default function Nav() {
         <a href="">About</a>
         <a href="">Download</a>
       </div>
-      <button className="getStarted text-purple-900 bg-[#f9eec9] p-[20px]">
+      <button className="getStarted text-purple-900 bg-[#fbf2d4] px-[40px] py-[15px]">
         Log in
       </button>
 
