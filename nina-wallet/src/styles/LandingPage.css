@@ -67,7 +67,7 @@ nav {
     radial-gradient(at 0% 100%, hsla(287, 49%, 48%, 0.71) 0px, transparent 50%);
 }
 .bigi {
-  margin-top: 150px;
+  margin-top: 120px;
 }
 .hanging-indent {
   padding-left: 2.5em;
@@ -85,6 +85,6 @@ nav {
 .nins{
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 900;
   font-style: normal;
 }

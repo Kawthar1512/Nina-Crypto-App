@@ -4,13 +4,13 @@ import nina from "../assets/nina.png";
 export default function Nav() {
   return (
     <nav className="homeNav bg-[#0c0c0c] z-[1000] fixed  ">
-      <div className="flex flex-row items-center  border border-amber-100  text-center align-middle ">
+      <div className="flex flex-row items-center   text-center align-middle ">
         <img
           src={nina}
           alt="NINA logo"
-          className="w-[100px] h-[100px] object-contain border border-amber-100  "
+          className="w-[100px] h-[100px] object-contain "
         />
-        <h2 className=" nins  font-bold text-[22px] text-[#F3C738] w-[160px] border border-amber-100">NINA WALLET</h2>
+        <h2 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">NINA WALLET</h2>
       </div>
       <div className="navLinks text-gray-200">
         <a href="">Features </a>
