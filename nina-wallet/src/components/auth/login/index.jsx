@@ -135,7 +135,7 @@ const Login = () => {
                   />
                 </div>
 
-                {/* Forgot Password */}
+                {/* Forgot Password  section */}
                 <div className="text-right">
                   <a
                     href="#"
