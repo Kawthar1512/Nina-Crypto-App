@@ -72,12 +72,12 @@ const Login = () => {
           <img
             src={man}
             alt="Happy person using phone"
-            className="rounded-full mb-6 w-40 h-40 object-cover"
+            className="rounded-full mb-6 w-50 h-60 object-cover"
           />
 
           <h2 className="text-3xl font-bold text-center max-w-md">
             Have access to your finances anywhere in the world on
-            <span className="text-yellow-300">Nina Wallet</span>
+            <span className="text-yellow-300"> Nina Wallet</span>
           </h2>
         </div>
 
