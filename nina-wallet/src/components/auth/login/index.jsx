@@ -72,7 +72,7 @@ const Login = () => {
           <img
             src={man}
             alt="Happy person using phone"
-            className="rounded-full mb-6 w-50 h-60 object-cover"
+            className="rounded-full mb-6 w-60 h-70 object-cover"
           />
 
           <h2 className="text-3xl font-bold text-center max-w-md">
