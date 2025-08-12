@@ -72,102 +72,105 @@ const Login = () => {
           <img
             src={man}
             alt="Happy person using phone"
-            className="rounded-full mb-6 w-60 h-70 object-cover"
+            className="rounded-full mb-6 w-70 h-70 object-cover"
           />
 
           <h2 className="text-3xl font-bold text-center max-w-md">
             Have access to your finances anywhere in the world on
-            <span className="text-yellow-300"> Nina Wallet</span>
+            <span className="text-[#F3C738] "> Nina Wallet</span>
           </h2>
         </div>
 
         {/* Right Section */}
         <div className="flex-1 flex justify-center items-center p-8">
-         
           <div className="w-full max-w-md">
             <div className=" flex  items-center mb-5">
-            <img
-              src={nina}
-              alt="Nina logo"
-              className="w-10 h-10 object-contain"
-            />
+              <img
+                src={nina}
+                alt="Nina logo"
+                className="w-10 h-10 object-contain"
+              />
 
-            <div className=" font-bold text-[15px] text-yellow-300">NINA WALLET</div>
-          </div>
+              <div className=" font-bold text-[15px] text-yellow-300">
+                NINA WALLET
+              </div>
+            </div>
             <h3 className="text-2xl font-bold mb-2">Welcome Back!</h3>
             <h2 className="text-gray-500 mb-6">
               Please enter your login details below
             </h2>
-          
 
-          <form onSubmit={onSubmit} className="space-y-5">
-            {/* Email input */}
-            <div className="form-group">
-              <label
-                for="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
-              />
-            </div>
-
-            {/* for Password input */}
-            <div className="form-group">
-              <label className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
-              <div>
+            <form onSubmit={onSubmit} className="space-y-5">
+              {/* Email input */}
+              <div className="form-group">
+                <label
+                  for="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Email
+                </label>
                 <input
-                  type="password"
-                  autoComplete="current-password"
+                  type="email"
+                  autoComplete="email"
                   required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-[500px] bg-gray-50 p-3"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="mt-1 block w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
                 />
               </div>
 
-              {/* Forgot Password */}
-              <div className="text-right">
-                <a href="#" className="text-sm text-purple-700 hover:underline">
-                  Forgot password?
-                </a>
+              {/* for Password input */}
+              <div className="form-group">
+                <label className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <div>
+                  <input
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="mt-1 block w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+                  />
+                </div>
+
+                {/* Forgot Password */}
+                <div className="text-right">
+                  <a
+                    href="#"
+                    className="text-sm text-purple-700 hover:underline"
+                  >
+                    Forgot password?
+                  </a>
+                </div>
               </div>
+
+              {errorMessage && (
+                <span className="error-message">{errorMessage}</span>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSigningIn}
+                className="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded-lg p-3 transition"
+              >
+                {isSigningIn ? "Signing In..." : "Login"}
+              </button>
+            </form>
+
+            <div className="mt-6 text-center text-sm text-gray-600">
+              Don't have an account?{" "}
+              <Link
+                to="/register"
+                className="font-semibold text-purple-700 hover:underline"
+              >
+                <strong>Sign up</strong>
+              </Link>
             </div>
-
-            {errorMessage && (
-              <span className="error-message">{errorMessage}</span>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSigningIn}
-              className="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded-lg p-3 transition"
-            >
-              {isSigningIn ? "Signing In..." : "Login"}
-            </button>
-          </form>
-
-          <div className="mt-6 text-center text-sm text-gray-600">
-            Don't have an account?{" "}
-            <Link
-              to="/register"
-              className="font-semibold text-purple-700 hover:underline"
-            >
-              <strong>Sign up</strong>
-            </Link>
-          </div>
-          <p class="mt-4 text-xs text-gray-500 text-center">
-            🔒 Secure login — your information is encrypted
-          </p>
+            <p class="mt-4 text-xs text-gray-500 text-center">
+              🔒 Secure login — your information is encrypted
+            </p>
           </div>
         </div>
       </div>
