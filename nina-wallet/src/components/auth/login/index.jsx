@@ -68,14 +68,14 @@ const Login = () => {
       <div className="min-h-screen flex flex-col lg:flex-row">
         {userLoggedIn && <Navigate to="/wallet" replace />}
         {/* left side */}
-        <div className="bg-purple-700 text-white flex-1 flex flex-col justify-center items-center p-8">
+        <div className="bg-purple-700 text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
           <img
             src={man}
             alt="Happy person using phone"
-            className="rounded-full mb-6 w-40 h-40 lg:w-70 lg:h-70 object-cover"
+            className="rounded-full mb-4 lg:mb-6 w-30 h-30 lg:w-70 lg:h-70  object-cover"
           />
 
-          <h2 className="text-3xl font-bold text-center max-w-md">
+          <h2 className="text-2xl lg:text-3xl font-bold text-center max-w-md">
             Have access to your finances anywhere in the world on
             <span className="text-[#F3C738] "> Nina Wallet</span>
           </h2>
