@@ -34,7 +34,7 @@ router.post("/create", async (req, res) => {
     res.json({
       success: true,
       address: walletData.address,
-      balance: balanceInEth,
+      balance: parseFloat(balanceInEth).toFixed(4),
     });
   } catch (err) {
     console.error("Wallet creation error:", err);

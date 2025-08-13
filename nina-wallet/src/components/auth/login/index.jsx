@@ -104,7 +104,7 @@ const Login = () => {
               {/* Email input */}
               <div className="form-group">
                 <label
-                  for="email"
+                  
                   className="block text-sm font-medium text-gray-700"
                 >
                   Email
@@ -168,7 +168,7 @@ const Login = () => {
                 <strong>Sign up</strong>
               </Link>
             </div>
-            <p class="mt-4 text-xs text-gray-500 text-center">
+            <p className="mt-4 text-xs text-gray-500 text-center">
               🔒 Secure login — your information is encrypted
             </p>
           </div>

@@ -81,9 +81,11 @@ const Wallet = () => {
 
       if (data.address) {
         setAddress(data.address);
+                setBalance(data.balance);
 
-        // ✅ Immediately fetch balance
-        await fetchBalance(data.address);
+
+        // // ✅ Immediately fetch balance
+        // await fetchBalance(data.address);
       } else {
         console.error("Failed to create/fetch wallet:", data.error);
       }
@@ -92,17 +94,17 @@ const Wallet = () => {
     }
   }
 
-  async function fetchBalance(addr) {
-    try {
-      const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
-      const data = await res.json();
-      if (data.balance !== undefined) {
-        setBalance(parseFloat(data.balance).toFixed(4));
-      }
-    } catch (error) {
-      console.error("Error fetching balance:", error);
-    }
-  }
+  // async function fetchBalance(addr) {
+  //   try {
+  //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
+  //     const data = await res.json();
+  //     if (data.balance !== undefined) {
+  //       setBalance(parseFloat(data.balance).toFixed(4));
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching balance:", error);
+  //   }
+  // }
 
   if (currentUser?.email) {
     createOrFetchWalletAndBalance();
