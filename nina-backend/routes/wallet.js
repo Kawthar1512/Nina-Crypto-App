@@ -18,34 +18,30 @@ router.post("/create", async (req, res) => {
   try {
     let walletData = getWallet(userId);
 
-    if (walletData) {
-      // If wallet already exists then fetch the BNB balance
-      const balanceInWei = await provider.getBalance(walletData.address);
-      const balanceInEth = ethers.formatEther(balanceInWei); // Correct for BNB
+    if (!walletData) {
+      // Create a new wallet if one doesn't exist
+      const wallet = ethers.Wallet.createRandom();
+      const encryptedKey = encryptPrivateKey(wallet.privateKey);
+      saveWallet(userId, wallet.address, encryptedKey);
 
-      return res.json({
-        success: true,
-        address: walletData.address,
-        balance: balanceInEth,
-      });
+      walletData = { address: wallet.address };
     }
 
-    // Create a new BSC-compatible wallet, since im not using ethereum again
-    const wallet = ethers.Wallet.createRandom();
-    const encryptedKey = encryptPrivateKey(wallet.privateKey);
+    // Fetch balance (works for both old and new wallets)
+    const balanceInWei = await provider.getBalance(walletData.address);
+    const balanceInEth = ethers.formatEther(balanceInWei);
 
-    saveWallet(userId, wallet.address, encryptedKey);
-
-    // Fetch balance (usually zero for new wallets)
-    // const balanceInWei = await provider.getBalance(wallet.address);
-    // const balanceInEth = ethers.formatEther(balanceInWei);
-
-    res.json({ success: true, address: wallet.address, balance: balanceInEth });
+    res.json({
+      success: true,
+      address: walletData.address,
+      balance: balanceInEth,
+    });
   } catch (err) {
     console.error("Wallet creation error:", err);
     res.status(500).json({ success: false, error: "Failed to create wallet" });
   }
 });
+
 // test my api route
 router.get("/", (req, res) => {
   res.send("My Nina Wallet API is live!");
