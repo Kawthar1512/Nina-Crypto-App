@@ -1,112 +1,197 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nina Wallet - Dashboard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-purple-700 min-h-screen flex justify-center items-start p-6">
-    <div class="bg-white rounded-2xl shadow-lg w-full max-w-4xl p-6">
-      <!-- Header -->
-      <div class="flex justify-between items-center border-b pb-4 mb-6">
-        <div>
-          <p class="text-sm text-gray-500">Welcome!</p>
-          <p class="font-semibold text-gray-800">kawthar1512@yahoo.com</p>
-          <div class="flex items-center gap-2 text-xs text-gray-500 mt-1">
-            <span id="wallet-address">0xe74D...eEE7</span>
-            <button onclick="copyAddress()" class="hover:text-purple-700">
-              📋
-            </button>
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nina / NewName - BSC Wallet Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="min-h-full bg-gray-900 text-gray-100">
+
+  <!-- NAV -->
+  <nav class="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo-white.png" alt="logo" class="w-8 h-8 rounded" />
+        <span class="font-semibold text-white">Nina Wallet</span>
+        <span class="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">BSC</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-sm">
+        <div class="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+          <div class="text-right">
+            <div class="text-xs text-gray-300">Network</div>
+            <div id="network" class="font-medium">BSC Mainnet</div>
           </div>
         </div>
-        <div class="flex items-center gap-4">
-          <button class="hover:text-purple-700">🔔</button>
-          <button
-            class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800"
-            onclick="logout()"
-          >
-            Logout
-          </button>
-        </div>
-      </div>
 
-      <!-- Balance Card -->
-      <div class="bg-purple-50 rounded-xl p-6 flex flex-col items-center mb-6">
-        <p class="text-gray-600">Current Balance</p>
-        <p class="text-4xl font-bold mt-2">$00.00</p>
-        <div class="flex gap-4 mt-4">
-          <button
-            class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg flex items-center gap-2"
-          >
-            📤 Send
-          </button>
-          <button
-            class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg flex items-center gap-2"
-          >
-            📥 Receive
-          </button>
-        </div>
-      </div>
-
-      <!-- Referral Banner -->
-      <div
-        class="bg-gradient-to-r from-purple-500 to-purple-300 text-white rounded-xl p-6 flex justify-between items-center mb-6"
-      >
-        <div>
-          <h3 class="text-lg font-semibold">Get $100</h3>
-          <p class="text-sm">
-            Share your unique referral code and invite your friends to download
-            the Nina App. Once they sign up and start using it, you’ll both get
-            rewarded!
-          </p>
-          <div class="mt-3 flex items-center gap-2">
-            <span
-              class="bg-white text-purple-700 px-3 py-1 rounded-lg text-sm font-semibold"
-              >REF12345</span
-            >
-            <button
-              onclick="copyCode()"
-              class="bg-purple-700 px-3 py-1 rounded-lg hover:bg-purple-800"
-            >
-              📋
-            </button>
+        <div class="flex items-center gap-2">
+          <button id="notifications" class="p-2 rounded hover:bg-gray-700" title="Notifications">🔔</button>
+          <div class="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
+            <span id="addr-short">0xe74D...eEE7</span>
+            <button onclick="copyAddress()" class="text-gray-300 hover:text-white">📋</button>
+            <button onclick="showQR()" class="text-gray-300 hover:text-white">🔲</button>
           </div>
-        </div>
-        <img
-          src="referral-image.png"
-          alt="Referral"
-          class="w-20 h-20 object-cover rounded-full"
-        />
-      </div>
-
-      <!-- Recent Transactions -->
-      <div>
-        <h3 class="text-lg font-semibold mb-3">Recent Transactions</h3>
-        <div class="text-center text-gray-500 py-10">
-          <p>🔍 No transactions found</p>
-          <p class="text-sm">Begin by sending or receiving funds.</p>
+          <button onclick="logout()" class="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded">Logout</button>
         </div>
       </div>
     </div>
+  </nav>
 
-    <script>
-      function copyAddress() {
-        navigator.clipboard.writeText(
-          document.getElementById("wallet-address").innerText
-        );
-        alert("Wallet address copied!");
-      }
-      function copyCode() {
-        navigator.clipboard.writeText("REF12345");
-        alert("Referral code copied!");
-      }
-      function logout() {
-        alert("Logged out");
-      }
-    </script>
-  </body>
+  <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Left: Balance & Actions (prominent) -->
+    <section class="lg:col-span-2 space-y-6">
+
+      <!-- Balance Card -->
+      <div class="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+        <div>
+          <div class="text-sm text-white/80">Total portfolio value</div>
+          <div class="text-4xl font-bold mt-1">$0.00</div>
+          <div class="text-sm text-white/80 mt-1">BNB: <span class="font-semibold">0.0000</span></div>
+
+          <div class="mt-4 flex flex-wrap gap-3">
+            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📤 Send</button>
+            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📥 Receive</button>
+            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">💱 Swap</button>
+            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">➕ Add Token</button>
+          </div>
+        </div>
+        <div class="hidden sm:block">
+          <img src="wallet-illustration-light.png" alt="wallet" class="w-36 h-36 object-contain opacity-95" />
+        </div>
+      </div>
+
+      <!-- Assets / Token List -->
+      <div class="bg-gray-800 rounded-xl p-4 shadow">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-lg font-semibold">Assets</h3>
+          <div class="text-sm text-gray-400">Total tokens: <span id="token-count">2</span></div>
+        </div>
+
+        <div class="divide-y divide-gray-700">
+          <!-- token row (repeatable) -->
+          <div class="flex items-center justify-between p-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">BNB</div>
+              <div>
+                <div class="font-medium">Binance Coin</div>
+                <div class="text-xs text-gray-400">BNB • 18 decimals</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-medium">0.0000</div>
+              <div class="text-sm text-gray-400">$0.00</div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between p-3">
+            <div class="flex items-center gap-3">
+              <img src="token-placeholder.png" alt="token" class="w-10 h-10 rounded-full bg-gray-700" />
+              <div>
+                <div class="font-medium">USDT (BEP-20)</div>
+                <div class="text-xs text-gray-400">USDT • contract</div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-medium">0.00</div>
+              <div class="text-sm text-gray-400">$0.00</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Transactions -->
+      <div class="bg-gray-800 rounded-xl p-4 shadow">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-lg font-semibold">Recent activity</h3>
+          <div class="text-sm text-gray-400">Showing latest 5</div>
+        </div>
+
+        <div class="text-center text-gray-500 py-8">
+          <div class="text-2xl">🔍</div>
+          <p class="mt-3">No transactions yet</p>
+          <p class="text-sm text-gray-400 mt-1">Once you send or receive BNB or BEP‑20 tokens, they will appear here. You can view details on BscScan.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Right Column: utilities, referral, settings -->
+    <aside class="space-y-6">
+
+      <!-- Quick Network / Testnet Switch -->
+      <div class="bg-gray-800 rounded-xl p-4 shadow">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-sm text-gray-400">Network</div>
+            <div class="font-medium">BSC Mainnet</div>
+          </div>
+          <div>
+            <select id="network-select" class="bg-gray-700 px-3 py-1 rounded text-sm">
+              <option value="56">BSC Mainnet (56)</option>
+              <option value="97">BSC Testnet (97)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Referral -->
+      <div class="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-sm opacity-90">Invite friends</div>
+            <div class="font-semibold mt-1">Get $100</div>
+            <div class="text-xs mt-2 text-white/80">Share your code and earn rewards when friends sign up and transact.</div>
+            <div class="mt-3 flex items-center gap-2">
+              <span class="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">REF12345</span>
+              <button onclick="copyCode()" class="bg-white/10 px-3 py-1 rounded hover:bg-white/20">Copy</button>
+            </div>
+          </div>
+          <img src="referral-small.png" alt="referral" class="w-14 h-14 rounded-full" />
+        </div>
+      </div>
+
+      <!-- Security / Backup -->
+      <div class="bg-gray-800 rounded-xl p-4 shadow">
+        <div class="flex items-start gap-3">
+          <div class="flex-1">
+            <div class="text-sm text-gray-400">Security</div>
+            <div class="font-medium">Backup your seed phrase</div>
+            <div class="text-xs text-gray-500 mt-2">Make sure you have your recovery phrase stored safely. Never share it.</div>
+          </div>
+          <div>
+            <button class="bg-yellow-400 text-black px-3 py-2 rounded">Backup</button>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <script>
+    function copyAddress() {
+      navigator.clipboard.writeText('0xe74D...eEE7');
+      alert('Address copied');
+    }
+    function showQR() {
+      alert('Show QR modal (implement)');
+    }
+    function copyCode() {
+      navigator.clipboard.writeText('REF12345');
+      alert('Referral code copied');
+    }
+    function logout() { alert('Logged out'); }
+
+    // Example: network select handler (placeholder)
+    document.getElementById('network-select').addEventListener('change', function(e){
+      const opt = e.target.options[e.target.selectedIndex].text;
+      document.getElementById('network').innerText = opt;
+    });
+  </script>
+
+</body>
 </html>

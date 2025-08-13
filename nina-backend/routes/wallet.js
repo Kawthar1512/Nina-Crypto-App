@@ -6,12 +6,12 @@ const { saveWallet, getWallet } = require("../utils/storage");
 
 // this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum
 //This is the fformer provider code for ethereum
-// const provider = new ethers.JsonRpcProvider(
-//   "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
-// );
 const provider = new ethers.JsonRpcProvider(
-  "https://bsc-testnet.public.blastapi.io"
+  "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
 );
+// const provider = new ethers.JsonRpcProvider(
+//   "https://bsc-testnet.public.blastapi.io"
+// );
 router.post("/create", async (req, res) => {
   const { userId } = req.body;
 
@@ -21,12 +21,12 @@ router.post("/create", async (req, res) => {
     if (walletData) {
       // If wallet already exists then fetch the BNB balance
       const balanceInWei = await provider.getBalance(walletData.address);
-      const balanceInBnb = ethers.formatEther(balanceInWei); // Correct for BNB
+      const balanceInEth = ethers.formatEther(balanceInWei); // Correct for BNB
 
       return res.json({
         success: true,
         address: walletData.address,
-        balance: balanceInBnb,
+        balance: balanceInEth,
       });
     }
 
@@ -37,10 +37,10 @@ router.post("/create", async (req, res) => {
     saveWallet(userId, wallet.address, encryptedKey);
 
     // Fetch balance (usually zero for new wallets)
-    const balanceInWei = await provider.getBalance(wallet.address);
-    const balanceInBnb = ethers.formatEther(balanceInWei);
+    // const balanceInWei = await provider.getBalance(wallet.address);
+    // const balanceInEth = ethers.formatEther(balanceInWei);
 
-    res.json({ success: true, address: wallet.address, balance: balanceInBnb });
+    res.json({ success: true, address: wallet.address, balance: balanceInEth });
   } catch (err) {
     console.error("Wallet creation error:", err);
     res.status(500).json({ success: false, error: "Failed to create wallet" });

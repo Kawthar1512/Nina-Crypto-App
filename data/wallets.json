@@ -18,5 +18,9 @@
   "asd@gmail.com": {
     "address": "0xD4dd4712236d8b9395F20dA9fa8aC58864A28aB2",
     "encryptedPrivateKey": "3fab4c02f8cf0d60841104f9177ab73f:f0abdc2aec17147fe33c9a5d4f7a2e0739a7b458adf4bd005ff0d01505c5480b4a5461494937ef6f06662942ecb5076278a85755c3e213f0e5e61537e437be00e13a"
+  },
+  "kawthareth@gmail.com": {
+    "address": "0x8f44E6a0187FD74073566B881609F88F9bfdc192",
+    "encryptedPrivateKey": "5cd8667a571f72b4bdd51dbaf9aaa813:85e6d8217638046cadd64a28e1c76d28ebd53eac8d54d94139897f9cd28603fff155ff77bc8721a6e93cbad2a41bc510e9595f1731b768ee17fad5d90a33853e04af"
   }
 }
