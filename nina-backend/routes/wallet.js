@@ -42,6 +42,24 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.get("/balance/:address", async (req, res) => {
+  try {
+    const { address } = req.params;
+    if (!address) {
+      return res.status(400).json({ error: "Wallet address is required" });
+    }
+
+    const balanceInWei = await provider.getBalance(address);
+    const balanceInEth = ethers.formatEther(balanceInWei);
+
+    res.json({ balance: balanceInEth });
+  } catch (err) {
+    console.error("Error fetching balance:", err);
+    res.status(500).json({ error: "Failed to fetch balance" });
+  }
+});
+
+
 // test my api route
 router.get("/", (req, res) => {
   res.send("My Nina Wallet API is live!");

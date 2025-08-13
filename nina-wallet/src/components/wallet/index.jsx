@@ -29,13 +29,14 @@ const Wallet = () => {
     infinite: true,
     speed: 700,
     autoplay: true,
-    autoplaySpeed: 3000, 
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
   };
 
   const [address, setAddress] = useState(null);
+  const [balance, setBalance] = useState("0.00");
   const [showSendModal, setShowSendModal] = useState(false);
   const [showReceiveModal, setShowReceiveModal] = useState(false);
   const [recipient, setRecipient] = useState("");
@@ -80,11 +81,28 @@ const Wallet = () => {
 
         if (data.address) {
           setAddress(data.address);
+
+          fetchBalance(data.address);
         } else {
           console.error("Failed to create/fetch wallet:", data.error);
         }
       } catch (error) {
         console.error("Error creating/fetching wallet:", error);
+      }
+    }
+
+    async function fetchBalance(addr) {
+      // 🆕 helper function
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/wallet/balance/${addr}`
+        );
+        const data = await res.json();
+        if (data.balance !== undefined) {
+          setBalance(parseFloat(data.balance).toFixed(4)); // show 4 decimals
+        }
+      } catch (error) {
+        console.error("Error fetching balance:", error);
       }
     }
 
@@ -142,8 +160,9 @@ const Wallet = () => {
             Welcome! {currentUser.displayName || currentUser.email}
           </div> */}
           <div className="welcome-text text-xs text-left">
-  Welcome! {String(currentUser.displayName || currentUser.email || "")}
-</div>
+            Welcome!{" "}
+            {String(currentUser.displayName || currentUser.email || "")}
+          </div>
           <button
             title="Notifications"
             className="border border-gray-300 p-2 rounded-full"
@@ -177,7 +196,7 @@ const Wallet = () => {
               </div>
               <div className="balance-show relative flex justify-center items-center">
                 <h1 className="text-black-400 text-5xl font-semibold font-mono">
-                  {showBalance ? "$00.00" : "****"}
+                  {showBalance ? `${balance} ETH` : "****"}
                 </h1>
 
                 <button
@@ -241,7 +260,6 @@ const Wallet = () => {
                   </button>
                   {/* {txStatus && <p>{txStatus}</p>} */}
                   {txStatus && <p>{String(txStatus)}</p>}
-
                 </div>
                 <button
                   className="dialog-close-btn"
