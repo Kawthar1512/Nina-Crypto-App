@@ -68,48 +68,47 @@ const Wallet = () => {
   };
 
   useEffect(() => {
-  async function createOrFetchWalletAndBalance() {
-    try {
-      const res = await fetch("http://localhost:5000/api/wallet/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId: currentUser.email }),
-      });
+    async function createOrFetchWalletAndBalance() {
+      try {
+        const res = await fetch("http://localhost:5000/api/wallet/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId: currentUser.email }),
+        });
 
-      const data = await res.json();
-      console.log("Wallet API response:", data);
+        const data = await res.json();
+        console.log("Wallet API response:", data);
 
-      if (data.address) {
-        setAddress(data.address);
-                setBalance(data.balance);
+        if (data.address) {
+          setAddress(data.address);
+          setBalance(data.balance);
 
-
-        // // ✅ Immediately fetch balance
-        // await fetchBalance(data.address);
-      } else {
-        console.error("Failed to create/fetch wallet:", data.error);
+          // // ✅ Immediately fetch balance
+          // await fetchBalance(data.address);
+        } else {
+          console.error("Failed to create/fetch wallet:", data.error);
+        }
+      } catch (error) {
+        console.error("Error creating/fetching wallet:", error);
       }
-    } catch (error) {
-      console.error("Error creating/fetching wallet:", error);
     }
-  }
 
-  // async function fetchBalance(addr) {
-  //   try {
-  //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
-  //     const data = await res.json();
-  //     if (data.balance !== undefined) {
-  //       setBalance(parseFloat(data.balance).toFixed(4));
-  //     }
-  //   } catch (error) {
-  //     console.error("Error fetching balance:", error);
-  //   }
-  // }
+    // async function fetchBalance(addr) {
+    //   try {
+    //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
+    //     const data = await res.json();
+    //     if (data.balance !== undefined) {
+    //       setBalance(parseFloat(data.balance).toFixed(4));
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching balance:", error);
+    //   }
+    // }
 
-  if (currentUser?.email) {
-    createOrFetchWalletAndBalance();
-  }
-}, [currentUser]);
+    if (currentUser?.email) {
+      createOrFetchWalletAndBalance();
+    }
+  }, [currentUser]);
 
   const handleSend = async () => {
     setTxStatus("");
@@ -161,7 +160,9 @@ const Wallet = () => {
           </div> */}
           <div className="welcome-text text-xs text-left">
             Welcome!{" "}
-            {String(currentUser.displayName || currentUser.email || "")}
+            {currentUser
+              ? String(currentUser.displayName || currentUser.email)
+              : "Guest"}
           </div>
           <button
             title="Notifications"
