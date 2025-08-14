@@ -273,7 +273,8 @@ const Wallet = () => {
         </nav>
 
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* <!-- Left: Balance & Actions (prominent) --> */}
+          {/* <!-- Left: 
+          Balance & Actions (prominent) --> */}
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
             <div className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
@@ -283,7 +284,7 @@ const Wallet = () => {
                 </div>
                 <div className="text-4xl font-bold mt-1">$0.00</div>
                 <div className="text-sm text-white/80 mt-1">
-                  BNB: <span class="font-semibold">0.0000</span>
+                  BNB: <span className="font-semibold">0.0000</span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
@@ -492,7 +493,7 @@ const Wallet = () => {
                       REF12345
                     </span>
                     <button
-                      onclick="copyCode()"
+                      onClick="copyCode()"
                       className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
                     >
                       Copy
