@@ -207,7 +207,7 @@ const Wallet = () => {
                   </button> */}
                 </div>
                 <button
-                  onclick={openModal}
+                  onClick={openModal}
                   className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded dialog-close-btn"
                 >
                   Logout
