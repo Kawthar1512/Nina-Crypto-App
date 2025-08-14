@@ -151,11 +151,6 @@ const Wallet = () => {
 
 
 
-
-
-
-
-
 return(
   <> 
 <main className="min-h-full bg-gray-900 text-gray-100">
@@ -164,7 +159,7 @@ return(
   <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
     <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <img src="logo-white.png" alt="logo" className="w-8 h-8 rounded" />
+        <img src={nina} alt="logo" className="w-8 h-8 rounded" />
         <span className="font-semibold text-white">Nina Wallet</span>
         <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">BSC</span>
       </div>
@@ -193,10 +188,10 @@ return(
 
   <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-    <!-- Left: Balance & Actions (prominent) -->
+    {/* <!-- Left: Balance & Actions (prominent) --> */}
     <section className="lg:col-span-2 space-y-6">
 
-      <!-- Balance Card -->
+      {/* <!-- Balance Card --> */}
       <div className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
         <div>
           <div className="text-sm text-white/80">Total portfolio value</div>
@@ -215,7 +210,7 @@ return(
         </div>
       </div>
 
-      <!-- Assets / Token List -->
+      {/* <!-- Assets / Token List --> */}
       <div className="bg-gray-800 rounded-xl p-4 shadow">
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-lg font-semibold">Assets</h3>
@@ -223,7 +218,7 @@ return(
         </div>
 
         <div className="divide-y divide-gray-700">
-          <!-- token row (repeatable) -->
+          {/* <!-- token row (repeatable) --> */}
           <div className="flex items-center justify-between p-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">BNB</div>
@@ -255,8 +250,8 @@ return(
 
       </div>
 
-      <!-- Transactions -->
-      <div class="bg-gray-800 rounded-xl p-4 shadow">
+      {/* <!-- Transactions --> */}
+      <div className="bg-gray-800 rounded-xl p-4 shadow">
         <div class="flex items-center justify-between mb-3">
           <h3 class="text-lg font-semibold">Recent activity</h3>
           <div class="text-sm text-gray-400">Showing latest 5</div>
@@ -271,10 +266,10 @@ return(
 
     </section>
 
-    <!-- Right Column: utilities, referral, settings -->
+    {/* <!-- Right Column: utilities, referral, settings --> */}
     <aside class="space-y-6">
 
-      <!-- Quick Network / Testnet Switch -->
+      {/* <!-- Quick Network / Testnet Switch --> */}
       <div class="bg-gray-800 rounded-xl p-4 shadow">
         <div class="flex items-center justify-between">
           <div>
@@ -290,7 +285,7 @@ return(
         </div>
       </div>
 
-      <!-- Referral -->
+      {/* <!-- Referral --> */}
       <div class="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
         <div class="flex items-center justify-between">
           <div>
@@ -306,7 +301,7 @@ return(
         </div>
       </div>
 
-      <!-- Security / Backup -->
+      {/* <!-- Security / Backup --> */}
       <div class="bg-gray-800 rounded-xl p-4 shadow">
         <div class="flex items-start gap-3">
           <div class="flex-1">
