@@ -180,7 +180,7 @@ const Wallet = () => {
                   className="p-2 rounded hover:bg-gray-700"
                   title="Notifications"
                 >
-                  🔔
+                  <FiBell className="w-4 h-4 text-white- hover:text-black " />
                 </button>
                 <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
                   <span id="addr-short">0xe74D...eEE7</span>
