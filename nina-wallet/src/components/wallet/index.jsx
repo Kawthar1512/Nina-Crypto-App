@@ -183,29 +183,90 @@ const Wallet = () => {
                   <FiBell className="w-4 h-4 text-white- hover:text-black " />
                 </button>
                 <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
-                  <span id="addr-short">0xe74D...eEE7</span>
-                  <button
-                    onclick={copyToClipboard}
-                    className="text-gray-300 hover:text-white"
-                    title="Copy to clipboard"
-                  >
-                    <FiCopy className="w-4 h-4" />
-                   
-                  </button>
+                  <p id="addr-short">
+                    {shortenAddress(address) || "No address in state"}
+                  </p>
+                  {address && (
+                    <button
+                      onClick={copyToClipboard}
+                      className="text-gray-700 hover:text-black"
+                      title="Copy to clipboard"
+                    >
+                      <FiCopy className="w-4 h-4" />
+                    </button>
+                  )}
+                  {copied && (
+                    <span className="text-green-600 text-xs ml-2">Copied!</span>
+                  )}
                   {/* this is for the qr code but not workinng yet */}
-                  <button
+                  {/* <button
                     onclick="showQR()"
                     className="text-gray-300 hover:text-white"
                   >
-                    🔲
-                  </button>
+                    
+                  </button> */}
                 </div>
                 <button
-                  onclick="logout()"
-                  className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded"
+                  onclick={openModal}
+                  className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded dialog-close-btn"
                 >
                   Logout
                 </button>
+                <Transition appear show={isOpen} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="relative z-[9999]"
+                    onClose={closeModal}
+                  >
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0"
+                      enterTo="opacity-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100"
+                      leaveTo="opacity-0"
+                    >
+                      <div className="fixed inset-0 bg-black/5 " />
+                    </Transition.Child>
+                    <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
+                      <div className="flex min-h-full items-center justify-center p-4">
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0 scale-95"
+                          enterTo="opacity-100 scale-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100 scale-100"
+                          leaveTo="opacity-0 scale-95"
+                        >
+                          <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
+                            <Dialog.Title className="text-lg font-semibold text-gray-800">
+                              Are you sure you want to log out?
+                            </Dialog.Title>
+                            <div className="mt-4 flex justify-center gap-4">
+                              <button
+                                onClick={async () => {
+                                  await handleLogout(); // logout + redirect
+                                  closeModal(); // close modal after
+                                }}
+                                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                              >
+                                Yes, Logout
+                              </button>
+                              <button
+                                onClick={closeModal}
+                                className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </Dialog.Panel>
+                        </Transition.Child>
+                      </div>
+                    </div>
+                  </Dialog>
+                </Transition>
               </div>
             </div>
           </div>
