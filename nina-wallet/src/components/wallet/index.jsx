@@ -144,6 +144,7 @@ const Wallet = () => {
   };
 
   return (
+    
     <div className="wallet-page bg-[#5A178B]  h-screen">
       <div className="flex flex-row items-center text-center ml-[-350px]">
         <img
@@ -199,6 +200,7 @@ const Wallet = () => {
                 <h1 className="text-black-400 text-5xl font-semibold font-mono">
                   {showBalance ? `${balance} ETH` : "****"}
                 </h1>
+     
 
                 <button
                   onClick={() => setShowBalance((prev) => !prev)}
