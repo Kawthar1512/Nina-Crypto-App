@@ -33,41 +33,41 @@
             <button onclick="copyAddress()" className="text-gray-300 hover:text-white">📋</button>
             <button onclick="showQR()" className="text-gray-300 hover:text-white">🔲</button>
           </div>
-          <button onclick="logout()" class="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded">Logout</button>
+          <button onclick="logout()" className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded">Logout</button>
         </div>
       </div>
     </div>
   </nav>
 
-  <main class="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+  <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
     <!-- Left: Balance & Actions (prominent) -->
-    <section class="lg:col-span-2 space-y-6">
+    <section className="lg:col-span-2 space-y-6">
 
       <!-- Balance Card -->
-      <div class="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+      <div className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
         <div>
-          <div class="text-sm text-white/80">Total portfolio value</div>
-          <div class="text-4xl font-bold mt-1">$0.00</div>
-          <div class="text-sm text-white/80 mt-1">BNB: <span class="font-semibold">0.0000</span></div>
+          <div className="text-sm text-white/80">Total portfolio value</div>
+          <div className="text-4xl font-bold mt-1">$0.00</div>
+          <div className="text-sm text-white/80 mt-1">BNB: <span class="font-semibold">0.0000</span></div>
 
-          <div class="mt-4 flex flex-wrap gap-3">
-            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📤 Send</button>
-            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📥 Receive</button>
-            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">💱 Swap</button>
-            <button class="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">➕ Add Token</button>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📤 Send</button>
+            <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">📥 Receive</button>
+            <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">💱 Swap</button>
+            <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">➕ Add Token</button>
           </div>
         </div>
-        <div class="hidden sm:block">
-          <img src="wallet-illustration-light.png" alt="wallet" class="w-36 h-36 object-contain opacity-95" />
+        <div className="hidden sm:block">
+          <img src="wallet-illustration-light.png" alt="wallet" className="w-36 h-36 object-contain opacity-95" />
         </div>
       </div>
 
       <!-- Assets / Token List -->
-      <div class="bg-gray-800 rounded-xl p-4 shadow">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-lg font-semibold">Assets</h3>
-          <div class="text-sm text-gray-400">Total tokens: <span id="token-count">2</span></div>
+      <div className="bg-gray-800 rounded-xl p-4 shadow">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-lg font-semibold">Assets</h3>
+          <div className="text-sm text-gray-400">Total tokens: <span id="token-count">2</span></div>
         </div>
 
         <div class="divide-y divide-gray-700">
