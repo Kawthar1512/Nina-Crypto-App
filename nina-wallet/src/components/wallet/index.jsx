@@ -287,11 +287,16 @@ const Wallet = () => {
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                    📤 Send
+                  <button onClick={() => setShowSendModal(true)} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                    📤 Send         <FiSend className="text-lg" />
+                    
                   </button>
-                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                  <button
+                  onClick={() => setShowReceiveModal(true)}
+                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
                     📥 Receive
+                    <FiDownload className="text-lg" />
+                    
                   </button>
                   <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
                     💱 Swap
