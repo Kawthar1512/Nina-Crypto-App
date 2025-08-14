@@ -144,263 +144,271 @@ const Wallet = () => {
   };
 
   return (
-    
-    <div className="wallet-page bg-[#5A178B]  h-screen">
-      <div className="flex flex-row items-center text-center ml-[-350px]">
-        <img
-          src={nina}
-          alt="NINA logo"
-          className="w-[100px] h-[100px] object-contain  "
-        />
-        <h2 className=" ml-[-850px] font-bold text-2xl text-[#F3C738]">NINA</h2>
-      </div>
-      <main className=" bg-gray-50 w-[1000px] h-[694px] mx-auto p-10">
-        <div className="top flex justify-between">
-          {/* <div className="welcome-text  text-xs  text-left">
-            Welcome! {currentUser.displayName || currentUser.email}
-          </div> */}
-          <div className="welcome-text text-xs text-left">
-            Welcome!{" "}
-            {currentUser
-              ? String(currentUser.displayName || currentUser.email)
-              : "Guest"}
-          </div>
-          <button
-            title="Notifications"
-            className="border border-gray-300 p-2 rounded-full"
-          >
-            <FiBell className="w-4 h-4 text-gray-900 hover:text-black " />
-          </button>
-        </div>
-
-        <header className="wallet-header p-6 ">
-          <div className="wallet-info  ">
-            <div className="flex justify-center items-center gap-2 py-2 mt-[-30px]">
-              <p className="font-mono text-sm">
-                {shortenAddress(address) || "No address in state"}
-              </p>
-              {address && (
-                <button
-                  onClick={copyToClipboard}
-                  className="text-gray-700 hover:text-black"
-                  title="Copy to clipboard"
-                >
-                  <FiCopy className="w-4 h-4" />
-                </button>
-              )}
-              {copied && (
-                <span className="text-green-600 text-xs ml-2">Copied!</span>
-              )}
+    <>
+      <main className="min-h-full bg-gray-900 text-gray-100">
+        {/* <!-- NAV --> */}
+        <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <img src={nina} alt="logo" className="w-8 h-8 rounded" />
+              <span className="font-semibold text-white">Nina Wallet</span>
+              <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
+                BSC
+              </span>
             </div>
-            <div className="balance bg-[#f3eff8] rounded-3xl w-full max-w-2xl mx-auto text-black p-4">
-              <div className="flex justify-between items-center py-3 px-5">
-                <p className="text-sm font-medium">Current Balance</p>
-              </div>
-              <div className="balance-show relative flex justify-center items-center">
-                <h1 className="text-black-400 text-5xl font-semibold font-mono">
-                  {showBalance ? `${balance} ETH` : "****"}
-                </h1>
-     
 
-                <button
-                  onClick={() => setShowBalance((prev) => !prev)}
-                  className="absolute right-4 bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
-                  title={showBalance ? "Hide Balance" : "Show Balance"}
+            <div className="flex items-center gap-3 text-sm">
+              <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
+                <svg
+                  className="w-4 h-4 text-yellow-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  {showBalance ? (
-                    <FiEyeOff className="w-4 h-4" />
-                  ) : (
-                    <FiEye className="w-4 h-4" />
-                  )}
-                </button>
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                </svg>
+                <div className="text-right">
+                  <div className="text-xs text-gray-300">Network</div>
+                  <div id="network" className="font-medium">
+                    BSC Mainnet
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </header>
 
-        <div className="wallet-actions flex justify-center mt-[15px] ">
-          <button
-            className=" mx-4 flex items-center gap-2 bg-red-700 hover:bg-red-700 text-white px-4 py-2 rounded-md"
-            onClick={() => setShowSendModal(true)}
-          >
-            Send
-            <FiSend className="text-lg" />
-          </button>
-          <button
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
-            onClick={() => setShowReceiveModal(true)}
-          >
-            Receive
-            <FiDownload className="text-lg" />
-          </button>
-        </div>
-
-        {/* Send Modal */}
-        <Transition appear show={showSendModal} as={Fragment}>
-          <Dialog
-            as="div"
-            className="dialog-root"
-            onClose={() => setShowSendModal(false)}
-          >
-            <div className="dialog-container">
-              <Dialog.Panel>
-                <Dialog.Title className="dialog-title">Send ETH</Dialog.Title>
-                <div className="dialog-content">
-                  <input
-                    type="text"
-                    placeholder="Recipient Address"
-                    value={recipient}
-                    onChange={(e) => setRecipient(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Amount in ETH"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                  <button className="dialog-action-btn" onClick={handleSend}>
-                    Send
+              <div className="flex items-center gap-2">
+                <button
+                  id="notifications"
+                  className="p-2 rounded hover:bg-gray-700"
+                  title="Notifications"
+                >
+                  🔔
+                </button>
+                <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
+                  <span id="addr-short">0xe74D...eEE7</span>
+                  <button
+                    onclick="copyAddress()"
+                    className="text-gray-300 hover:text-white"
+                  >
+                    📋
                   </button>
-                  {/* {txStatus && <p>{txStatus}</p>} */}
-                  {txStatus && <p>{String(txStatus)}</p>}
+                  <button
+                    onclick="showQR()"
+                    className="text-gray-300 hover:text-white"
+                  >
+                    🔲
+                  </button>
                 </div>
                 <button
-                  className="dialog-close-btn"
-                  onClick={() => setShowSendModal(false)}
+                  onclick="logout()"
+                  className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded"
                 >
-                  Close
+                  Logout
                 </button>
-              </Dialog.Panel>
-            </div>
-          </Dialog>
-        </Transition>
-
-        {/* Receive Modal */}
-        <Transition appear show={showReceiveModal} as={Fragment}>
-          <Dialog
-            as="div"
-            className="dialog-root"
-            onClose={() => setShowReceiveModal(false)}
-          >
-            <div className="dialog-container">
-              <Dialog.Panel>
-                <Dialog.Title className="dialog-title">
-                  Receive ETH
-                </Dialog.Title>
-                <div className="dialog-content">
-                  <p>Your Wallet Address:</p>
-                  {/* <p>{address}</p> */}
-                  <p>{typeof address === "string" ? address : ""}</p>
-                </div>
-                <button
-                  className="dialog-close-btn"
-                  onClick={() => setShowReceiveModal(false)}
-                >
-                  Close
-                </button>
-              </Dialog.Panel>
-            </div>
-          </Dialog>
-        </Transition>
-
-        <div className="referral mt-9 bg-gradient-to-r from-[#6e30e9] to-[#be90ed] rounded-3xl w-full max-w-2xl mx-auto text-white px-6 py-4 ">
-          <div className="flex  justify-between gap-4">
-            {/* Text Block */}
-            <div className="w-2/3 leading-relaxed text-white text-left">
-              <h1 className="text-1xl font-bold text-left">Get $100</h1>
-              <p className="text-sm">
-                Share your unique referral code and invite your friends to
-                download the Nina App. Once they sign up and start using the
-                app, you’ll both get rewarded!
-              </p>
-            </div>
-
-            {/* Image Block */}
-            <div className="w-[300px] h-[100px]  flex items-center justify-center">
-              <img
-                src={winner}
-                alt="Referral Promo"
-                className="max-w-full max-h-full object-contain mr-[70px]"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="transactions rounded w-full max-w-2xl mx-auto text-black px-6 py-4 text-center  ">
-          <h1 className="text-left text-[18px]">Recent Transactions</h1>
-          <div className="text-center text-gray-600 text-[12px] font-bold">
-            No transactions found
-            <div className="flex justify-center mt-2   mr-[200px]">
-              <img
-                src={empty}
-                alt=""
-                className="w-12 h-12 object-contain opacity-70"
-              />
-            </div>
-          </div>
-          <p className="text-gray-600 text-[10px]">
-            {" "}
-            To see your transactions, <br /> begin by sending or receiving
-            funds.
-          </p>
-        </div>
-        <button onClick={openModal} className="dialog-close-btn">
-          Logout
-        </button>
-        <Transition appear show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-[9999]" onClose={closeModal}>
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <div className="fixed inset-0 bg-black/5 " />
-            </Transition.Child>
-
-            <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
-              <div className="flex min-h-full items-center justify-center p-4">
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0 scale-95"
-                  enterTo="opacity-100 scale-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100 scale-100"
-                  leaveTo="opacity-0 scale-95"
-                >
-                  <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
-                    <Dialog.Title className="text-lg font-semibold text-gray-800">
-                      Are you sure you want to log out?
-                    </Dialog.Title>
-                    <div className="mt-4 flex justify-center gap-4">
-                      <button
-                        onClick={async () => {
-                          await handleLogout(); // logout + redirect
-                          closeModal(); // close modal after
-                        }}
-                        className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                      >
-                        Yes, Logout
-                      </button>
-                      <button
-                        onClick={closeModal}
-                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </Dialog.Panel>
-                </Transition.Child>
               </div>
             </div>
-          </Dialog>
-        </Transition>
+          </div>
+        </nav>
+
+        <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* <!-- Left: Balance & Actions (prominent) --> */}
+          <section className="lg:col-span-2 space-y-6">
+            {/* <!-- Balance Card --> */}
+            <div className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+              <div>
+                <div className="text-sm text-white/80">
+                  Total portfolio value
+                </div>
+                <div className="text-4xl font-bold mt-1">$0.00</div>
+                <div className="text-sm text-white/80 mt-1">
+                  BNB: <span class="font-semibold">0.0000</span>
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-3">
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                    📤 Send
+                  </button>
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                    📥 Receive
+                  </button>
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                    💱 Swap
+                  </button>
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
+                    ➕ Add Token
+                  </button>
+                </div>
+              </div>
+              <div className="hidden sm:block">
+                <img
+                  src="wallet-illustration-light.png"
+                  alt="wallet"
+                  className="w-36 h-36 object-contain opacity-95"
+                />
+              </div>
+            </div>
+
+            {/* <!-- Assets / Token List --> */}
+            <div className="bg-gray-800 rounded-xl p-4 shadow">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-semibold">Assets</h3>
+                <div className="text-sm text-gray-400">
+                  Total tokens: <span id="token-count">2</span>
+                </div>
+              </div>
+
+              <div className="divide-y divide-gray-700">
+                {/* <!-- token row (repeatable) --> */}
+                <div className="flex items-center justify-between p-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
+                      BNB
+                    </div>
+                    <div>
+                      <div className="font-medium">Binance Coin</div>
+                      <div className="text-xs text-gray-400">
+                        BNB • 18 decimals
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-medium">0.0000</div>
+                    <div className="text-sm text-gray-400">$0.00</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between p-3">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src="token-placeholder.png"
+                      alt="token"
+                      className="w-10 h-10 rounded-full bg-gray-700"
+                    />
+                    <div>
+                      <div className="font-medium">USDT (BEP-20)</div>
+                      <div className="text-xs text-gray-400">
+                        USDT • contract
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-medium">0.00</div>
+                    <div className="text-sm text-gray-400">$0.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* <!-- Transactions --> */}
+            <div className="bg-gray-800 rounded-xl p-4 shadow">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-lg font-semibold">Recent activity</h3>
+                <div className="text-sm text-gray-400">Showing latest 5</div>
+              </div>
+
+              <div className="text-center text-gray-500 py-8">
+                <div className="text-2xl">🔍</div>
+                <p className="mt-3">No transactions yet</p>
+                <p className="text-sm text-gray-400 mt-1">
+                  Once you send or receive BNB or BEP‑20 tokens, they will
+                  appear here. You can view details on BscScan.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* <!-- Right Column: utilities, referral, settings --> */}
+          <aside className="space-y-6">
+            {/* <!-- Quick Network / Testnet Switch --> */}
+            <div className="bg-gray-800 rounded-xl p-4 shadow">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm text-gray-400">Network</div>
+                  <div className="font-medium">BSC Mainnet</div>
+                </div>
+                <div>
+                  <select
+                    id="network-select"
+                    className="bg-gray-700 px-3 py-1 rounded text-sm"
+                  >
+                    <option value="56">BSC Mainnet (56)</option>
+                    <option value="97">BSC Testnet (97)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* <!-- Referral --> */}
+            <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-sm opacity-90">Invite friends</div>
+                  <div className="font-semibold mt-1">Get $100</div>
+                  <div className="text-xs mt-2 text-white/80">
+                    Share your code and earn rewards when friends sign up and
+                    transact.
+                  </div>
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">
+                      REF12345
+                    </span>
+                    <button
+                      onclick="copyCode()"
+                      className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
+                    >
+                      Copy
+                    </button>
+                  </div>
+                </div>
+                <img
+                  src="referral-small.png"
+                  alt="referral"
+                  className="w-14 h-14 rounded-full"
+                />
+              </div>
+            </div>
+
+            {/* <!-- Security / Backup --> */}
+            <div className="bg-gray-800 rounded-xl p-4 shadow">
+              <div className="flex items-start gap-3">
+                <div className="flex-1">
+                  <div className="text-sm text-gray-400">Security</div>
+                  <div className="font-medium">Backup your seed phrase</div>
+                  <div className="text-xs text-gray-500 mt-2">
+                    Make sure you have your recovery phrase stored safely. Never
+                    share it.
+                  </div>
+                </div>
+                <div>
+                  <button className="bg-yellow-400 text-black px-3 py-2 rounded">
+                    Backup
+                  </button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </main>
+
+        {/* <script>
+    function copyAddress() {
+      navigator.clipboard.writeText('0xe74D...eEE7');
+      alert('Address copied');
+    }
+    function showQR() {
+      alert('Show QR modal (implement)');
+    }
+    function copyCode() {
+      navigator.clipboard.writeText('REF12345');
+      alert('Referral code copied');
+    }
+    function logout() { alert('Logged out'); }
+
+  Example: network select handler (placeholder)
+    document.getElementById('network-select').addEventListener('change', function(e){
+      const opt = e.target.options[e.target.selectedIndex].text;
+      document.getElementById('network').innerText = opt;
+    });
+  </script> */}
       </main>
-    </div>
+    </>
   );
 };
-
 export default Wallet;
