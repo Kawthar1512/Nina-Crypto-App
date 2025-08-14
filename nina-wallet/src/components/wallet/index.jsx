@@ -185,11 +185,14 @@ const Wallet = () => {
                 <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
                   <span id="addr-short">0xe74D...eEE7</span>
                   <button
-                    onclick="copyAddress()"
+                    onclick={copyToClipboard}
                     className="text-gray-300 hover:text-white"
+                    title="Copy to clipboard"
                   >
-                    📋
+                    <FiCopy className="w-4 h-4" />
+                   
                   </button>
+                  {/* this is for the qr code but not workinng yet */}
                   <button
                     onclick="showQR()"
                     className="text-gray-300 hover:text-white"
