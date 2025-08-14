@@ -307,6 +307,76 @@ const Wallet = () => {
                     ➕ Add Token
                   </button>
                 </div>
+                  
+        {/* Send Modal */}
+        <Transition appear show={showSendModal} as={Fragment}>
+          <Dialog
+            as="div"
+            className="dialog-root"
+            onClose={() => setShowSendModal(false)}
+          >
+            <div className="dialog-container">
+              <Dialog.Panel>
+                <Dialog.Title className="dialog-title">Send ETH</Dialog.Title>
+                <div className="dialog-content">
+                  <input
+                    type="text"
+                    placeholder="Recipient Address"
+                    value={recipient}
+                    onChange={(e) => setRecipient(e.target.value)}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Amount in ETH"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                  />
+                  <button className="dialog-action-btn" onClick={handleSend}>
+                    Send
+                  </button>
+                  {/* {txStatus && <p>{txStatus}</p>} */}
+                  {txStatus && <p>{String(txStatus)}</p>}
+                </div>
+                <button
+                  className="dialog-close-btn"
+                  onClick={() => setShowSendModal(false)}
+                >
+                  Close
+                </button>
+              </Dialog.Panel>
+            </div>
+          </Dialog>
+        </Transition>
+
+        {/* Receive Modal */}
+        <Transition appear show={showReceiveModal} as={Fragment}>
+          <Dialog
+            as="div"
+            className="dialog-root"
+            onClose={() => setShowReceiveModal(false)}
+          >
+            <div className="dialog-container">
+              <Dialog.Panel>
+                <Dialog.Title className="dialog-title">
+                  Receive ETH
+                </Dialog.Title>
+                <div className="dialog-content">
+                  <p>Your Wallet Address:</p>
+                  {/* <p>{address}</p> */}
+                  <p>{typeof address === "string" ? address : ""}</p>
+                </div>
+                <button
+                  className="dialog-close-btn"
+                  onClick={() => setShowReceiveModal(false)}
+                >
+                  Close
+                </button>
+              </Dialog.Panel>
+            </div>
+          </Dialog>
+        </Transition>
+
+
               </div>
               <div className="hidden sm:block">
                 <img
