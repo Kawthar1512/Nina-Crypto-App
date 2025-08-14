@@ -1,11 +1,162 @@
-<!DOCTYPE html>
-<html lang="en" class="h-full">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nina / NewName - BSC Wallet Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+import React, { useState, useEffect, Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { useAuth } from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
+import { doSignOut } from "../../firebase/auth";
+import "../../styles/wallet.css";
+import winner from "../../assets/win.png";
+import empty from "../../assets/empty.png";
+import nina from "../../assets/nina.png";
+
+import {
+  FiCopy,
+  FiSend,
+  FiDownload,
+  FiBell,
+  FiEye,
+  FiEyeOff,
+  FiLogOut,
+} from "react-icons/fi";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
+const Wallet = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
+
+  const [address, setAddress] = useState(null);
+  const [balance, setBalance] = useState("0.00");
+  const [showSendModal, setShowSendModal] = useState(false);
+  const [showReceiveModal, setShowReceiveModal] = useState(false);
+  const [recipient, setRecipient] = useState("");
+  const [amount, setAmount] = useState("");
+  const [txStatus, setTxStatus] = useState("");
+  const [showBalance, setShowBalance] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
+  const [copied, setCopied] = useState(false);
+
+  const shortenAddress = (addr) => {
+    if (!addr) return "";
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
+  };
+
+  const copyToClipboard = () => {
+    if (address) {
+      navigator.clipboard.writeText(address);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
+
+  const handleLogout = async () => {
+    await doSignOut();
+    navigate("/login");
+  };
+
+  useEffect(() => {
+    async function createOrFetchWalletAndBalance() {
+      try {
+        const res = await fetch("http://localhost:5000/api/wallet/create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId: currentUser.email }),
+        });
+
+        const data = await res.json();
+        console.log("Wallet API response:", data);
+
+        if (data.address) {
+          setAddress(data.address);
+          setBalance(data.balance);
+
+          // // ✅ Immediately fetch balance
+          // await fetchBalance(data.address);
+        } else {
+          console.error("Failed to create/fetch wallet:", data.error);
+        }
+      } catch (error) {
+        console.error("Error creating/fetching wallet:", error);
+      }
+    }
+
+    // async function fetchBalance(addr) {
+    //   try {
+    //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
+    //     const data = await res.json();
+    //     if (data.balance !== undefined) {
+    //       setBalance(parseFloat(data.balance).toFixed(4));
+    //     }
+    //   } catch (error) {
+    //     console.error("Error fetching balance:", error);
+    //   }
+    // }
+
+    if (currentUser?.email) {
+      createOrFetchWalletAndBalance();
+    }
+  }, [currentUser]);
+
+  const handleSend = async () => {
+    setTxStatus("");
+    if (!recipient) {
+      setTxStatus("Please enter a recipient address.");
+      return;
+    }
+    if (!amount || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) {
+      setTxStatus("Please enter a valid amount.");
+      return;
+    }
+
+    try {
+      setTxStatus("Sending transaction...");
+      const res = await fetch("http://localhost:5000/api/wallet/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ to: recipient, amount }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setTxStatus("Transaction successful! TxHash: " + data.txHash);
+        setRecipient("");
+        setAmount("");
+      } else {
+        setTxStatus("Transaction failed: " + data.error);
+      }
+    } catch (error) {
+      setTxStatus("Transaction failed: " + error.message);
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <body class="min-h-full bg-gray-900 text-gray-100">
 
   <!-- NAV -->
