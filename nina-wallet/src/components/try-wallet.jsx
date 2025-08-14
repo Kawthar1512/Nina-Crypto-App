@@ -252,32 +252,32 @@ return(
 
       {/* <!-- Transactions --> */}
       <div className="bg-gray-800 rounded-xl p-4 shadow">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-lg font-semibold">Recent activity</h3>
-          <div class="text-sm text-gray-400">Showing latest 5</div>
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-lg font-semibold">Recent activity</h3>
+          <div className="text-sm text-gray-400">Showing latest 5</div>
         </div>
 
-        <div class="text-center text-gray-500 py-8">
-          <div class="text-2xl">🔍</div>
-          <p class="mt-3">No transactions yet</p>
-          <p class="text-sm text-gray-400 mt-1">Once you send or receive BNB or BEP‑20 tokens, they will appear here. You can view details on BscScan.</p>
+        <div className="text-center text-gray-500 py-8">
+          <div className="text-2xl">🔍</div>
+          <p className="mt-3">No transactions yet</p>
+          <p className="text-sm text-gray-400 mt-1">Once you send or receive BNB or BEP‑20 tokens, they will appear here. You can view details on BscScan.</p>
         </div>
       </div>
 
     </section>
 
     {/* <!-- Right Column: utilities, referral, settings --> */}
-    <aside class="space-y-6">
+    <aside className="space-y-6">
 
       {/* <!-- Quick Network / Testnet Switch --> */}
-      <div class="bg-gray-800 rounded-xl p-4 shadow">
-        <div class="flex items-center justify-between">
+      <div className="bg-gray-800 rounded-xl p-4 shadow">
+        <div className="flex items-center justify-between">
           <div>
-            <div class="text-sm text-gray-400">Network</div>
-            <div class="font-medium">BSC Mainnet</div>
+            <div className="text-sm text-gray-400">Network</div>
+            <div className="font-medium">BSC Mainnet</div>
           </div>
           <div>
-            <select id="network-select" class="bg-gray-700 px-3 py-1 rounded text-sm">
+            <select id="network-select" className="bg-gray-700 px-3 py-1 rounded text-sm">
               <option value="56">BSC Mainnet (56)</option>
               <option value="97">BSC Testnet (97)</option>
             </select>
@@ -286,31 +286,31 @@ return(
       </div>
 
       {/* <!-- Referral --> */}
-      <div class="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
-        <div class="flex items-center justify-between">
+      <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
+        <div className="flex items-center justify-between">
           <div>
-            <div class="text-sm opacity-90">Invite friends</div>
-            <div class="font-semibold mt-1">Get $100</div>
-            <div class="text-xs mt-2 text-white/80">Share your code and earn rewards when friends sign up and transact.</div>
-            <div class="mt-3 flex items-center gap-2">
-              <span class="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">REF12345</span>
-              <button onclick="copyCode()" class="bg-white/10 px-3 py-1 rounded hover:bg-white/20">Copy</button>
+            <div className="text-sm opacity-90">Invite friends</div>
+            <div className="font-semibold mt-1">Get $100</div>
+            <div className="text-xs mt-2 text-white/80">Share your code and earn rewards when friends sign up and transact.</div>
+            <div className="mt-3 flex items-center gap-2">
+              <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">REF12345</span>
+              <button onclick="copyCode()" className="bg-white/10 px-3 py-1 rounded hover:bg-white/20">Copy</button>
             </div>
           </div>
-          <img src="referral-small.png" alt="referral" class="w-14 h-14 rounded-full" />
+          <img src="referral-small.png" alt="referral" className="w-14 h-14 rounded-full" />
         </div>
       </div>
 
       {/* <!-- Security / Backup --> */}
-      <div class="bg-gray-800 rounded-xl p-4 shadow">
-        <div class="flex items-start gap-3">
-          <div class="flex-1">
-            <div class="text-sm text-gray-400">Security</div>
-            <div class="font-medium">Backup your seed phrase</div>
-            <div class="text-xs text-gray-500 mt-2">Make sure you have your recovery phrase stored safely. Never share it.</div>
+      <div className="bg-gray-800 rounded-xl p-4 shadow">
+        <div className="flex items-start gap-3">
+          <div className="flex-1">
+            <div className="text-sm text-gray-400">Security</div>
+            <div className="font-medium">Backup your seed phrase</div>
+            <div className="text-xs text-gray-500 mt-2">Make sure you have your recovery phrase stored safely. Never share it.</div>
           </div>
           <div>
-            <button class="bg-yellow-400 text-black px-3 py-2 rounded">Backup</button>
+            <button className="bg-yellow-400 text-black px-3 py-2 rounded">Backup</button>
           </div>
         </div>
       </div>
@@ -319,7 +319,7 @@ return(
 
   </main>
 
-  <script>
+  {/* <script>
     function copyAddress() {
       navigator.clipboard.writeText('0xe74D...eEE7');
       alert('Address copied');
@@ -333,13 +333,16 @@ return(
     }
     function logout() { alert('Logged out'); }
 
-    // Example: network select handler (placeholder)
+  Example: network select handler (placeholder)
     document.getElementById('network-select').addEventListener('change', function(e){
       const opt = e.target.options[e.target.selectedIndex].text;
       document.getElementById('network').innerText = opt;
     });
-  </script>
+  </script> */}
 
 </main>
 </>
-)
+);
+};
+export default Wallet;
+
