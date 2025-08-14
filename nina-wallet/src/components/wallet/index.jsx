@@ -169,7 +169,7 @@ const Wallet = () => {
                 <div className="text-right">
                   <div className="text-xs text-gray-300">Network</div>
                   <div id="network" className="font-medium">
-                    BSC Mainnet
+                    BSCccc Mainnet
                   </div>
                 </div>
               </div>
@@ -288,14 +288,16 @@ const Wallet = () => {
 
                 <div className="mt-4 flex flex-wrap gap-3">
                   <button onClick={() => setShowSendModal(true)} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                    📤 Send         <FiSend className="text-lg" />
+                        <FiSend className="text-lg" />
+                          Send    
                     
                   </button>
                   <button
                   onClick={() => setShowReceiveModal(true)}
                   className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                    📥 Receive
+                     
                     <FiDownload className="text-lg" />
+                    Receive
                     
                   </button>
                   <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
