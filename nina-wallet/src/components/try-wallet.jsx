@@ -156,10 +156,11 @@ const Wallet = () => {
 
 
 
+return(
+  <> 
+<main className="min-h-full bg-gray-900 text-gray-100">
 
-<body class="min-h-full bg-gray-900 text-gray-100">
-
-  <!-- NAV -->
+  {/* <!-- NAV --> */}
   <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
     <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -344,5 +345,6 @@ const Wallet = () => {
     });
   </script>
 
-</body>
-</html>
+</main>
+</>
+)
