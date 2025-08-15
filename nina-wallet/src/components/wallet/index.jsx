@@ -100,10 +100,7 @@ const Wallet = () => {
     //     if (data.balance !== undefined) {
     //       setBalance(parseFloat(data.balance).toFixed(4));
     //     }
-    //   } catch (error) {
-    //     console.error("Error fetching balance:", error);
-    //   }
-    // }
+  
 
     if (currentUser?.email) {
       createOrFetchWalletAndBalance();
