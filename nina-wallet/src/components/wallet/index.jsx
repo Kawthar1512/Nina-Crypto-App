@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { doSignOut } from "../../firebase/auth";
 import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
-import empty from "../../assets/empty.png";
 import nina from "../../assets/nina.png";
 
 import {
@@ -83,7 +82,7 @@ const Wallet = () => {
           setAddress(data.address);
           setBalance(data.balance);
 
-          // // ✅ Immediately fetch balance
+          // // Immediately fetch balance
           // await fetchBalance(data.address);
         } else {
           console.error("Failed to create/fetch wallet:", data.error);
