@@ -92,13 +92,9 @@ const Wallet = () => {
       }
     }
 
-    // async function fetchBalance(addr) {
     //   try {
     //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
-    //     const data = await res.json();
-    
-  
-
+ 
     if (currentUser?.email) {
       createOrFetchWalletAndBalance();
     }
