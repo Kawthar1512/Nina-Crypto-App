@@ -90,9 +90,6 @@ const Wallet = () => {
         console.error("Error creating/fetching wallet:", error);
       }
     }
-
-    //   try {
-    //     const res = await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
  
     if (currentUser?.email) {
       createOrFetchWalletAndBalance();
@@ -262,7 +259,7 @@ const Wallet = () => {
         </nav>
 
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* <!-- Left: 
+          {/* -- Left: 
           Balance & Actions (prominent) --> */}
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
