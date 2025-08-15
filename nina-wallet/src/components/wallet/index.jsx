@@ -516,9 +516,7 @@ const Wallet = () => {
         </main>
 
      
-    {/* function copyAddress() {
-      navigator.clipboard.writeText('0xe74D...eEE7');
-      alert('Address copied');
+    {/* 
     }
     function showQR() {
       alert('Show QR modal (implement)');
