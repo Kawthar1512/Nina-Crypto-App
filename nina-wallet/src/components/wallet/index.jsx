@@ -83,7 +83,6 @@ const Wallet = () => {
           setBalance(data.balance);
 
           // // Immediately fetch balance
-          // await fetchBalance(data.address);
         } else {
           console.error("Failed to create/fetch wallet:", data.error);
         }
