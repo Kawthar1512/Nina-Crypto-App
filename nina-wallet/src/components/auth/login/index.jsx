@@ -6,7 +6,6 @@ import {
 } from "../../../firebase/auth";
 import { useAuth } from "../../../contexts/authContext";
 import "../../../styles/login.css";
-import coin from "../../../assets/coin.png";
 import nina from "../../../assets/nina.png";
 import screen from "../../../assets/screen.png";
 import man from "../../../assets/man.png";
