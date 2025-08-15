@@ -515,8 +515,8 @@ const Wallet = () => {
           </aside>
         </main>
 
-        {/* <script>
-    function copyAddress() {
+     
+    {/* function copyAddress() {
       navigator.clipboard.writeText('0xe74D...eEE7');
       alert('Address copied');
     }
@@ -533,8 +533,8 @@ const Wallet = () => {
     document.getElementById('network-select').addEventListener('change', function(e){
       const opt = e.target.options[e.target.selectedIndex].text;
       document.getElementById('network').innerText = opt;
-    });
-  </script> */}
+    }); */}
+
       </main>
     </>
   );
