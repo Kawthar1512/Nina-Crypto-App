@@ -3,7 +3,7 @@ import nina from "../assets/nina.png";
 
 export default function Nav() {
   return (
-    <nav className="homeNav bg-[#0c0c0c] z-[1000] fixed  ">
+    <nav className="homeNav  z-[1000] fixed  ">
       <div className="flex flex-row items-center   text-center align-middle ">
         <img
           src={nina}
@@ -12,7 +12,7 @@ export default function Nav() {
         />
         <h3 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">NINA WALLET</h3>
       </div>
-      <div className="navLinks bg-white h-[100px] text-gray-200">
+      <div className="navLinks bg-white h-[20px] text-gray-200 mt-10 p-4">
         <a href="">Features </a>
         <a href="">About</a>
         <a href="">Download</a>
