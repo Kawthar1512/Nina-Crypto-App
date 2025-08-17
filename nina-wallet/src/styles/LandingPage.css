@@ -54,15 +54,15 @@ nav {
 }
 
 .hello {
-  background-color: hsla(0, 0%, 0%, 1);
+  background-color: #374151;
   background-image: radial-gradient(
       at 100% 0%,
       hsla(289, 70%, 69%, 0.38) 0px,
       transparent 50%
     ),
-    radial-gradient(at 59% 7%, hsla(189, 0%, 0%, 1) 0px, transparent 50%),
-    radial-gradient(at 0% 62%, hsla(355, 0%, 0%, 1) 0px, transparent 50%),
-    radial-gradient(at 90% 38%, hsla(340, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 59% 7%, hsla(109, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 62%, hsla(55, 0%, 0%, 1) 0px, transparent 50%),
+    radial-gradient(at 90% 38%, hsla(30, 0%, 0%, 1) 0px, transparent 50%),
     radial-gradient(at 0% 100%, hsla(285, 56%, 11%, 0.08) 0px, transparent 50%),
     radial-gradient(at 0% 100%, hsla(287, 49%, 48%, 0.71) 0px, transparent 50%);
 }
