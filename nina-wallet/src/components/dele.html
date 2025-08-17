@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nina Wallet - Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+<body>
+  <section class="relative bg-[#0f172a] min-h-screen flex items-center justify-center px-6 overflow-hidden">
+  <!-- Animated Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-purple-600 opacity-20 blur-3xl animate-gradient"></div>
+
+  <!-- Floating & Rotating Crypto Icons -->
+  <div class="absolute inset-0">
+    <!-- BNB -->
+    <div class="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast" style="top:20%; left:15%">
+      <img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/bnb.svg" alt="BNB" class="w-full h-full">
+    </div>
+    <!-- ETH -->
+    <div class="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast" style="top:40%; left:70%">
+      <img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/eth.svg" alt="ETH" class="w-full h-full">
+    </div>
+    <!-- USDT -->
+    <div class="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast" style="top:65%; left:30%">
+      <img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/usdt.svg" alt="USDT" class="w-full h-full">
+    </div>
+    <!-- Another ETH -->
+    <div class="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast" style="top:75%; left:80%">
+      <img src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/eth.svg" alt="ETH" class="w-full h-full">
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    <!-- Left: Text Content -->
+    <div class="text-center md:text-left space-y-6">
+      <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+        Your Secure <span class="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Crypto Wallet</span> for the Future
+      </h1>
+      <p class="text-lg text-gray-400 max-w-md mx-auto md:mx-0">
+        Send, receive, and manage your digital assets with ease. Fast, secure, and built for Web3.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+        <a href="#get-started" class="px-6 py-3 rounded-xl text-white font-medium bg-gradient-to-r from-purple-500 to-blue-500 hover:opacity-90 transition">
+          Get Started
+        </a>
+        <a href="#download" class="px-6 py-3 rounded-xl text-white font-medium border border-gray-600 hover:bg-gray-800 transition">
+          Download App
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Dashboard Mockup -->
+    <div class="relative">
+      <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-gray-900">
+        <!-- Replace with your dashboard screenshot -->
+        <img src="your-dashboard-screenshot.png" alt="Wallet Dashboard" class="w-full">
+      </div>
+      <!-- Glow effect -->
+      <div class="absolute -inset-6 bg-gradient-to-r from-purple-500 to-blue-500 opacity-30 blur-3xl -z-10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Tailwind Animations -->
+<style>
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientMove 12s ease infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes rotateSlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-rotate-slow {
+    animation: rotateSlow 30s linear infinite;
+  }
+
+  @keyframes spinFast {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .hover\\:animate-spin-fast:hover {
+    animation: spinFast 1.5s linear infinite !important;
+  }
+</style>
+
+
+</body>
+</html>
