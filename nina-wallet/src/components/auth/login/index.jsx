@@ -67,7 +67,7 @@ const Login = () => {
       <div className="min-h-screen flex flex-col lg:flex-row">
         {userLoggedIn && <Navigate to="/wallet" replace />}
         {/* left side */}
-        <div className="bg-purple-700 text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
+        <div className="bg-gray-700 text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
           <img
             src={man}
             alt="Happy person using phone"
@@ -152,7 +152,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="w-full bg-purple-700 hover:bg-purple-800 text-white font-semibold rounded-lg p-3 transition"
+                className="w-full bg-gray-700 hover:bg-purple-800 text-white font-semibold rounded-lg p-3 transition"
               >
                 {isSigningIn ? "Signing In..." : "Login"}
               </button>
