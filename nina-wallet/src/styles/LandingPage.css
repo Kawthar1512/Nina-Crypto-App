@@ -84,3 +84,40 @@ nav {
   font-weight: 900;
   font-style: normal;
 }
+
+.bubbles::before,
+.bubbles::after {
+  content: "";
+  width: 150%;
+  aspect-ratio: 1 / 1;
+  scale: 0;
+  transition: 1000ms cubic-bezier(0.76, 0, 0.24, 1);
+  background-color: #8685ef; /* matches Tailwind text-[#8685ef] */
+  border-radius: 50%;
+  position: absolute;
+  translate: -50% -50%;
+}
+
+.bubbles::before {
+  top: 0;
+  left: 0;
+}
+
+.bubbles::after {
+  top: 100%;
+  left: 100%;
+}
+
+.bubbles:hover span {
+  color: #212121;
+}
+
+.bubbles:hover::before,
+.bubbles:hover::after {
+  scale: 1;
+}
+
+.bubbles:active {
+  scale: 0.98;
+  filter: brightness(0.9);
+}
