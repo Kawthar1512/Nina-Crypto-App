@@ -114,7 +114,7 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="mt-1 block w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+                  className="mt-1 block w-full rounded-lg border border-gray-300 p-3 "
                 />
               </div>
 
@@ -130,7 +130,7 @@ const Login = () => {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 block w-full rounded-lg border border-gray-300 p-3 focus:ring-2 focus:ring-purple-600 focus:border-purple-600"
+                    className="mt-1 block w-full rounded-lg border border-gray-300 p-3 "
                   />
                 </div>
 
@@ -152,7 +152,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="w-full bg-gray-700 hover:bg-purple-800 text-white font-semibold rounded-lg p-3 transition"
+                className="w-full bg-[#0f172a] hover:bg- text-white font-semibold rounded-lg p-3 transition"
               >
                 {isSigningIn ? "Signing In..." : "Login"}
               </button>
@@ -162,7 +162,7 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to="/register"
-                className="font-semibold text-purple-700 hover:underline"
+                className="font-semibold text-[#0f172a] hover:underline"
               >
                 <strong>Sign up</strong>
               </Link>
