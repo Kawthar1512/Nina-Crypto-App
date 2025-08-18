@@ -6,7 +6,7 @@ import Nav from "../components/Nav";
 import blob from "../assets/blob.png";
 import circle from "../assets/circle.png";
 import circle2 from "../assets/circle2.png";
-import { FaRocket } from "react-icons/fa"; // Rocket icon
+import { FaRocket } from "react-icons/fa"; 
 
 export default function LandPage() {
   return (
