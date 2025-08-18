@@ -80,7 +80,7 @@ const Login = () => {
           </h2>
         </div>
 
-        {/* Right Section */}
+        {/* Right  */}
         <div className="flex-1 flex justify-center items-center p-8">
           <div className="w-full max-w-md">
             <div className=" flex  items-center mb-5">
@@ -154,7 +154,7 @@ const Login = () => {
                 disabled={isSigningIn}
                 className="w-full bg-[#0f172a] text-white font-semibold rounded-lg p-3 bubbles relative overflow-hidden border-[5px] cursor-pointer px-4 py-2 text-[16px]  transition-all duration-300 ease-[cubic-bezier(0.83,0,0.17,1)]"
               >
-               <span>{isSigningIn ? "Signing In..." : "Login"}</span> 
+               {isSigningIn ? "Signing In..." : "Login"}
               </button>
             </form>
 

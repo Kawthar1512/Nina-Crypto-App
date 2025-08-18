@@ -84,6 +84,16 @@ nav {
   font-weight: 900;
   font-style: normal;
 }
+.bubbles {
+  position: relative;
+  overflow: hidden;
+  color: white; /* default text */
+  transition: color 700ms cubic-bezier(0.83, 0, 0.17, 1); /* keep smooth */
+}
+
+.bubbles:hover {
+  color: black; /* text turns black smoothly */
+}
 
 .bubbles::before,
 .bubbles::after {
@@ -91,11 +101,12 @@ nav {
   width: 150%;
   aspect-ratio: 1 / 1;
   scale: 0;
-  transition: 1000ms cubic-bezier(0.76, 0, 0.24, 1);
-  background-color: white; 
+  transition: scale 1000ms cubic-bezier(0.76, 0, 0.24, 1); /* only animate bubble */
+  background-color: #0f172a; /* keep your hero button color */
   border-radius: 50%;
   position: absolute;
   translate: -50% -50%;
+  z-index: 0;
 }
 
 .bubbles::before {
@@ -108,13 +119,9 @@ nav {
   left: 100%;
 }
 
-.bubbles:hover span {
-  color: red;
-}
-
 .bubbles:hover::before,
 .bubbles:hover::after {
-  scale: 1;
+  scale: 1; /* grow on hover */
 }
 
 .bubbles:active {

@@ -391,7 +391,6 @@ const Wallet = () => {
               </div>
             </div>
 
-            {/* <!-- Assets / Token List --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-lg font-semibold">Assets</h3>
