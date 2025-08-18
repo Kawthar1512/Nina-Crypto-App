@@ -56,22 +56,23 @@ nav {
 .hello {
   /* background-color: #374151; */
   background-color: aliceblue;
-  background-image: radial-gradient(
+ background-image: radial-gradient(
     at 100% 0%,
-    rgba(55, 65, 81, 0.6) 0px,  /* purple-gray glow */
+    rgba(55, 65, 81, 0.5) 0px,   /* soft top-right glow */
     transparent 60%
   ),
   radial-gradient(
     at 0% 100%,
-    rgba(55, 65, 81, 0.8) 0px,  /* bottom glow */
+    rgba(55, 65, 81, 0.5) 0px,   /* bottom-left glow */
     transparent 70%
   ),
   radial-gradient(
     at 50% 50%,
-    #111827 0px,                /* deep center gray for contrast */
+    #0f172a 0px,                 /* dark core */
     transparent 100%
   );
-background-color: #0f172a; /* fallback solid background */
+/* background-color: #0f172a;  */
+
 
 }
 .bigi {
