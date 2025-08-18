@@ -54,18 +54,11 @@ nav {
 }
 
 .hello {
-  background-color: #0f172a;
+  /* background-color: #0f172a; */
   /* background-color: aliceblue; */
-background-image: radial-gradient(
-    at 100% 0%,
-    rgba(55, 65, 81, 0.35) 0px,   /* subtle gray glow top-right */
-    transparent 60%
-  ),
-  radial-gradient(
-    at 0% 100%,
-    rgba(55, 65, 81, 0.25) 0px,   /* softer glow bottom-left */
-    transparent 70%
-  );
+
+    background-color: #374151;
+
 /* background-color: #0f172a;  */
 
 
