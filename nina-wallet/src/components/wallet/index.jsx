@@ -401,7 +401,6 @@ const Wallet = () => {
               </div>
 
               <div className="divide-y divide-gray-700">
-                {/* <!-- token row (repeatable) --> */}
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
