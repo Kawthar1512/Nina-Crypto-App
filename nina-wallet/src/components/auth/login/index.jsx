@@ -67,7 +67,7 @@ const Login = () => {
       <div className="min-h-screen flex flex-col lg:flex-row">
         {userLoggedIn && <Navigate to="/wallet" replace />}
         {/* left side */}
-        <div className="bg-gray-700 text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
+        <div className="bg-[#0f172a] text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
           <img
             src={man}
             alt="Happy person using phone"

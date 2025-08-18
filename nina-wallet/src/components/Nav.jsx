@@ -12,7 +12,7 @@ export default function Nav() {
         />
         <h3 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">NINA WALLET</h3>
       </div>
-      <div className="navLinks bg-white h-[20px] text-black mt-7 p-6  rounded-full ">
+      <div className="navLinks  text-white  p-6  rounded-full ">
         <a href="">Features </a>
         <a href="">About</a>
         <a href="">Download</a>
