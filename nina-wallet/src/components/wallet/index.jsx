@@ -268,9 +268,26 @@ const Wallet = () => {
                 <div className="text-sm text-white/80">
                   Total portfolio value
                 </div>
-                <div className="text-4xl font-bold mt-1">$0.00</div>
+                <div className="balance-show relative flex justify-center items-center">
+                               <h1 className="text-black-400 text-5xl font-semibold font-mono">
+                                 {showBalance ? `${balance} ETH` : "****"}
+                               </h1>
+                    
+               
+                               <button
+                                 onClick={() => setShowBalance((prev) => !prev)}
+                                 className="absolute right-4 bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
+                                 title={showBalance ? "Hide Balance" : "Show Balance"}
+                               >
+                                 {showBalance ? (
+                                   <FiEyeOff className="w-4 h-4" />
+                                 ) : (
+                                   <FiEye className="w-4 h-4" />
+                                 )}
+                               </button>
+                             </div>
                 <div className="text-sm text-white/80 mt-1">
-                  BNB: <span className="font-semibold">0.0000</span>
+                  ETH: <span className="font-semibold">0.0000</span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
