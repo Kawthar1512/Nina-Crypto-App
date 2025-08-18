@@ -92,7 +92,7 @@ nav {
   aspect-ratio: 1 / 1;
   scale: 0;
   transition: 1000ms cubic-bezier(0.76, 0, 0.24, 1);
-  background-color: #8685ef; /* matches Tailwind text-[#8685ef] */
+  background-color: white; /* matches Tailwind text-[#8685ef] */
   border-radius: 50%;
   position: absolute;
   translate: -50% -50%;
@@ -109,7 +109,7 @@ nav {
 }
 
 .bubbles:hover span {
-  color: #212121;
+  color: red;
 }
 
 .bubbles:hover::before,
