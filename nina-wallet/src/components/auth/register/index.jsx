@@ -165,7 +165,7 @@ const Register = () => {
                 </Link>
               </div>
               <div className="absolute top-4 left-4">
-                <Link to="/" className="text-white hover:underline text-4xl">
+                <Link to="/" className="text-white hover:underline text-2xl">
                   ← Home
                 </Link>
               </div>
