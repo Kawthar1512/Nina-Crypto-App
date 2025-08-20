@@ -22,5 +22,9 @@
   "kawthareth@gmail.com": {
     "address": "0x8f44E6a0187FD74073566B881609F88F9bfdc192",
     "encryptedPrivateKey": "5cd8667a571f72b4bdd51dbaf9aaa813:85e6d8217638046cadd64a28e1c76d28ebd53eac8d54d94139897f9cd28603fff155ff77bc8721a6e93cbad2a41bc510e9595f1731b768ee17fad5d90a33853e04af"
+  },
+  "abundance@yahoo.com": {
+    "address": "0x0DD96826c13c49F57D434DB612e9450A521B5973",
+    "encryptedPrivateKey": "a3157d10b1a45e89eefcdcb2db34884d:596403f03f5b41bb4a350e77bc545d3d06f8b82bf1d01d7f491260993870c78fc7e7453f065f36a28fbb6253ad332d1c17541273e7b303f79450c4cd754f21c62d7d"
   }
 }

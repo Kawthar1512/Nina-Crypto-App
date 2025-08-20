@@ -114,7 +114,7 @@ const Wallet = () => {
     fetchEthPrice();
   }, []);
 
-  // 🔹 Compute the USD value whenever balance or ethPrice changes
+  //  Compute the USD value whenever balance or ethPrice changes
   useEffect(() => {
     if (ethPrice && balance) {
       setUsdValue((Number(balance) * ethPrice).toFixed(2));
@@ -158,12 +158,12 @@ const Wallet = () => {
     <>
       <main className="min-h-full bg-gray-700 text-gray-100">
         {/* <!-- My NAV --> */}
-        <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
+        <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700 ">
           <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-3 items-center ">
             {/* left side */}
 
             <div className="flex items-center gap-3">
-              <img src={nina} alt="logo" className="w-8 h-8 rounded" />
+              <img src={nina} alt="logo" className="w-12 h-12 rounded object-contain" />
               <span className="font-semibold text-yellow-400">Nina Wallet</span>
               <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
                 ETH
@@ -295,7 +295,7 @@ const Wallet = () => {
               <div>
                 <div className="text-sm text-white">Total portfolio value</div>
                 <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
+                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px] text-center ">
                     {showBalance ? `${balance} ETH` : "****"}
                   </h1>
 
@@ -339,10 +339,10 @@ const Wallet = () => {
                     <FiDownload className="text-lg" />
                     Receive
                   </button>
-
+{/* 
                   <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
                     ➕ Add Token
-                  </button>
+                  </button> */}
                 </div>
 
                 {/* Send Modal */}
