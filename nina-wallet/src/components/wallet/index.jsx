@@ -45,8 +45,8 @@ const Wallet = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const [ethPrice, setEthPrice] = useState(null); // NEW
-  const [usdValue, setUsdValue] = useState(null); // NEW
+  const [ethPrice, setEthPrice] = useState(null); 
+  const [usdValue, setUsdValue] = useState(null);
 
   const [copied, setCopied] = useState(false);
 
@@ -84,7 +84,7 @@ const Wallet = () => {
           setAddress(data.address);
           setBalance(data.balance);
 
-          // // Immediately fetch balance
+          // // Immediately fetch my balance
         } else {
           console.error("Failed to create/fetch wallet:", data.error);
         }
@@ -98,31 +98,29 @@ const Wallet = () => {
     }
   }, [currentUser]);
 
-// ---------------new
-
   useEffect(() => {
-  async function fetchEthPrice() {
-    try {
-      const res = await fetch(
-        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
-      );
-      const data = await res.json();
-      setEthPrice(data.ethereum.usd);
-    } catch (err) {
-      console.error("Error fetching ETH price:", err);
+    async function fetchEthPrice() {
+      try {
+        const res = await fetch(
+          "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+        );
+        const data = await res.json();
+        setEthPrice(data.ethereum.usd);
+      } catch (err) {
+        console.error("Error fetching ETH price:", err);
+      }
     }
-  }
-  fetchEthPrice();
-}, []);
+    fetchEthPrice();
+  }, []);
 
-// 🔹 Compute USD value whenever balance or ethPrice changes
-useEffect(() => {
-  if (ethPrice && balance) {
-    setUsdValue((Number(balance) * ethPrice).toFixed(2));
-  }
-}, [balance, ethPrice]);
+  // 🔹 Compute the USD value whenever balance or ethPrice changes
+  useEffect(() => {
+    if (ethPrice && balance) {
+      setUsdValue((Number(balance) * ethPrice).toFixed(2));
+    }
+  }, [balance, ethPrice]);
 
-// -------------end
+
 
   const handleSend = async () => {
     setTxStatus("");
@@ -160,7 +158,7 @@ useEffect(() => {
   return (
     <>
       <main className="min-h-full bg-gray-700 text-gray-100">
-        {/* <!-- NAV --> */}
+        {/* <!-- My NAV --> */}
         <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
           <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -313,9 +311,13 @@ useEffect(() => {
                     )}
                   </button>
                 </div>
-                <div className="text-sm text-white/80 mt-1">
-                  ~= <span className="font-semibold">0.0000</span>
+                <div className="text-sm text-gray-400">
+                  {usdValue ? `≈ $${usdValue}` : "Loading..."}
                 </div>
+
+                {/* <div className="text-sm text-white/80 mt-1">
+                  ~= <span className="font-semibold">0.0000</span>
+                </div> */}
 
                 <div className="mt-4 flex flex-wrap gap-3">
                   <button
