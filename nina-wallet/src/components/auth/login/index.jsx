@@ -152,9 +152,12 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="w-full bg-[#0f172a] text-white font-semibold rounded-lg p-3 bubbles relative overflow-hidden border-[5px] cursor-pointer px-4 py-2 text-[16px]  transition-all duration-300 ease-[cubic-bezier(0.83,0,0.17,1)]"
+                className="w-full text-black font-semibold rounded-lg p-3 bubbles relative overflow-hidden border-[5px] cursor-pointer px-4 py-2 text-[16px]  ]"
               >
-               {isSigningIn ? "Signing In..." : "Login"}
+               {isSigningIn ?(
+                <span className="text-black text">
+                Signing In... </span>) : (
+                  <span className="text-black text">Login </span>)}
               </button>
             </form>
 

@@ -26,7 +26,7 @@ export function AuthProvider({ children }) {
 
       setCurrentUser({ ...user });
 
-      // check if the provider is email and password login
+      // check if the provider has email and password login
       const isEmail = user.providerData.some(
         (provider) => provider.providerId === "password"
       );
