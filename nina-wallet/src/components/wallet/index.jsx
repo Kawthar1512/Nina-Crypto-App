@@ -6,7 +6,7 @@ import { doSignOut } from "../../firebase/auth";
 import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
 import nina from "../../assets/nina.png";
-import logo from "../../assets/wallet-logo2.png"
+import logo from "../../assets/wallet-logo2.png";
 
 import {
   FiCopy,
@@ -46,7 +46,7 @@ const Wallet = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
-  const [ethPrice, setEthPrice] = useState(null); 
+  const [ethPrice, setEthPrice] = useState(null);
   const [usdValue, setUsdValue] = useState(null);
 
   const [copied, setCopied] = useState(false);
@@ -121,8 +121,6 @@ const Wallet = () => {
     }
   }, [balance, ethPrice]);
 
-
-
   const handleSend = async () => {
     setTxStatus("");
     if (!recipient) {
@@ -161,7 +159,9 @@ const Wallet = () => {
       <main className="min-h-full bg-gray-700 text-gray-100">
         {/* <!-- My NAV --> */}
         <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
-          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-around">
+          <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-3 items-center ">
+            {/* left side */}
+
             <div className="flex items-center gap-3">
               <img src={nina} alt="logo" className="w-8 h-8 rounded" />
               <span className="font-semibold text-yellow-400">Nina Wallet</span>
@@ -169,8 +169,8 @@ const Wallet = () => {
                 ETH
               </span>
             </div>
-            
-            <div className="flex items-center gap-3 text-sm">
+            {/* center */}
+            <div className="flex justify-center items-center gap-3 text-sm">
               <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
                 <svg
                   className="w-4 h-4 text-yellow-400"
@@ -182,145 +182,143 @@ const Wallet = () => {
                 <div className="text-right">
                   <div className="text-xs text-gray-300">Network</div>
                   <div id="network" className="font-medium">
-                    BSCccc Mainnet
+                    Ethereum
                   </div>
                 </div>
               </div>
               {/* gshds */}
-              <div className="flex items-center gap-2">
-             
-                <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
-                  <p id="addr-short">
-                    {shortenAddress(address) || "No address in state"}
-                  </p>
-                  {address && (
-                    <button
-                      onClick={copyToClipboard}
-                      className="text-gray-700 hover:text-black"
-                      title="Copy to clipboard"
-                    >
-                      <FiCopy className="w-4 h-4" />
-                    </button>
-                  )}
-                  {copied && (
-                    <span className="text-green-600 text-xs ml-2">Copied!</span>
-                  )}
-                  {/* this is for the qr code but not workinng yet */}
-                  {/* <button
+
+              <div className=" text-white px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
+                <p id="addr-short">
+                  {shortenAddress(address) || "No address in state"}
+                </p>
+                {address && (
+                  <button
+                    onClick={copyToClipboard}
+                    className="text-gray-700 hover:text-black"
+                    title="Copy to clipboard"
+                  >
+                    <FiCopy className="w-4 h-4" />
+                  </button>
+                )}
+                {copied && (
+                  <span className="text-green-600 text-xs ml-2">Copied!</span>
+                )}
+                {/* this is for the qr code but not workinng yet */}
+                {/* <button
                     onclick="showQR()"
                     className="text-gray-300 hover:text-white"
                   >
                     
                   </button> */}
-                </div>
-                   <button
-                  id="notifications"
-                  className="p-2 rounded hover:bg-gray-700"
-                  title="Notifications"
-                >
-                  <FiBell className="w-4 h-4 text-white- hover:text-black " />
-                </button>
-                <button
-                  onClick={openModal}
-                  className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded dialog-close-btn"
-                >
-                  Logout
-                </button>
-                <Transition appear show={isOpen} as={Fragment}>
-                  <Dialog
-                    as="div"
-                    className="relative z-[9999]"
-                    onClose={closeModal}
-                  >
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0"
-                      enterTo="opacity-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100"
-                      leaveTo="opacity-0"
-                    >
-                      <div className="fixed inset-0 bg-black/5 " />
-                    </Transition.Child>
-                    <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
-                      <div className="flex min-h-full items-center justify-center p-4">
-                        <Transition.Child
-                          as={Fragment}
-                          enter="ease-out duration-300"
-                          enterFrom="opacity-0 scale-95"
-                          enterTo="opacity-100 scale-100"
-                          leave="ease-in duration-200"
-                          leaveFrom="opacity-100 scale-100"
-                          leaveTo="opacity-0 scale-95"
-                        >
-                          <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
-                            <Dialog.Title className="text-lg font-semibold text-gray-800">
-                              Are you sure you want to log out?
-                            </Dialog.Title>
-                            <div className="mt-4 flex justify-center gap-4">
-                              <button
-                                onClick={async () => {
-                                  await handleLogout(); // logout + redirect
-                                  closeModal(); // close modal after
-                                }}
-                                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                              >
-                                Yes, Logout
-                              </button>
-                              <button
-                                onClick={closeModal}
-                                className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          </Dialog.Panel>
-                        </Transition.Child>
-                      </div>
-                    </div>
-                  </Dialog>
-                </Transition>
               </div>
             </div>
-          </div>
+            {/* right */}
+            <div className="flex justify-end items-center gap-3">
+              <button
+                id="notifications"
+                className="p-2 rounded hover:bg-gray-700"
+                title="Notifications"
+              >
+                <FiBell className="w-4 h-4 text-white- hover:text-black " />
+              </button>
+              <button
+                onClick={openModal}
+                className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded dialog-close-btn"
+              >
+                Logout
+              </button>
+              </div>
+              <Transition appear show={isOpen} as={Fragment}>
+                <Dialog
+                  as="div"
+                  className="relative z-[9999]"
+                  onClose={closeModal}
+                >
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-out duration-300"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in duration-200"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-black/5 " />
+                  </Transition.Child>
+                  <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
+                    <div className="flex min-h-full items-center justify-center p-4">
+                      <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0 scale-95"
+                        enterTo="opacity-100 scale-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100 scale-100"
+                        leaveTo="opacity-0 scale-95"
+                      >
+                        <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
+                          <Dialog.Title className="text-lg font-semibold text-gray-800">
+                            Are you sure you want to log out?
+                          </Dialog.Title>
+                          <div className="mt-4 flex justify-center gap-4">
+                            <button
+                              onClick={async () => {
+                                await handleLogout(); // logout + redirect
+                                closeModal(); // close modal after
+                              }}
+                              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                            >
+                              Yes, Logout
+                            </button>
+                            <button
+                              onClick={closeModal}
+                              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        </Dialog.Panel>
+                      </Transition.Child>
+                    </div>
+                  </div>
+                </Dialog>
+              </Transition>
+            </div>
+          
         </nav>
-                    {/* main section starts here */}
+        {/* main section starts here */}
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-         
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
             <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-2xl p-6 shadow-xl flex items-center justify-between">
               <div>
-                <div className="text-sm text-white">
-                  Total portfolio value
+                <div className="text-sm text-white">Total portfolio value</div>
+                <div className="balance-show relative flex justify-center items-center">
+                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
+                    {showBalance ? `${balance} ETH` : "****"}
+                  </h1>
+
+                  <button
+                    onClick={() => setShowBalance((prev) => !prev)}
+                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+                    title={showBalance ? "Hide Balance" : "Show Balance"}
+                  >
+                    {showBalance ? (
+                      <FiEyeOff className="w-4 h-4" />
+                    ) : (
+                      <FiEye className="w-4 h-4" />
+                    )}
+                  </button>
                 </div>
-          <div className="balance-show relative flex justify-center items-center">
-  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
-    {showBalance ? `${balance} ETH` : "****"}
-  </h1>
 
-  <button
-    onClick={() => setShowBalance((prev) => !prev)}
-    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
-    title={showBalance ? "Hide Balance" : "Show Balance"}
-  >
-    {showBalance ? (
-      <FiEyeOff className="w-4 h-4" />
-    ) : (
-      <FiEye className="w-4 h-4" />
-    )}
-  </button>
-</div>
-
-<div className="text-[16px] text-yellow-300 font-bold text-center">
-  {showBalance
-    ? usdValue
-      ? `≈ $${usdValue}`
-      : "Loading..."
-    : "****"}
-</div>
-
+                <div className="text-[16px] text-yellow-300 font-bold text-center">
+                  {showBalance
+                    ? usdValue
+                      ? `≈ $${usdValue}`
+                      : "Loading..."
+                    : "****"}
+                </div>
 
                 {/* <div className="text-sm text-white/80 mt-1">
                   ~= <span className="font-semibold">0.0000</span>
