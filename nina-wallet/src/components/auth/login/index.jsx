@@ -138,7 +138,7 @@ const Login = () => {
                 <div className="text-right">
                   <a
                     href="#"
-                    className="text-sm text-purple-700 hover:underline"
+                    className="text-sm hover:underline text-[#0f172a] font-bold-sm"
                   >
                     Forgot password?
                   </a>
