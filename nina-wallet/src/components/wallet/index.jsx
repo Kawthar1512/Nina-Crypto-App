@@ -6,6 +6,7 @@ import { doSignOut } from "../../firebase/auth";
 import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
 import nina from "../../assets/nina.png";
+import logo from "../../assets/wallet-logo2.png"
 
 import {
   FiCopy,
@@ -160,15 +161,15 @@ const Wallet = () => {
       <main className="min-h-full bg-gray-700 text-gray-100">
         {/* <!-- My NAV --> */}
         <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700">
-          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-around">
             <div className="flex items-center gap-3">
               <img src={nina} alt="logo" className="w-8 h-8 rounded" />
-              <span className="font-semibold text-white">Nina Wallet</span>
+              <span className="font-semibold text-yellow-400">Nina Wallet</span>
               <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
-                BSC
+                ETH
               </span>
             </div>
-
+            
             <div className="flex items-center gap-3 text-sm">
               <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
                 <svg
@@ -187,13 +188,7 @@ const Wallet = () => {
               </div>
               {/* gshds */}
               <div className="flex items-center gap-2">
-                <button
-                  id="notifications"
-                  className="p-2 rounded hover:bg-gray-700"
-                  title="Notifications"
-                >
-                  <FiBell className="w-4 h-4 text-white- hover:text-black " />
-                </button>
+             
                 <div className="text-sm text-gray-300 px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
                   <p id="addr-short">
                     {shortenAddress(address) || "No address in state"}
@@ -218,6 +213,13 @@ const Wallet = () => {
                     
                   </button> */}
                 </div>
+                   <button
+                  id="notifications"
+                  className="p-2 rounded hover:bg-gray-700"
+                  title="Notifications"
+                >
+                  <FiBell className="w-4 h-4 text-white- hover:text-black " />
+                </button>
                 <button
                   onClick={openModal}
                   className="bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded dialog-close-btn"
@@ -285,8 +287,7 @@ const Wallet = () => {
         </nav>
                     {/* main section starts here */}
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* -- Left: 
-          Balance & Actions (prominent) --> */}
+         
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
             <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-2xl p-6 shadow-xl flex items-center justify-between">
@@ -294,26 +295,32 @@ const Wallet = () => {
                 <div className="text-sm text-white">
                   Total portfolio value
                 </div>
-                <div className=" border border-amber-200 balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
-                    {showBalance ? `${balance} ETH` : "****"}
-                  </h1>
+          <div className="balance-show relative flex justify-center items-center">
+  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
+    {showBalance ? `${balance} ETH` : "****"}
+  </h1>
 
-                  <button
-                    onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
-                    title={showBalance ? "Hide Balance" : "Show Balance"}
-                  >
-                    {showBalance ? (
-                      <FiEyeOff className="w-4 h-4" />
-                    ) : (
-                      <FiEye className="w-4 h-4" />
-                    )}
-                  </button>
-                </div>
-                <div className="text-[16px] text-yellow-300 font-bold text-center">
-                  {usdValue ? `≈ $${usdValue}` : "Loading..."}
-                </div>
+  <button
+    onClick={() => setShowBalance((prev) => !prev)}
+    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+    title={showBalance ? "Hide Balance" : "Show Balance"}
+  >
+    {showBalance ? (
+      <FiEyeOff className="w-4 h-4" />
+    ) : (
+      <FiEye className="w-4 h-4" />
+    )}
+  </button>
+</div>
+
+<div className="text-[16px] text-yellow-300 font-bold text-center">
+  {showBalance
+    ? usdValue
+      ? `≈ $${usdValue}`
+      : "Loading..."
+    : "****"}
+</div>
+
 
                 {/* <div className="text-sm text-white/80 mt-1">
                   ~= <span className="font-semibold">0.0000</span>
@@ -413,11 +420,11 @@ const Wallet = () => {
                   </Dialog>
                 </Transition>
               </div>
-              <div className="hidden sm:block">
+              <div className="hidden sm:block mb-[80px]">
                 <img
-                  src="wallet-illustration-light.png"
-                  alt="wallet"
-                  className="w-36 h-36 object-contain opacity-95"
+                  src={logo}
+                  alt="wallet-illustration"
+                  className="w-15 h-15 object-contain opacity-95"
                 />
               </div>
             </div>
