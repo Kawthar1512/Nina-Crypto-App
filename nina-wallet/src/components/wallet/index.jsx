@@ -461,7 +461,7 @@ const Wallet = () => {
           {/* <!-- Right Column: utilities, referral, settings --> */}
           <aside className="space-y-6">
             {/* <!-- Quick Network / Testnet Switch --> */}
-            <div className="bg-gray-800 rounded-xl p-4 shadow">
+            {/* <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between">
                 <div>
                   <div className="text-sm text-gray-400">Network</div>
@@ -477,7 +477,7 @@ const Wallet = () => {
                   </select>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* <!-- Referral --> */}
             <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">

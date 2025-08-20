@@ -47,16 +47,7 @@ export default function LandPage() {
       </div>
 
       {/* USDT */}
-      <div
-        className="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast"
-        style={{ top: "65%", left: "30%" }}
-      >
-        <img
-          src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/usdt.svg"
-          alt="USDT"
-          className="w-full h-full"
-        />
-      </div>
+
 
       {/* Another ETH */}
       <div
