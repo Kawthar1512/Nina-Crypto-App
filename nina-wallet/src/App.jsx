@@ -20,8 +20,9 @@ const AppContent = () => {
   return (
     <>
       {showNav && <Nav />} {/* my Landing page nav */}
+      <AnimatePresence exitBeforeEnter>
 
-      <Routes>
+        <Routes location={location} key={location.pathname}>
         <Route path="/" element={<LandPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
