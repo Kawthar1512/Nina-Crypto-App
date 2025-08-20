@@ -14,7 +14,7 @@ import { AnimatePresence } from "framer-motion";
 const AppContent = () => {
   const location = useLocation();
 
-  // this is to  Show  my Nav only on landing page
+  // this is to  Show  my Nav only on landing pag
   const showNav = location.pathname === "/";
 
   return (
