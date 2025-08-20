@@ -45,6 +45,8 @@ const Wallet = () => {
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
+  const [ethPrice, setEthPrice] = useState(null); // NEW
+  const [usdValue, setUsdValue] = useState(null); // NEW
 
   const [copied, setCopied] = useState(false);
 
@@ -95,6 +97,32 @@ const Wallet = () => {
       createOrFetchWalletAndBalance();
     }
   }, [currentUser]);
+
+// ---------------new
+
+  useEffect(() => {
+  async function fetchEthPrice() {
+    try {
+      const res = await fetch(
+        "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+      );
+      const data = await res.json();
+      setEthPrice(data.ethereum.usd);
+    } catch (err) {
+      console.error("Error fetching ETH price:", err);
+    }
+  }
+  fetchEthPrice();
+}, []);
+
+// 🔹 Compute USD value whenever balance or ethPrice changes
+useEffect(() => {
+  if (ethPrice && balance) {
+    setUsdValue((Number(balance) * ethPrice).toFixed(2));
+  }
+}, [balance, ethPrice]);
+
+// -------------end
 
   const handleSend = async () => {
     setTxStatus("");
@@ -269,13 +297,13 @@ const Wallet = () => {
                   Total portfolio value
                 </div>
                 <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-5xl font-semibold font-mono">
+                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono my-[30px]">
                     {showBalance ? `${balance} ETH` : "****"}
                   </h1>
 
                   <button
                     onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute right-4 bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
+                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
                     title={showBalance ? "Hide Balance" : "Show Balance"}
                   >
                     {showBalance ? (
@@ -286,27 +314,25 @@ const Wallet = () => {
                   </button>
                 </div>
                 <div className="text-sm text-white/80 mt-1">
-                  ETH: <span className="font-semibold">0.0000</span>
+                  ~= <span className="font-semibold">0.0000</span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
                   <button
                     onClick={() => setShowSendModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                    className="flex items-center gap-6 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
                   >
                     <FiSend className="text-lg" />
                     Send
                   </button>
                   <button
                     onClick={() => setShowReceiveModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                    className="flex items-center gap-6 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
                   >
                     <FiDownload className="text-lg" />
                     Receive
                   </button>
-                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                    💱 Swap
-                  </button>
+
                   <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
                     ➕ Add Token
                   </button>
@@ -423,7 +449,7 @@ const Wallet = () => {
 
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
-                   <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
+                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
                       $
                     </div>
                     <div>
