@@ -90,7 +90,7 @@ const Wallet = () => {
         console.error("Error creating/fetching wallet:", error);
       }
     }
- 
+
     if (currentUser?.email) {
       createOrFetchWalletAndBalance();
     }
@@ -159,7 +159,7 @@ const Wallet = () => {
                   </div>
                 </div>
               </div>
-{/* gshds */}
+              {/* gshds */}
               <div className="flex items-center gap-2">
                 <button
                   id="notifications"
@@ -269,40 +269,40 @@ const Wallet = () => {
                   Total portfolio value
                 </div>
                 <div className="balance-show relative flex justify-center items-center">
-                               <h1 className="text-black-400 text-5xl font-semibold font-mono">
-                                 {showBalance ? `${balance} ETH` : "****"}
-                               </h1>
-                    
-               
-                               <button
-                                 onClick={() => setShowBalance((prev) => !prev)}
-                                 className="absolute right-4 bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
-                                 title={showBalance ? "Hide Balance" : "Show Balance"}
-                               >
-                                 {showBalance ? (
-                                   <FiEyeOff className="w-4 h-4" />
-                                 ) : (
-                                   <FiEye className="w-4 h-4" />
-                                 )}
-                               </button>
-                             </div>
+                  <h1 className="text-black-400 text-5xl font-semibold font-mono">
+                    {showBalance ? `${balance} ETH` : "****"}
+                  </h1>
+
+                  <button
+                    onClick={() => setShowBalance((prev) => !prev)}
+                    className="absolute right-4 bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
+                    title={showBalance ? "Hide Balance" : "Show Balance"}
+                  >
+                    {showBalance ? (
+                      <FiEyeOff className="w-4 h-4" />
+                    ) : (
+                      <FiEye className="w-4 h-4" />
+                    )}
+                  </button>
+                </div>
                 <div className="text-sm text-white/80 mt-1">
                   ETH: <span className="font-semibold">0.0000</span>
                 </div>
 
                 <div className="mt-4 flex flex-wrap gap-3">
-                  <button onClick={() => setShowSendModal(true)} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                        <FiSend className="text-lg" />
-                          Send    
-                    
+                  <button
+                    onClick={() => setShowSendModal(true)}
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                  >
+                    <FiSend className="text-lg" />
+                    Send
                   </button>
                   <button
-                  onClick={() => setShowReceiveModal(true)}
-                  className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                     
+                    onClick={() => setShowReceiveModal(true)}
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                  >
                     <FiDownload className="text-lg" />
                     Receive
-                    
                   </button>
                   <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
                     💱 Swap
@@ -311,76 +311,79 @@ const Wallet = () => {
                     ➕ Add Token
                   </button>
                 </div>
-                  
-        {/* Send Modal */}
-        <Transition appear show={showSendModal} as={Fragment}>
-          <Dialog
-            as="div"
-            className="dialog-root"
-            onClose={() => setShowSendModal(false)}
-          >
-            <div className="dialog-container">
-              <Dialog.Panel>
-                <Dialog.Title className="dialog-title">Send ETH</Dialog.Title>
-                <div className="dialog-content">
-                  <input
-                    type="text"
-                    placeholder="Recipient Address"
-                    value={recipient}
-                    onChange={(e) => setRecipient(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Amount in ETH"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                  <button className="dialog-action-btn" onClick={handleSend}>
-                    Send
-                  </button>
-                  {/* {txStatus && <p>{txStatus}</p>} */}
-                  {txStatus && <p>{String(txStatus)}</p>}
-                </div>
-                <button
-                  className="dialog-close-btn"
-                  onClick={() => setShowSendModal(false)}
-                >
-                  Close
-                </button>
-              </Dialog.Panel>
-            </div>
-          </Dialog>
-        </Transition>
 
-        {/* Receive Modal */}
-        <Transition appear show={showReceiveModal} as={Fragment}>
-          <Dialog
-            as="div"
-            className="dialog-root"
-            onClose={() => setShowReceiveModal(false)}
-          >
-            <div className="dialog-container">
-              <Dialog.Panel>
-                <Dialog.Title className="dialog-title">
-                  Receive ETH
-                </Dialog.Title>
-                <div className="dialog-content">
-                  <p>Your Wallet Address:</p>
-                  {/* <p>{address}</p> */}
-                  <p>{typeof address === "string" ? address : ""}</p>
-                </div>
-                <button
-                  className="dialog-close-btn"
-                  onClick={() => setShowReceiveModal(false)}
-                >
-                  Close
-                </button>
-              </Dialog.Panel>
-            </div>
-          </Dialog>
-        </Transition>
+                {/* Send Modal */}
+                <Transition appear show={showSendModal} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="dialog-root"
+                    onClose={() => setShowSendModal(false)}
+                  >
+                    <div className="dialog-container">
+                      <Dialog.Panel>
+                        <Dialog.Title className="dialog-title">
+                          Send ETH
+                        </Dialog.Title>
+                        <div className="dialog-content">
+                          <input
+                            type="text"
+                            placeholder="Recipient Address"
+                            value={recipient}
+                            onChange={(e) => setRecipient(e.target.value)}
+                          />
+                          <input
+                            type="text"
+                            placeholder="Amount in ETH"
+                            value={amount}
+                            onChange={(e) => setAmount(e.target.value)}
+                          />
+                          <button
+                            className="dialog-action-btn"
+                            onClick={handleSend}
+                          >
+                            Send
+                          </button>
+                          {/* {txStatus && <p>{txStatus}</p>} */}
+                          {txStatus && <p>{String(txStatus)}</p>}
+                        </div>
+                        <button
+                          className="dialog-close-btn"
+                          onClick={() => setShowSendModal(false)}
+                        >
+                          Close
+                        </button>
+                      </Dialog.Panel>
+                    </div>
+                  </Dialog>
+                </Transition>
 
-
+                {/* Receive Modal */}
+                <Transition appear show={showReceiveModal} as={Fragment}>
+                  <Dialog
+                    as="div"
+                    className="dialog-root"
+                    onClose={() => setShowReceiveModal(false)}
+                  >
+                    <div className="dialog-container">
+                      <Dialog.Panel>
+                        <Dialog.Title className="dialog-title">
+                          Receive ETH
+                        </Dialog.Title>
+                        <div className="dialog-content">
+                          <p>Your Wallet Address:</p>
+                          {/* <p>{address}</p> */}
+                          <p>{typeof address === "string" ? address : ""}</p>
+                        </div>
+                        <button
+                          className="dialog-close-btn"
+                          onClick={() => setShowReceiveModal(false)}
+                        >
+                          Close
+                        </button>
+                      </Dialog.Panel>
+                    </div>
+                  </Dialog>
+                </Transition>
               </div>
               <div className="hidden sm:block">
                 <img
@@ -403,12 +406,12 @@ const Wallet = () => {
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
-                      BNB
+                      ETH
                     </div>
                     <div>
-                      <div className="font-medium">Binance Coin</div>
+                      <div className="font-medium">Ethereum</div>
                       <div className="text-xs text-gray-400">
-                        BNB • 18 decimals
+                        ETH • 18 decimals
                       </div>
                     </div>
                   </div>
@@ -420,13 +423,11 @@ const Wallet = () => {
 
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
-                    <img
-                      src="token-placeholder.png"
-                      alt="token"
-                      className="w-10 h-10 rounded-full bg-gray-700"
-                    />
+                   <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
+                      $
+                    </div>
                     <div>
-                      <div className="font-medium">USDT (BEP-20)</div>
+                      <div className="font-medium">USDT (ERC-20)</div>
                       <div className="text-xs text-gray-400">
                         USDT • contract
                       </div>
@@ -451,8 +452,8 @@ const Wallet = () => {
                 <div className="text-2xl">🔍</div>
                 <p className="mt-3">No transactions yet</p>
                 <p className="text-sm text-gray-400 mt-1">
-                  Once you send or receive BNB or BEP‑20 tokens, they will
-                  appear here. You can view details on BscScan.
+                  Once you send or receive ETH, it will appear here. You can
+                  view details on Etherscan.
                 </p>
               </div>
             </div>
@@ -530,8 +531,7 @@ const Wallet = () => {
           </aside>
         </main>
 
-     
-    {/* 
+        {/* 
     }
     function showQR() {
       alert('Show QR modal (implement)');
@@ -547,7 +547,6 @@ const Wallet = () => {
       const opt = e.target.options[e.target.selectedIndex].text;
       document.getElementById('network').innerText = opt;
     }); */}
-
       </main>
     </>
   );
