@@ -23,11 +23,49 @@ const AppContent = () => {
       <AnimatePresence exitBeforeEnter>
 
         <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<LandPage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/wallet" element={<Wallet />} />
+        <Route path="/" element={ <motion.div
+                variants={pageTransition}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <LandPage />
+              </motion.div>
+            }
+          />
+        <Route path="/login" element={ <motion.div
+                variants={pageTransition}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <Login />
+              </motion.div>
+            }
+          />
+        <Route path="/register" element={<motion.div
+                variants={pageTransition}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <Register />
+              </motion.div>
+            }
+          />
+        <Route path="/wallet" element={<motion.div
+                variants={pageTransition}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+              >
+                <Wallet />
+              </motion.div>
+            }
+          />
       </Routes>
+            </AnimatePresence>
+
     </>
   );
 };
