@@ -19,7 +19,58 @@ export default function LandPage() {
             alt=""
             className="absolute opacity-90 w-[100px] pointer-events-none "
             style={{ animation: "spin 50s linear infinite" }}
-          />{" "}
+          />
+
+ <div>
+      {/* BNB */}
+      <div
+        className="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast"
+        style={{ top: "20%", left: "15%" }}
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/bnb.svg"
+          alt="BNB"
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* ETH */}
+      <div
+        className="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast"
+        style={{ top: "40%", left: "70%" }}
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/eth.svg"
+          alt="ETH"
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* USDT */}
+      <div
+        className="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast"
+        style={{ top: "65%", left: "30%" }}
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/usdt.svg"
+          alt="USDT"
+          className="w-full h-full"
+        />
+      </div>
+
+      {/* Another ETH */}
+      <div
+        className="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast"
+        style={{ top: "75%", left: "80%" }}
+      >
+        <img
+          src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/eth.svg"
+          alt="ETH"
+          className="w-full h-full"
+        />
+      </div>
+    </div>
+          
           <div className=" bigi p-10  w-[900px] text-white  text-center">
             <div className=" text-center px-10 lg:p-0  ">
               <h2 className="your_wallet font-bold">
