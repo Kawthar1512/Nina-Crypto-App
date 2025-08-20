@@ -283,25 +283,25 @@ const Wallet = () => {
             </div>
           </div>
         </nav>
-
+                    {/* main section starts here */}
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* -- Left: 
           Balance & Actions (prominent) --> */}
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
-            <div className="bg-gradient-to-r from-purple-700 via-indigo-600 to-blue-600 rounded-2xl p-6 shadow-xl flex items-center justify-between">
+            <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-2xl p-6 shadow-xl flex items-center justify-between">
               <div>
-                <div className="text-sm text-white/80">
+                <div className="text-sm text-white">
                   Total portfolio value
                 </div>
-                <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono my-[30px]">
+                <div className=" border border-amber-200 balance-show relative flex justify-center items-center">
+                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px]">
                     {showBalance ? `${balance} ETH` : "****"}
                   </h1>
 
                   <button
                     onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 rounded-full"
+                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
                     title={showBalance ? "Hide Balance" : "Show Balance"}
                   >
                     {showBalance ? (
@@ -311,7 +311,7 @@ const Wallet = () => {
                     )}
                   </button>
                 </div>
-                <div className="text-sm text-gray-400">
+                <div className="text-[16px] text-yellow-300 font-bold text-center">
                   {usdValue ? `≈ $${usdValue}` : "Loading..."}
                 </div>
 
