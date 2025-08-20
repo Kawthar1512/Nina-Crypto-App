@@ -7,6 +7,9 @@ import Header from "./components/header";
 import Wallet from "./components/wallet";
 import Nav from "./components/Nav"; // Your landing page nav
 import { AuthProvider } from "./contexts/authContext";
+import PageWrapper from "./components/PageWrapper";
+import { AnimatePresence } from "framer-motion";
+
 
 const AppContent = () => {
   const location = useLocation();
