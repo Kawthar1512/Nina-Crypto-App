@@ -33,7 +33,7 @@ const animations = {
     exit: { opacity: 0, x: 50 },
   },
   register: {
-    initial: { opacity: 0, rotateY: 90 },
+    initial: { opacity: 0, rotateY: 120 },
     animate: { opacity: 1, rotateY: 0 },
     exit: { opacity: 0, rotateY: -90 },
   },
