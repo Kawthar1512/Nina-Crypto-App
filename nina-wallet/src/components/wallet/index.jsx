@@ -102,7 +102,7 @@ const Wallet = () => {
 
   return (
     <>
-      <main className="min-h-full bg-gray-700 text-gray-100">
+      <main className="min-h-screen bg-gray-700 text-gray-100">
         {/* <!-- My NAV --> */}
         <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700 ">
           <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-3 items-center ">
