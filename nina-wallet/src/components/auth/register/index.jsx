@@ -147,13 +147,14 @@ const Register = () => {
   type="submit"
   disabled={isRegistering}
   className={`submit-btn ${isRegistering ? "disabled" : ""} 
-    w-full bg-[#0f172a] text-white font-semibold rounded-lg 
-    p-3 relative overflow-hidden border-[5px] cursor-pointer text-[16px]`}
+    w-full text-black font-semibold rounded-lg p-3 bubbles
+     relative overflow-hidden
+     border-[5px] cursor-pointer px-4 py-2 text-[16px]`}
 >
   {isRegistering ? (
-    <span className="text-white italic">Signing Up...</span>
+    <span className="text-black text">Signing Up...</span>
   ) : (
-    <span className="text-white">Sign Up</span>
+    <span className="text-black text">Sign Up</span>
   )}
 </button>
 

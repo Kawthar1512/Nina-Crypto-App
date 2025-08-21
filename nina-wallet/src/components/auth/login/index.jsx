@@ -152,7 +152,7 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={isSigningIn}
-                className="w-full text-black font-semibold rounded-lg p-3 bubbles relative overflow-hidden border-[5px] cursor-pointer px-4 py-2 text-[16px]  ]"
+                className="w-full text-black font-semibold rounded-lg p-3 bubbles relative overflow-hidden border-[5px] cursor-pointer px-4 py-2 text-[16px] "
               >
                {isSigningIn ?(
                 <span className="text-black text">
