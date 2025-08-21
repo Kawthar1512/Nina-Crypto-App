@@ -26,7 +26,12 @@
   text-align: center;
   align-content: center;
 }
-
+.nins{
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
 .right-side {
   width: 50%;
 

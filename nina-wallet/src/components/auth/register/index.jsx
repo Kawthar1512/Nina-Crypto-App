@@ -70,7 +70,7 @@ const Register = () => {
 
           <h2 className="text-2xl lg:text-3xl font-bold text-center max-w-md">
             Have access to your finances anywhere in the world on
-            <span className="text-[#F3C738] "> Nina Wallet</span>
+            <span className="text-[#F3C738] nins "> Nina Wallet</span>
           </h2>
         </div>
 
@@ -84,7 +84,7 @@ const Register = () => {
                 className="w-10 h-10 object-contain"
               />
 
-              <div className=" font-bold text-[17px] text-[#F3C738] ">
+              <div className=" font-bold text-[17px] text-[#F3C738] nins">
                 NINA WALLET
               </div>
             </div>

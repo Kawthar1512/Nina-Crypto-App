@@ -163,8 +163,12 @@ const Wallet = () => {
             {/* left side */}
 
             <div className="flex items-center gap-3">
-              <img src={nina} alt="logo" className="w-12 h-12 rounded object-contain" />
-              <span className="font-semibold text-yellow-400">Nina Wallet</span>
+              <img
+                src={nina}
+                alt="logo"
+                className="w-12 h-12 rounded object-contain"
+              />
+              <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">NINA WALLET</span>
               <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
                 ETH
               </span>
@@ -228,64 +232,63 @@ const Wallet = () => {
               >
                 Logout
               </button>
-              </div>
-              <Transition appear show={isOpen} as={Fragment}>
-                <Dialog
-                  as="div"
-                  className="relative z-[9999]"
-                  onClose={closeModal}
-                >
-                  <Transition.Child
-                    as={Fragment}
-                    enter="ease-out duration-300"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in duration-200"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                  >
-                    <div className="fixed inset-0 bg-black/5 " />
-                  </Transition.Child>
-                  <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
-                    <div className="flex min-h-full items-center justify-center p-4">
-                      <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
-                      >
-                        <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
-                          <Dialog.Title className="text-lg font-semibold text-gray-800">
-                            Are you sure you want to log out?
-                          </Dialog.Title>
-                          <div className="mt-4 flex justify-center gap-4">
-                            <button
-                              onClick={async () => {
-                                await handleLogout(); // logout + redirect
-                                closeModal(); // close modal after
-                              }}
-                              className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-                            >
-                              Yes, Logout
-                            </button>
-                            <button
-                              onClick={closeModal}
-                              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-                            >
-                              Cancel
-                            </button>
-                          </div>
-                        </Dialog.Panel>
-                      </Transition.Child>
-                    </div>
-                  </div>
-                </Dialog>
-              </Transition>
             </div>
-          
+            <Transition appear show={isOpen} as={Fragment}>
+              <Dialog
+                as="div"
+                className="relative z-[9999]"
+                onClose={closeModal}
+              >
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 bg-black/5 " />
+                </Transition.Child>
+                <div className="fixed inset-0 overflow-y-auto backdrop-blur-sm">
+                  <div className="flex min-h-full items-center justify-center p-4">
+                    <Transition.Child
+                      as={Fragment}
+                      enter="ease-out duration-300"
+                      enterFrom="opacity-0 scale-95"
+                      enterTo="opacity-100 scale-100"
+                      leave="ease-in duration-200"
+                      leaveFrom="opacity-100 scale-100"
+                      leaveTo="opacity-0 scale-95"
+                    >
+                      <Dialog.Panel className="w-full max-w-sm transform overflow-hidden  rounded-xl bg-white p-6 text-center shadow-xl transition-all">
+                        <Dialog.Title className="text-lg font-semibold text-gray-800">
+                          Are you sure you want to log out?
+                        </Dialog.Title>
+                        <div className="mt-4 flex justify-center gap-4">
+                          <button
+                            onClick={async () => {
+                              await handleLogout(); // logout + redirect
+                              closeModal(); // close modal after
+                            }}
+                            className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                          >
+                            Yes, Logout
+                          </button>
+                          <button
+                            onClick={closeModal}
+                            className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      </Dialog.Panel>
+                    </Transition.Child>
+                  </div>
+                </div>
+              </Dialog>
+            </Transition>
+          </div>
         </nav>
         {/* main section starts here */}
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -324,26 +327,23 @@ const Wallet = () => {
                   ~= <span className="font-semibold">0.0000</span>
                 </div> */}
 
-                <div className="mt-4 flex flex-wrap gap-3">
+                <div className="mt-4 mx-auto flex justify-center gap-4 border border-amber-300 w-fit">
                   <button
                     onClick={() => setShowSendModal(true)}
-                    className="flex items-center gap-6 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
                   >
                     <FiSend className="text-lg" />
                     Send
                   </button>
                   <button
                     onClick={() => setShowReceiveModal(true)}
-                    className="flex items-center gap-6 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
                   >
                     <FiDownload className="text-lg" />
                     Receive
                   </button>
-{/* 
-                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg">
-                    ➕ Add Token
-                  </button> */}
-                </div>
+                
+                    </div>
 
                 {/* Send Modal */}
                 <Transition appear show={showSendModal} as={Fragment}>
@@ -418,14 +418,15 @@ const Wallet = () => {
                   </Dialog>
                 </Transition>
               </div>
-              <div className="hidden sm:block mb-[80px]">
+              {/* <div className="hidden sm:block mb-[80px]">
                 <img
                   src={logo}
                   alt="wallet-illustration"
                   className="w-15 h-15 object-contain opacity-95"
                 />
-              </div>
+              </div> */}
             </div>
+            
 
             <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between mb-3">

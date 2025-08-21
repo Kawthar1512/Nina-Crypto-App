@@ -90,7 +90,7 @@ const Login = () => {
                 className="w-10 h-10 object-contain"
               />
 
-              <div className=" font-bold text-[17px] text-[#F3C738]">
+              <div className=" font-bold text-[17px] text-[#F3C738] nins">
                 NINA WALLET
               </div>
             </div>
