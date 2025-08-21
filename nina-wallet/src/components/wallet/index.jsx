@@ -270,27 +270,24 @@ const Wallet = () => {
                 <div className="text-[16px] text-yellow-300 font-bold text-center">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
-                {/* <div className="text-sm text-white/80 mt-1">
-                  ~= <span className="font-semibold">0.0000</span>
-                </div> */}
+               
 
-                <div className="mt-4 mx-auto flex justify-center gap-4 border border-amber-300 w-full">
-  <button
-    onClick={() => setShowSendModal(true)}
-    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-  >
-    <FiSend className="text-lg" />
-    Send
-  </button>
-  <button
-    onClick={() => setShowReceiveModal(true)}
-    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-  >
-    <FiDownload className="text-lg" />
-    Receive
-  </button>
-</div>
-
+                <div className="mt-4 lg:ml-[30px] mx-auto flex justify-center gap-4 border border-amber-300 w-full">
+                  <button
+                    onClick={() => setShowSendModal(true)}
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                  >
+                    <FiSend className="text-lg" />
+                    Send
+                  </button>
+                  <button
+                    onClick={() => setShowReceiveModal(true)}
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                  >
+                    <FiDownload className="text-lg" />
+                    Receive
+                  </button>
+                </div>
 
                 {/* Send Modal */}
                 <Transition appear show={showSendModal} as={Fragment}>
@@ -434,38 +431,35 @@ const Wallet = () => {
             </div> */}
 
             {/* <!-- Referral --> */}
-           <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
-  <div className="flex items-center justify-between">
-    <div className="max-w-[70%]">
-      <div className="text-sm opacity-90">Invite friends</div>
-      <div className="font-semibold mt-1">Get $100</div>
-      <div className="text-xs mt-2 text-white/80">
-        Share your code and earn rewards when friends sign up and
-        transact.
-      </div>
-      <div className="mt-3 flex items-center gap-2">
-        <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">
-          REF12345
-        </span>
-        <button
-          className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
-        >
-          Copy
-        </button>
-      </div>
-    </div>
+            <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
+              <div className="flex items-center justify-between">
+                <div className="max-w-[70%]">
+                  <div className="text-sm opacity-90">Invite friends</div>
+                  <div className="font-semibold mt-1">Get $100</div>
+                  <div className="text-xs mt-2 text-white/80">
+                    Share your code and earn rewards when friends sign up and
+                    transact.
+                  </div>
+                  <div className="mt-3 flex items-center gap-2">
+                    <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">
+                      REF12345
+                    </span>
+                    <button className="bg-white/10 px-3 py-1 rounded hover:bg-white/20">
+                      Copy
+                    </button>
+                  </div>
+                </div>
 
-    {/* Larger image but constrained */}
-    <div className="flex-shrink-0">
-      <img
-        src={winner}
-        alt="referral"
-        className="mt-[-70px] w-32 h-32 ml-[60px] rounded-full object-contain" 
-      />
-    </div>
-  </div>
-</div>
-
+                {/* Larger image but constrained */}
+                <div className="flex-shrink-0">
+                  <img
+                    src={winner}
+                    alt="referral"
+                    className="mt-[-70px] w-32 h-32 ml-[60px] rounded-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
 
             {/* <!-- Security / Backup --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
