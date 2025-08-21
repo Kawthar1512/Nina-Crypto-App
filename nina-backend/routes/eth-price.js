@@ -1,14 +1,21 @@
-// routes/ethPrice.js
 const express = require("express");
-const axios = require("axios");
 const router = express.Router();
+const axios = require("axios");
 
+// GET ETH price in USD
 router.get("/", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+      "https://api.coingecko.com/api/v3/simple/price",
+      {
+        params: {
+          ids: "ethereum",
+          vs_currencies: "usd",
+        },
+      }
     );
-    res.json(response.data); // send JSON
+
+    res.json(response.data);
   } catch (error) {
     console.error("Error fetching ETH price:", error.message);
     res.status(500).json({ error: "Failed to fetch ETH price" });

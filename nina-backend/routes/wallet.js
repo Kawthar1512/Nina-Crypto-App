@@ -68,41 +68,32 @@ router.post("/send", async (req, res) => {
   const { userId, to, amount } = req.body;
 
   try {
-    // 1. Get sender wallet data
-    const walletData = getWallet(userId);
-
-    if (!walletData) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Wallet not found" });
+    if (!to || !amount) {
+      return res.status(400).json({ success: false, error: "Missing to or amount" });
     }
 
-    // 2. Decrypt the private key
-    const privateKey = decryptPrivateKey(walletData.encryptedKey);
+    const walletData = getWallet(userId);
+    if (!walletData) return res.status(404).json({ success: false, error: "Wallet not found" });
 
-    // 3. Load wallet
+    const privateKey = decryptPrivateKey(walletData.encryptedKey);
     const wallet = new ethers.Wallet(privateKey, provider);
 
-    // 4. Create & send tx
+    console.log("Sending", amount, "ETH from", wallet.address, "to", to);
+
     const tx = await wallet.sendTransaction({
       to,
-      value: ethers.parseEther(amount.toString()), // amount in ETH as string
+      value: ethers.parseEther(amount.toString()),
     });
 
-    // 5. Wait for confirmation
     const receipt = await tx.wait();
 
-    res.json({
-      success: true,
-      txHash: receipt.hash,
-    });
+    res.json({ success: true, txHash: receipt.hash });
   } catch (err) {
     console.error("Send transaction error:", err);
-    res
-      .status(500)
-      .json({ success: false, error: "Failed to send transaction" });
+    res.status(500).json({ success: false, error: err.message || "Failed to send transaction" });
   }
 });
+
 
 
 // test my api route

@@ -7,6 +7,8 @@ import "../../styles/wallet.css";
 import winner from "../../assets/win.png";
 import nina from "../../assets/nina.png";
 import logo from "../../assets/wallet-logo2.png";
+import EthPrice from "../EthPrice";
+import SendEth from "../SendEth";
 
 import {
   FiCopy,
@@ -39,9 +41,6 @@ const Wallet = () => {
   const [balance, setBalance] = useState("0.00");
   const [showSendModal, setShowSendModal] = useState(false);
   const [showReceiveModal, setShowReceiveModal] = useState(false);
-  const [recipient, setRecipient] = useState("");
-  const [amount, setAmount] = useState("");
-  const [txStatus, setTxStatus] = useState("");
   const [showBalance, setShowBalance] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => setIsOpen(true);
@@ -76,7 +75,7 @@ const Wallet = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: currentUser.email
+            userId: currentUser.email,
           }),
         });
 
@@ -100,68 +99,6 @@ const Wallet = () => {
       createOrFetchWalletAndBalance();
     }
   }, [currentUser]);
-
-  useEffect(() => {
-    async function fetchEthPrice() {
-      try {
-        const res = await fetch(
-          "http://localhost:5000/api/eth-price"
-        );
-        const data = await res.json();
-        setEthPrice(data.ethereum.usd);
-      } catch (err) {
-        console.error("Error fetching ETH price:", err);
-      }
-    }
-    fetchEthPrice();
-  }, []);
-
-  //  Compute the USD value whenever balance or ethPrice changes
-  useEffect(() => {
-    if (ethPrice && balance) {
-      setUsdValue((Number(balance) * ethPrice).toFixed(2));
-    }
-  }, [balance, ethPrice]);
-
-
-  const handleSend = async () => {
-  setTxStatus("");
-
-  if (!recipient) {
-    setTxStatus("Please enter a recipient address.");
-    return;
-  }
-  if (!amount || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) {
-    setTxStatus("Please enter a valid amount.");
-    return;
-  }
-
-  try {
-    setTxStatus("Sending transaction...");
-    const res = await fetch("http://localhost:5000/api/wallet/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: currentUser.email,  // ✅ include userId
-        to: recipient,
-        amount,
-      }),
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      setTxStatus("✅ Transaction successful! TxHash: " + data.txHash);
-      setRecipient("");
-      setAmount("");
-    } else {
-      setTxStatus("❌ Transaction failed: " + data.error);
-    }
-  } catch (error) {
-    setTxStatus("❌ Transaction failed: " + error.message);
-  }
-};
-
 
   return (
     <>
@@ -309,8 +246,12 @@ const Wallet = () => {
               <div>
                 <div className="text-sm text-white">Total portfolio value</div>
                 <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px] text-center ">
-                    {showBalance ? `${balance} ETH` : "****"}
+                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px] text-center">
+                    {showBalance
+                      ? balance
+                        ? `${balance} ETH`
+                        : "Loading..."
+                      : "****"}
                   </h1>
 
                   <button
@@ -327,13 +268,8 @@ const Wallet = () => {
                 </div>
 
                 <div className="text-[16px] text-yellow-300 font-bold text-center">
-                  {showBalance
-                    ? usdValue
-                      ? `≈ $${usdValue}`
-                      : "Loading..."
-                    : "****"}
+                  <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
-
                 {/* <div className="text-sm text-white/80 mt-1">
                   ~= <span className="font-semibold">0.0000</span>
                 </div> */}
@@ -364,37 +300,10 @@ const Wallet = () => {
                   >
                     <div className="dialog-container">
                       <Dialog.Panel>
-                        <Dialog.Title className="dialog-title">
-                          Send ETH
-                        </Dialog.Title>
-                        <div className="dialog-content">
-                          <input
-                            type="text"
-                            placeholder="Recipient Address"
-                            value={recipient}
-                            onChange={(e) => setRecipient(e.target.value)}
-                          />
-                          <input
-                            type="text"
-                            placeholder="Amount in ETH"
-                            value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
-                          />
-                          <button
-                            className="dialog-action-btn"
-                            onClick={handleSend}
-                          >
-                            Send
-                          </button>
-                          {/* {txStatus && <p>{txStatus}</p>} */}
-                          {txStatus && <p>{String(txStatus)}</p>}
-                        </div>
-                        <button
-                          className="dialog-close-btn"
-                          onClick={() => setShowSendModal(false)}
-                        >
-                          Close
-                        </button>
+                        <SendEth
+                          senderAddress={address}
+                          onClose={() => setShowSendModal(false)}
+                        />
                       </Dialog.Panel>
                     </div>
                   </Dialog>
