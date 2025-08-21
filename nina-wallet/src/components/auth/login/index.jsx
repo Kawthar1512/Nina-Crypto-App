@@ -170,6 +170,11 @@ const Login = () => {
                 <strong>Sign up</strong>
               </Link>
             </div>
+             <div className="absolute top-4 left-4">
+                            <Link to="/" className="text-white hover:underline text-[12px]">
+                              ← Home
+                            </Link>
+                          </div>
             <p className="mt-4 text-xs text-gray-500 text-center">
               🔒 Secure login — your information is encrypted
             </p>
