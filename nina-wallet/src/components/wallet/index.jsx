@@ -256,7 +256,7 @@ const Wallet = () => {
 
                   <button
                     onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute lg:right-[10px] left-[400px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+                    className="absolute lg:right-[10px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
                     title={showBalance ? "Hide Balance" : "Show Balance"}
                   >
                     {showBalance ? (
@@ -274,22 +274,23 @@ const Wallet = () => {
                   ~= <span className="font-semibold">0.0000</span>
                 </div> */}
 
-                <div className="mt-4 mx-auto flex justify-center gap-4 border border-amber-300 w-fit">
-                  <button
-                    onClick={() => setShowSendModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-                  >
-                    <FiSend className="text-lg" />
-                    Send
-                  </button>
-                  <button
-                    onClick={() => setShowReceiveModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-                  >
-                    <FiDownload className="text-lg" />
-                    Receive
-                  </button>
-                </div>
+                <div className="mt-4 mx-auto flex justify-center gap-4 border border-amber-300 w-full">
+  <button
+    onClick={() => setShowSendModal(true)}
+    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+  >
+    <FiSend className="text-lg" />
+    Send
+  </button>
+  <button
+    onClick={() => setShowReceiveModal(true)}
+    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+  >
+    <FiDownload className="text-lg" />
+    Receive
+  </button>
+</div>
+
 
                 {/* Send Modal */}
                 <Transition appear show={showSendModal} as={Fragment}>

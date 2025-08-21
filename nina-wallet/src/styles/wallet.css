@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-.wallet-page {
-  text-align: center;
-}
 .dialog-root {
   position: fixed;
   inset: 0;
