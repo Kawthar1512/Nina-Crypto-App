@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { ethers } = require("ethers");
-const { encryptPrivateKey } = require("../utils/encryption");
 const { saveWallet, getWallet } = require("../utils/storage");
+const { encryptPrivateKey, decryptPrivateKey } = require("../utils/encryption");
 
 // this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum
 //This is the fformer provider code for ethereum
@@ -12,6 +12,8 @@ const provider = new ethers.JsonRpcProvider(
 // const provider = new ethers.JsonRpcProvider(
 //   "https://bsc-testnet.public.blastapi.io"
 // );
+const wallets = {};
+
 router.post("/create", async (req, res) => {
   const { userId } = req.body;
 
@@ -58,32 +60,34 @@ router.get("/balance/:address", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch balance" });
   }
 });
+
+//my send route
 router.post("/send", async (req, res) => {
   const { userId, to, amount } = req.body;
 
   try {
-    // Get sender wallet data
+    // 1. Get sender wallet data
     const walletData = getWallet(userId);
+
     if (!walletData) {
       return res
         .status(404)
         .json({ success: false, error: "Wallet not found" });
     }
 
-    // Decrypt private key (assuming your encryptPrivateKey has a decrypt function)
-    const { decryptPrivateKey } = require("../utils/encryption");
+    // 2. Decrypt the private key
     const privateKey = decryptPrivateKey(walletData.encryptedKey);
 
-    // Connect wallet to provider
+    // 3. Load wallet
     const wallet = new ethers.Wallet(privateKey, provider);
 
-    // Create & send tx
+    // 4. Create & send tx
     const tx = await wallet.sendTransaction({
       to,
       value: ethers.parseEther(amount), // amount in ETH as string
     });
 
-    // Wait for confirmation
+    // 5. Wait for confirmation
     const receipt = await tx.wait();
 
     res.json({
@@ -97,6 +101,7 @@ router.post("/send", async (req, res) => {
       .json({ success: false, error: "Failed to send transaction" });
   }
 });
+
 
 // test my api route
 router.get("/", (req, res) => {

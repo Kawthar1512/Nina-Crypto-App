@@ -76,9 +76,7 @@ const Wallet = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: currentUser.email,
-            to: recipient,
-            amount,
+            userId: currentUser.email
           }),
         });
 
@@ -125,38 +123,45 @@ const Wallet = () => {
     }
   }, [balance, ethPrice]);
 
+
   const handleSend = async () => {
-    setTxStatus("");
-    if (!recipient) {
-      setTxStatus("Please enter a recipient address.");
-      return;
-    }
-    if (!amount || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) {
-      setTxStatus("Please enter a valid amount.");
-      return;
-    }
+  setTxStatus("");
 
-    try {
-      setTxStatus("Sending transaction...");
-      const res = await fetch("http://localhost:5000/api/wallet/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ to: recipient, amount }),
-      });
+  if (!recipient) {
+    setTxStatus("Please enter a recipient address.");
+    return;
+  }
+  if (!amount || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0) {
+    setTxStatus("Please enter a valid amount.");
+    return;
+  }
 
-      const data = await res.json();
+  try {
+    setTxStatus("Sending transaction...");
+    const res = await fetch("http://localhost:5000/api/wallet/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: currentUser.email,  // ✅ include userId
+        to: recipient,
+        amount,
+      }),
+    });
 
-      if (data.success) {
-        setTxStatus("Transaction successful! TxHash: " + data.txHash);
-        setRecipient("");
-        setAmount("");
-      } else {
-        setTxStatus("Transaction failed: " + data.error);
-      }
-    } catch (error) {
-      setTxStatus("Transaction failed: " + error.message);
+    const data = await res.json();
+
+    if (data.success) {
+      setTxStatus("✅ Transaction successful! TxHash: " + data.txHash);
+      setRecipient("");
+      setAmount("");
+    } else {
+      setTxStatus("❌ Transaction failed: " + data.error);
     }
-  };
+  } catch (error) {
+    setTxStatus("❌ Transaction failed: " + error.message);
+  }
+};
+
 
   return (
     <>
