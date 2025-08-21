@@ -58,7 +58,45 @@ router.get("/balance/:address", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch balance" });
   }
 });
+router.post("/send", async (req, res) => {
+  const { userId, to, amount } = req.body;
 
+  try {
+    // Get sender wallet data
+    const walletData = getWallet(userId);
+    if (!walletData) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Wallet not found" });
+    }
+
+    // Decrypt private key (assuming your encryptPrivateKey has a decrypt function)
+    const { decryptPrivateKey } = require("../utils/encryption");
+    const privateKey = decryptPrivateKey(walletData.encryptedKey);
+
+    // Connect wallet to provider
+    const wallet = new ethers.Wallet(privateKey, provider);
+
+    // Create & send tx
+    const tx = await wallet.sendTransaction({
+      to,
+      value: ethers.parseEther(amount), // amount in ETH as string
+    });
+
+    // Wait for confirmation
+    const receipt = await tx.wait();
+
+    res.json({
+      success: true,
+      txHash: receipt.hash,
+    });
+  } catch (err) {
+    console.error("Send transaction error:", err);
+    res
+      .status(500)
+      .json({ success: false, error: "Failed to send transaction" });
+  }
+});
 
 // test my api route
 router.get("/", (req, res) => {

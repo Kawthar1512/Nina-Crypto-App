@@ -75,7 +75,11 @@ const Wallet = () => {
         const res = await fetch("http://localhost:5000/api/wallet/create", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ userId: currentUser.email }),
+          body: JSON.stringify({
+            userId: currentUser.email,
+            to: recipient,
+            amount,
+          }),
         });
 
         const data = await res.json();
@@ -168,7 +172,9 @@ const Wallet = () => {
                 alt="logo"
                 className="w-12 h-12 rounded object-contain"
               />
-              <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">NINA WALLET</span>
+              <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">
+                NINA WALLET
+              </span>
               <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
                 ETH
               </span>
@@ -342,8 +348,7 @@ const Wallet = () => {
                     <FiDownload className="text-lg" />
                     Receive
                   </button>
-                
-                    </div>
+                </div>
 
                 {/* Send Modal */}
                 <Transition appear show={showSendModal} as={Fragment}>
@@ -426,7 +431,6 @@ const Wallet = () => {
                 />
               </div> */}
             </div>
-            
 
             <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between mb-3">
