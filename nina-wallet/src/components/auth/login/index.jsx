@@ -83,14 +83,14 @@ const Login = () => {
         {/* Right  */}
         <div className="flex-1 flex justify-center items-center p-8">
           <div className="w-full max-w-md">
-            <div className=" flex  items-center mb-5">
+            <div className=" flex  items-center mb-5 ml-[-12px]">
               <img
                 src={nina}
                 alt="Nina logo"
                 className="w-10 h-10 object-contain"
               />
 
-              <div className=" font-bold text-[15px] text-yellow-300">
+              <div className=" font-bold text-[17px] text-[#F3C738]">
                 NINA WALLET
               </div>
             </div>
