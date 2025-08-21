@@ -26,5 +26,9 @@
   "abundance@yahoo.com": {
     "address": "0x0DD96826c13c49F57D434DB612e9450A521B5973",
     "encryptedPrivateKey": "a3157d10b1a45e89eefcdcb2db34884d:596403f03f5b41bb4a350e77bc545d3d06f8b82bf1d01d7f491260993870c78fc7e7453f065f36a28fbb6253ad332d1c17541273e7b303f79450c4cd754f21c62d7d"
+  },
+  "omobolaji@gmail.com": {
+    "address": "0xbA26da2CadF42b2074015337bfBE7E725F3886bE",
+    "encryptedPrivateKey": "6dba9d22b4c7a66061eac7061cb2e2d3:b129d3de946d25406ea1cc2c5bbb3cfba4112837b91d4e365f87b418f138c2edc03b499f6e57f0cbd03a788c4f17f04c9b896498de6db4e27a99f8ab705f7ee1ce51"
   }
 }

@@ -15,6 +15,9 @@ app.use(express.json()); // for parsing JSON
 const walletRoutes = require("./routes/wallet");
 app.use("/api/wallet", walletRoutes);
 
+const ethPriceRoutes = require("./routes/eth-price");
+app.use("/api/eth-price", ethPriceRoutes);
+
 //  Start  the server
 app.listen(PORT, () => {
   console.log(`✅ Server listening on port ${PORT}`);

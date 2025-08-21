@@ -105,7 +105,7 @@ const Wallet = () => {
     async function fetchEthPrice() {
       try {
         const res = await fetch(
-          "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
+          "http://localhost:5000/api/eth-price"
         );
         const data = await res.json();
         setEthPrice(data.ethereum.usd);
@@ -538,7 +538,7 @@ const Wallet = () => {
                       REF12345
                     </span>
                     <button
-                      onClick="copyCode()"
+                      // onClick={copyCode()}
                       className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
                     >
                       Copy

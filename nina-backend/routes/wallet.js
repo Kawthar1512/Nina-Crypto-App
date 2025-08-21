@@ -4,7 +4,7 @@ const { ethers } = require("ethers");
 const { saveWallet, getWallet } = require("../utils/storage");
 const { encryptPrivateKey, decryptPrivateKey } = require("../utils/encryption");
 
-// this will connect to Sepolia via Infura with my api key; I'm now using BSc not ethereum
+// this will connect to Sepolia via Infura with my api key; I'm now using ethereum not bsc
 //This is the fformer provider code for ethereum
 const provider = new ethers.JsonRpcProvider(
   "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
@@ -12,7 +12,9 @@ const provider = new ethers.JsonRpcProvider(
 // const provider = new ethers.JsonRpcProvider(
 //   "https://bsc-testnet.public.blastapi.io"
 // );
-const wallets = {};
+
+
+
 
 router.post("/create", async (req, res) => {
   const { userId } = req.body;
@@ -84,7 +86,7 @@ router.post("/send", async (req, res) => {
     // 4. Create & send tx
     const tx = await wallet.sendTransaction({
       to,
-      value: ethers.parseEther(amount), // amount in ETH as string
+      value: ethers.parseEther(amount.toString()), // amount in ETH as string
     });
 
     // 5. Wait for confirmation
@@ -106,7 +108,6 @@ router.post("/send", async (req, res) => {
 // test my api route
 router.get("/", (req, res) => {
   res.send("My Nina Wallet API is live!");
-  res.send("update where possible");
 });
 
 module.exports = router;
