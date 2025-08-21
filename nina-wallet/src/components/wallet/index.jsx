@@ -450,7 +450,6 @@ const Wallet = () => {
                   </div>
                 </div>
 
-                {/* Larger image but constrained */}
                 <div className="flex-shrink-0">
                   <img
                     src={winner}
