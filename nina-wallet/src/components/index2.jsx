@@ -94,11 +94,7 @@ const Wallet = () => {
     // /await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
     //     const data = await res.json();
     //     if (data.balance !== undefined) {
-    //       setBalance(parseFloat(data.balance).toFixed(4));
-    //     }
-    //   } catch (error) {
-    //     console.error("Error fetching balance:", error);
-    //   }
+ 
     // }
 
     if (currentUser?.email) {
