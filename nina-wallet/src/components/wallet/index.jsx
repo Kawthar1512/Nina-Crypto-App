@@ -172,7 +172,7 @@ const Wallet = () => {
                 className="p-2 rounded hover:bg-gray-700"
                 title="Notifications"
               >
-                <FiBell className="w-4 h-4 text-white- hover:text-black " />
+                <FiBell className="w-4 h-4 text-white- hover:text-black fill-white" />
               </button>
               <button
                 onClick={openModal}
@@ -397,7 +397,7 @@ const Wallet = () => {
             <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-lg font-semibold">Recent activity</h3>
-                <div className="text-sm text-gray-400">Showing latest 5</div>
+                <div className="text-sm text-gray-400"> v Showing latest 5</div>
               </div>
 
               <div className="text-center text-gray-500 py-8">
@@ -433,34 +433,38 @@ const Wallet = () => {
             </div> */}
 
             {/* <!-- Referral --> */}
-            <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-sm opacity-90">Invite friends</div>
-                  <div className="font-semibold mt-1">Get $100</div>
-                  <div className="text-xs mt-2 text-white/80">
-                    Share your code and earn rewards when friends sign up and
-                    transact.
-                  </div>
-                  <div className="mt-3 flex items-center gap-2">
-                    <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">
-                      REF12345
-                    </span>
-                    <button
-                      // onClick={copyCode()}
-                      className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
-                    >
-                      Copy
-                    </button>
-                  </div>
-                </div>
-                <img
-                  src="referral-small.png"
-                  alt="referral"
-                  className="w-14 h-14 rounded-full"
-                />
-              </div>
-            </div>
+           <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
+  <div className="flex items-center justify-between">
+    <div className="max-w-[70%]">
+      <div className="text-sm opacity-90">Invite friends</div>
+      <div className="font-semibold mt-1">Get $100</div>
+      <div className="text-xs mt-2 text-white/80">
+        Share your code and earn rewards when friends sign up and
+        transact.
+      </div>
+      <div className="mt-3 flex items-center gap-2">
+        <span className="bg-white text-purple-700 px-3 py-1 rounded font-semibold text-sm">
+          REF12345
+        </span>
+        <button
+          className="bg-white/10 px-3 py-1 rounded hover:bg-white/20"
+        >
+          Copy
+        </button>
+      </div>
+    </div>
+
+    {/* Larger image but constrained */}
+    <div className="flex-shrink-0">
+      <img
+        src={winner}
+        alt="referral"
+        className="mt-[-70px] w-32 h-32 ml-[60px] rounded-full object-contain" 
+      />
+    </div>
+  </div>
+</div>
+
 
             {/* <!-- Security / Backup --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">

@@ -30,5 +30,9 @@
   "omobolaji@gmail.com": {
     "address": "0xbA26da2CadF42b2074015337bfBE7E725F3886bE",
     "encryptedPrivateKey": "6dba9d22b4c7a66061eac7061cb2e2d3:b129d3de946d25406ea1cc2c5bbb3cfba4112837b91d4e365f87b418f138c2edc03b499f6e57f0cbd03a788c4f17f04c9b896498de6db4e27a99f8ab705f7ee1ce51"
+  },
+  "test@example.com": {
+    "address": "0xA6DaB3050f6B4355c4dA281D17CF87775e241271",
+    "encryptedPrivateKey": "e272815e906df7d8f9da9e22b30fe7e9:53f3231ccc97d7878f14bd72fc4f56fa9a4a05ed30f64a4aaa10d6cfe735b16e521a56b0b2e8e0c1e88ef44fc153d5afe4a2bc63b2e950d25c37fecfe014b6c84bff"
   }
 }
