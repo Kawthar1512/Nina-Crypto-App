@@ -117,18 +117,18 @@ const Wallet = () => {
               <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">
                 NINA WALLET
               </span>
-            
             </div>
             {/* center */}
             <div className="flex justify-center items-center gap-3 text-sm">
               <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
                 <svg
-                  className="w-4 h-4 text-yellow-400"
+                  className="w-4 h-4 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <circle cx="12" cy="12" r="10" />
                 </svg>
+
                 <div className="text-right">
                   <div className="text-xs text-gray-300">Network</div>
                   <div id="network" className="font-medium">
