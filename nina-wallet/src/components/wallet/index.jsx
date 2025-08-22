@@ -114,7 +114,7 @@ const Wallet = () => {
                 alt="logo"
                 className="w-12 h-12 rounded object-contain"
               />
-              <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">
+              <span className="font-semibold  text-[#F3C738] ml-[-10px] mr-[20px]  nins">
                 NINA WALLET
               </span>
             </div>
@@ -272,7 +272,7 @@ const Wallet = () => {
                   </button>
                 </div>
                       {/* convert  the eth value to usd */}
-                <div className="text-[13px] text-yellow-300 font-bold text-center">
+                <div className="text-[13px] text-[#F3C738]font-bold text-center">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
 
@@ -359,7 +359,7 @@ const Wallet = () => {
               <div className="divide-y divide-gray-700">
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
+                    <div className="w-10 h-10 bg-[#F3C738] rounded-full flex items-center justify-center text-black font-bold">
                       ETH
                     </div>
                     <div>
@@ -377,7 +377,7 @@ const Wallet = () => {
 
                 <div className="flex items-center justify-between p-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black font-bold">
+                    <div className="w-10 h-10 bg-[#F3C738] rounded-full flex items-center justify-center text-black font-bold">
                       $
                     </div>
                     <div>
