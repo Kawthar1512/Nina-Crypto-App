@@ -135,7 +135,6 @@ const Wallet = () => {
                     Ethereum ~ Connected
                   </div>
                 </div>
-                
               </div>
 
               {/* gshds */}
@@ -244,6 +243,12 @@ const Wallet = () => {
             {/* <!-- Balance Card --> */}
             <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-2xl p-6 shadow-xl flex items-center justify-between">
               <div>
+                <div className="welcome-text text-xs text-left">
+                  Welcome!{" "}
+                  {currentUser
+                    ? String(currentUser.displayName || currentUser.email)
+                    : "Guest"}
+                </div>
                 <div className="text-sm text-white">Total portfolio value</div>
                 <div className="balance-show relative flex justify-center items-center">
                   <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
