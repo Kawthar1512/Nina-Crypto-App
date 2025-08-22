@@ -92,7 +92,6 @@ const Wallet = () => {
     }
 
     //     const data = await res.json();
-    //     if (data.balance !== undefined) {
 
     if (currentUser?.email) {
       createOrFetchWalletAndBalance();
