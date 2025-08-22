@@ -91,7 +91,6 @@ const Wallet = () => {
       }
     }
 
-    // /await fetch(`http://localhost:5000/api/wallet/balance/${addr}`);
     //     const data = await res.json();
     //     if (data.balance !== undefined) {
 
