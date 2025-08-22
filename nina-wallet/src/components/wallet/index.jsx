@@ -402,7 +402,7 @@ const Wallet = () => {
                 <div className="text-sm text-gray-400"> All v</div>
               </div>
 
-              <div className="text-center text-gray-500 py-8">
+              <div className="text-center text-gray-500 py-7">
                 <div className="text-2xl">🔍</div>
                 <p className="mt-3">No transactions yet</p>
                 <p className="text-sm text-gray-400 mt-1">
