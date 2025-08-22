@@ -246,7 +246,7 @@ const Wallet = () => {
               <div>
                 <div className="text-sm text-white">Total portfolio value</div>
                 <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-5xl font-semibold font-mono mt-[30px] text-center">
+                  <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
                     {showBalance
                       ? balance
                         ? `${balance} ETH`
@@ -267,12 +267,12 @@ const Wallet = () => {
                   </button>
                 </div>
 
-                <div className="text-[16px] text-yellow-300 font-bold text-center">
+                <div className="text-[13px] text-yellow-300 font-bold text-center">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
                
 
-                <div className="mt-4 lg:ml-[30px] mx-auto flex justify-center gap-4  w-full">
+                <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
                   <button
                     onClick={() => setShowSendModal(true)}
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
