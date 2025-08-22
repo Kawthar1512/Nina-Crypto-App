@@ -397,17 +397,16 @@ const Wallet = () => {
 
             {/* <!-- Transactions --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-1">
                 <h3 className="text-lg font-semibold">Recent activity</h3>
-                <div className="text-sm text-gray-400"> v Showing latest 5</div>
+                <div className="text-sm text-gray-400"> All v</div>
               </div>
 
               <div className="text-center text-gray-500 py-8">
                 <div className="text-2xl">🔍</div>
                 <p className="mt-3">No transactions yet</p>
                 <p className="text-sm text-gray-400 mt-1">
-                  Once you send or receive ETH, it will appear here. You can
-                  view details on Etherscan.
+                  Once you send or receive ETH, it will appear here. 
                 </p>
               </div>
             </div>
