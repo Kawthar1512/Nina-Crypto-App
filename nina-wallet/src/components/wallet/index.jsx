@@ -120,9 +120,9 @@ const Wallet = () => {
             </div>
             {/* center */}
             <div className="flex justify-center items-center gap-3 text-sm">
-              <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg">
+              <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg py-[10px]">
                 <svg
-                  className="w-4 h-4 text-green-400"
+                  className="w-4 h-4 text-green-500"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -130,13 +130,13 @@ const Wallet = () => {
                 </svg>
 
                 <div className="text-right">
-                  <div className="text-xs text-gray-300">Network</div>
+                  {/* <div className="text-xs text-gray-300">Network</div> */}
                   <div id="network" className="font-medium">
-                    Ethereum
+                    Ethereum ~ Connected
                   </div>
                 </div>
+                
               </div>
-              <button>connected</button>
 
               {/* gshds */}
 
