@@ -120,7 +120,7 @@ const Wallet = () => {
             </div>
             {/* center */}
             <div className="flex justify-center items-center gap-3 text-sm">
-              <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-lg py-[10px]">
+              <div className="flex items-center gap-2 bg-gray-800 px-3  rounded-lg py-[10px]">
                 <svg
                   className="w-4 h-4 text-green-500"
                   fill="currentColor"
@@ -139,14 +139,14 @@ const Wallet = () => {
 
               {/* gshds */}
 
-              <div className=" text-white px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
+              <div className=" text-white px-3 rounded-lg py-[10px] bg-gray-800 flex items-center gap-2">
                 <p id="addr-short">
                   {shortenAddress(address) || "No address in state"}
                 </p>
                 {address && (
                   <button
                     onClick={copyToClipboard}
-                    className="text-gray-700 hover:text-black"
+                    className="text-white cursor-pointer"
                     title="Copy to clipboard"
                   >
                     <FiCopy className="w-4 h-4" />
