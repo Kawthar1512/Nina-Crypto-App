@@ -272,7 +272,7 @@ const Wallet = () => {
                   </button>
                 </div>
                       {/* convert  the eth value to usd */}
-                <div className="text-[13px] text-[#F3C738]font-bold text-center">
+                <div className="text-[14px] text-[#F3C738]font-bold text-center lg:ml-[-98px]">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
 
@@ -476,7 +476,7 @@ const Wallet = () => {
                   </div>
                 </div>
                 <div>
-                  <button className="bg-yellow-400 text-black px-3 py-2 rounded">
+                  <button className="bg-[#F3C738] text-black px-3 py-2 rounded">
                     Backup
                   </button>
                 </div>
