@@ -165,7 +165,7 @@ const Wallet = () => {
                   </button> */}
               </div>
             </div>
-            {/* right */}
+            {/* right side */}
             <div className="flex justify-end items-center gap-3">
               <button
                 id="notifications"
