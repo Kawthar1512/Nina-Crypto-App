@@ -402,7 +402,7 @@ const Wallet = () => {
                 <div className="text-sm text-gray-400"> All v</div>
               </div>
 
-              <div className="text-center text-gray-500 py-7">
+              <div className="text-center text-gray-500 py-6">
                 <div className="text-2xl">🔍</div>
                 <p className="mt-3">No transactions yet</p>
                 <p className="text-sm text-gray-400 mt-1">
@@ -412,7 +412,7 @@ const Wallet = () => {
             </div>
           </section>
 
-          {/* <!-- Right Column: utilities, referral, settings --> */}
+          {/* <!-- Right Column: utilities, referral, settings -> */}
           <aside className="space-y-6">
             {/* <!-- Quick Network / Testnet Switch --> */}
             {/* <div className="bg-gray-800 rounded-xl p-4 shadow">
@@ -426,7 +426,6 @@ const Wallet = () => {
                     id="network-select"
                     className="bg-gray-700 px-3 py-1 rounded text-sm"
                   >
-                    <option value="56">BSC Mainnet (56)</option>
                     <option value="97">BSC Testnet (97)</option>
                   </select>
                 </div>
