@@ -117,9 +117,7 @@ const Wallet = () => {
               <span className="font-semibold text-yellow-400 ml-[-10px] mr-[20px]  nins">
                 NINA WALLET
               </span>
-              <span className="ml-3 px-2 py-1 text-xs bg-yellow-500 text-black rounded">
-                ETH
-              </span>
+            
             </div>
             {/* center */}
             <div className="flex justify-center items-center gap-3 text-sm">
@@ -138,6 +136,8 @@ const Wallet = () => {
                   </div>
                 </div>
               </div>
+              <button>connected</button>
+
               {/* gshds */}
 
               <div className=" text-white px-3 py-1 rounded-lg bg-gray-800 flex items-center gap-2">
@@ -270,7 +270,6 @@ const Wallet = () => {
                 <div className="text-[13px] text-yellow-300 font-bold text-center">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
-               
 
                 <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
                   <button
