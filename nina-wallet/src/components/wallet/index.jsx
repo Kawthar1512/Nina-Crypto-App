@@ -272,7 +272,7 @@ const Wallet = () => {
                 </div>
                
 
-                <div className="mt-4 lg:ml-[30px] mx-auto flex justify-center gap-4 border border-amber-300 w-full">
+                <div className="mt-4 lg:ml-[30px] mx-auto flex justify-center gap-4  w-full">
                   <button
                     onClick={() => setShowSendModal(true)}
                     className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
