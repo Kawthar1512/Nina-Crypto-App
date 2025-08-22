@@ -261,7 +261,7 @@ const Wallet = () => {
 
                   <button
                     onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute lg:right-[10px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+                    className="absolute left-[250px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
                     title={showBalance ? "Hide Balance" : "Show Balance"}
                   >
                     {showBalance ? (
