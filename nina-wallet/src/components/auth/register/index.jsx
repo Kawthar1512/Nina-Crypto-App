@@ -23,7 +23,7 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if passwords match
+    // Check if the passwords match
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
