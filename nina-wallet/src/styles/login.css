@@ -65,7 +65,7 @@ input {
   font-style: normal;
 }
 .bubbles {
-  --c1: black; /* Recommendation: same background color */
+  --c1: black; 
   --c2: red;
   --size-letter: 20px;
   padding: 0.5em 0.5em;
