@@ -59,8 +59,6 @@ const Register = () => {
     <>
       <div className="min-h-screen flex flex-col lg:flex-row">
         {userLoggedIn && <Navigate to={"/wallet"} replace={true} />}
-
-        {/* <div className="register-container"> */}
         <div className="bg-[#0f172a] text-white flex-1 flex flex-col justify-center items-center p-6 lg:p-8">
           <img
             src={man}
