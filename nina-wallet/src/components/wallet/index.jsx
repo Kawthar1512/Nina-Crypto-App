@@ -122,7 +122,7 @@ const Wallet = () => {
             <div className="flex justify-center items-center gap-3 text-sm">
               <div className="flex items-center gap-2 bg-gray-800 px-3  rounded-lg py-[10px]">
                 <svg
-                  className="w-4 h-4 text-green-500"
+                  className="w-4 h-4 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
