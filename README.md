@@ -56,5 +56,5 @@ pnpm install
 pnpm run dev
 
 
-⚠️ Warning!
+ Warning!
 This project is currently under active development.
