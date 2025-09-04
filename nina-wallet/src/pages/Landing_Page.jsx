@@ -90,8 +90,9 @@ export default function LandPage() {
   <img
     src={phone}
     alt=""
-    className="w-[60%] object-contain  mx-auto mt-[-200px]"
+    className="w-[55%] object-contain  mx-auto mt-[-200px]"
   />
+  <div className="float w-14 h-14"></div>
 </div>
       </section>
     </>
