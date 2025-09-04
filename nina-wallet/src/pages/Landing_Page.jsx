@@ -1,5 +1,5 @@
 import { useState } from "react";
-import phone from "../assets/ninz.png";
+import phone from "../assets/pp.png";
 import "../styles/LandingPage.css";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
@@ -86,11 +86,11 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-        <div className="flex justify-center items-center mx-auto max-w-lg">
+        <div className="flex justify-center items-center mx-auto ">
   <img
     src={phone}
     alt=""
-    className=" h-[900px] object-contain  mx-auto"
+    className="w-[60%] object-contain  mx-auto mt-[-200px]"
   />
 </div>
       </section>
