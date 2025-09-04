@@ -24,7 +24,7 @@ export default function LandPage() {
  <div>
       {/* BNB */}
       <div
-        className="absolute w-10 h-10 animate-float animate-rotate-slow hover:animate-spin-fast"
+        className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
         style={{ top: "20%", left: "15%" }}
       >
         <img
@@ -36,8 +36,8 @@ export default function LandPage() {
 
       {/* ETH */}
       <div
-        className="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast"
-        style={{ top: "40%", left: "70%" }}
+        className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
+        style={{ top: "40%", left: "80%" }}
       >
         <img
           src="https://cdn.jsdelivr.net/gh/spothq/cryptocurrency-icons/svg/color/eth.svg"
@@ -51,7 +51,7 @@ export default function LandPage() {
 
       {/* Another ETH */}
       <div
-        className="absolute w-12 h-12 animate-float animate-rotate-slow hover:animate-spin-fast"
+        className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
         style={{ top: "75%", left: "80%" }}
       >
         <img

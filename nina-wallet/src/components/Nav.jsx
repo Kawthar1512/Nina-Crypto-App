@@ -3,7 +3,7 @@ import nina from "../assets/nina.png";
 
 export default function Nav() {
   return (
-    <nav className="homeNav  z-[1000] fixed  ">
+    <nav className="homeNav  z-[1000] fixed bg-[#0f172a]  ">
       <div className="flex flex-row items-center   text-center align-middle ">
         <img
           src={nina}
