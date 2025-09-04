@@ -86,9 +86,9 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-       <div className="flex justify-center items-center mx-auto relative">
-  {/* Shining white blur */}
-  <div className="absolute w-[500px] h-[300px] bg-white opacity-40 blur-[120px] rounded-full"></div>
+     <div className="flex justify-center items-center mx-auto relative">
+  {/* Gradient white glow */}
+  <div className="absolute w-[600px] h-[400px] bg-gradient-to-b from-white/90 to-white/40 blur-[180px] rounded-full"></div>
 
   <img
     src={phone}
