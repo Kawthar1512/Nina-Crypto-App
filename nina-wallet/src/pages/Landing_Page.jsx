@@ -86,13 +86,15 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-        <div className="flex justify-center items-center mx-auto ">
+       <div className="flex justify-center items-center mx-auto relative">
+  {/* Shining white blur */}
+  <div className="absolute w-[500px] h-[300px] bg-white opacity-40 blur-[120px] rounded-full"></div>
+
   <img
     src={phone}
     alt=""
-    className="w-[55%] object-contain  mx-auto mt-[-200px]"
+    className="w-[55%] object-contain mx-auto mt-[-200px] relative z-10"
   />
-  <div className="float w-14 h-14"></div>
 </div>
       </section>
     </>
