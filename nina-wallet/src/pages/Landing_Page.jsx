@@ -1,5 +1,5 @@
 import { useState } from "react";
-import phone from "../assets/original.png";
+import phone from "../assets/ninz.png";
 import "../styles/LandingPage.css";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
@@ -90,7 +90,7 @@ export default function LandPage() {
   <img
     src={phone}
     alt=""
-    className="h-72 w-auto object-contain  mx-auto"
+    className=" h-[900px] object-contain  mx-auto"
   />
 </div>
       </section>

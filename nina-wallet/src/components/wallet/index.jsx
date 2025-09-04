@@ -117,9 +117,6 @@ const Wallet = () => {
               <span className="font-semibold  text-[#F3C738] ml-[-10px] mr-[20px]  nins">
                 NINA WALLET
               </span>
-              <span>
-                The most trusted and secure wallet, make sure   it is 
-              </span>
             </div>
             {/* center */}
             <div className="flex justify-center items-center gap-3 text-sm">
