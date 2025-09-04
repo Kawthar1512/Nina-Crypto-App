@@ -86,9 +86,10 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-     <div className="flex justify-center items-center mx-auto relative">
-  {/* Gradient white glow */}
-  <div className="absolute w-[600px] h-[400px] bg-gradient-to-b from-white/90 to-white/40 blur-[180px] rounded-full"></div>
+    <div className="flex justify-center items-center mx-auto relative">
+  {/* Stronger shining blur */}
+  <div className="absolute w-[550px] h-[350px] bg-white opacity-80 blur-[150px] rounded-full"></div>
+  <div className="absolute w-[400px] h-[250px] bg-white opacity-70 blur-[100px] rounded-full"></div>
 
   <img
     src={phone}
@@ -96,6 +97,7 @@ export default function LandPage() {
     className="w-[55%] object-contain mx-auto mt-[-200px] relative z-10"
   />
 </div>
+
       </section>
     </>
   );
