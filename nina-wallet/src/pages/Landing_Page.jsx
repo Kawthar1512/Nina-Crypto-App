@@ -88,8 +88,8 @@ export default function LandPage() {
         </main>
     <div className="flex justify-center items-center mx-auto relative">
   {/* Stronger shining blur */}
-  <div className="absolute w-[550px] h-[350px] bg-white opacity-80 blur-[150px] rounded-full"></div>
-  <div className="absolute w-[400px] h-[250px] bg-white opacity-70 blur-[100px] rounded-full"></div>
+  <div className="absolute w-[650px] h-[350px] bg-white opacity-80 blur-[250px] rounded-full"></div>
+  <div className="absolute w-[600px] h-[250px] bg-white opacity-70 blur-[100px] rounded-full"></div>
 
   <img
     src={phone}
