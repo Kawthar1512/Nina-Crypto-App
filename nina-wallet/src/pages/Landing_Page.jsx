@@ -86,8 +86,7 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-    <div className="flex justify-center items-center mx-auto relative">
-  {/* Stronger shining blur */}
+    {/* <div className="flex justify-center items-center mx-auto relative">
   <div className="absolute w-[650px] h-[350px] bg-white opacity-80 blur-[250px] rounded-full"></div>
   <div className="absolute w-[600px] h-[250px] bg-white opacity-70 blur-[100px] rounded-full"></div>
 
@@ -96,7 +95,7 @@ export default function LandPage() {
     alt=""
     className="w-[55%] object-contain mx-auto mt-[-200px] relative z-10"
   />
-</div>
+</div> */}
 
       </section>
     </>

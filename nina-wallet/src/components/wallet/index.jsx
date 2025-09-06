@@ -9,6 +9,8 @@ import nina from "../../assets/nina.png";
 import logo from "../../assets/wallet-logo2.png";
 import EthPrice from "../EthPrice";
 import SendEth from "../SendEth";
+import TransactionHistory from "../TransactionHistory";
+
 
 import {
   FiCopy,
@@ -271,7 +273,7 @@ const Wallet = () => {
                     )}
                   </button>
                 </div>
-                      {/* convert  the eth value to usd */}
+                {/* convert  the eth value to usd */}
                 <div className="text-[14px] text-[#F3C738]font-bold text-center lg:ml-[-98px]">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
@@ -402,13 +404,7 @@ const Wallet = () => {
                 <div className="text-sm text-gray-400"> All v</div>
               </div>
 
-              <div className="text-center text-gray-500 py-6">
-                <div className="text-2xl">🔍</div>
-                <p className="mt-3">No transactions yet</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  Once you send or receive ETH, it will appear here. 
-                </p>
-              </div>
+              <TransactionHistory address={address} />
             </div>
           </section>
 

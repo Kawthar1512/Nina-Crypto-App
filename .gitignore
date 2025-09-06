@@ -1,4 +1,12 @@
-**/node_modules/
+# dependencies
+/node_modules/
+
+# system files
 .DS_Store
-**/.env
+
+# environment variables
+.env
+
+# optional: ignore data or build outputs
 /data/
+dist/
