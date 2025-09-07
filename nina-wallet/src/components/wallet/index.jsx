@@ -341,13 +341,7 @@ const Wallet = () => {
                   </Dialog>
                 </Transition>
               </div>
-              {/* <div className="hidden sm:block mb-[80px]">
-                <img
-                  src={logo}
-                  alt="wallet-illustration"
-                  className="w-15 h-15 object-contain opacity-95"
-                />
-              </div> */}
+            
             </div>
 
             <div className="bg-gray-800 rounded-xl p-4 shadow">

@@ -6,9 +6,8 @@ const { encryptPrivateKey, decryptPrivateKey } = require("../utils/encryption");
 
 // this will connect to Sepolia via Infura with my api key; I'm now using ethereum not bsc
 //This is the fformer provider code for ethereum
-const provider = new ethers.JsonRpcProvider(
-  "https://sepolia.infura.io/v3/9629368e25c940d5a997426e859bda01"
-);
+const provider = new ethers.JsonRpcProvider(process.env.REACT_APP_INFURA_URL);
+
 // const provider = new ethers.JsonRpcProvider(
 //   "https://bsc-testnet.public.blastapi.io"
 // );
