@@ -341,7 +341,7 @@ const Wallet = () => {
             {/* <!-- Transactions --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
               <div className="flex items-center justify-between mb-1">
-                <h3 className="text-lg font-semibold">Recent activity</h3>
+                <h3 className="text-[1.25rem] font-semibold">Activity</h3>
                 <div className="text-sm text-gray-400"> All v</div>
               </div>
 
