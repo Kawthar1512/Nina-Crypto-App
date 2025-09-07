@@ -18,6 +18,9 @@ app.use("/api/wallet", walletRoutes);
 const ethPriceRoutes = require("./routes/eth-price");
 app.use("/api/eth-price", ethPriceRoutes);
 
+const transactionRoutes = require("./routes/transactions");
+app.use("/api/transactions", transactionRoutes);
+
 //  Start  the server
 app.listen(PORT, () => {
   console.log(` Server listening on port ${PORT}`);

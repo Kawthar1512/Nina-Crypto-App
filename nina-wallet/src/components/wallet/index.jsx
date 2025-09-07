@@ -9,7 +9,8 @@ import nina from "../../assets/nina.png";
 import logo from "../../assets/wallet-logo2.png";
 import EthPrice from "../EthPrice";
 import SendEth from "../SendEth";
-import TransactionHistory from "../TransactionHistory";
+import Transactions from "./components/Transactions";
+// import TransactionHistory from "../TransactionHistory";
 
 
 import {

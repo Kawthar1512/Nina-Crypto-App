@@ -21,9 +21,9 @@ export default function LandPage() {
             style={{ animation: "spin 50s linear infinite" }}
           />
 
- <div>
+ {/* <div> */}
       {/* BNB */}
-      <div
+      {/* <div
         className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
         style={{ top: "20%", left: "15%" }}
       >
@@ -32,10 +32,10 @@ export default function LandPage() {
           alt="BNB"
           className="w-full h-full"
         />
-      </div>
+      </div> */}
 
       {/* ETH */}
-      <div
+      {/* <div
         className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
         style={{ top: "40%", left: "80%" }}
       >
@@ -44,13 +44,13 @@ export default function LandPage() {
           alt="ETH"
           className="w-full h-full"
         />
-      </div>
+      </div> */}
 
       {/* USDT */}
 
 
       {/* Another ETH */}
-      <div
+      {/* <div
         className="absolute w-7 h-7 animate-float animate-rotate-slow hover:animate-spin-fast"
         style={{ top: "75%", left: "80%" }}
       >
@@ -59,8 +59,8 @@ export default function LandPage() {
           alt="ETH"
           className="w-full h-full"
         />
-      </div>
-    </div>
+      </div> */}
+    {/* </div> */}
           
           <div className=" bigi p-10  w-[900px] text-white  text-center">
             <div className=" text-center px-10 lg:p-0  ">
@@ -70,8 +70,8 @@ export default function LandPage() {
               </h2>
 
               <div className="hanging-indent w-[600px] mx-auto">
-                Built for speed and simplicity. Nina Wallet lets you create
-                Binance Smart Chain (BSC) wallets, send and receive BNB, and
+                Built for speed and simplicity. Nitra Wallet lets you create
+                Ethereum (ETH) wallets, send and receive ETH, and
                 view your transaction history.
               </div>
 
@@ -86,16 +86,16 @@ export default function LandPage() {
             </div>
           </div>
         </main>
-    {/* <div className="flex justify-center items-center mx-auto relative">
-  <div className="absolute w-[650px] h-[350px] bg-white opacity-80 blur-[250px] rounded-full"></div>
+    <div className="flex justify-center items-center mx-auto relative">
+  <div className="absolute w-[650px] h-[350px] bg-yellow-300 opacity-80 blur-[250px] rounded-full"></div>
   <div className="absolute w-[600px] h-[250px] bg-white opacity-70 blur-[100px] rounded-full"></div>
 
   <img
     src={phone}
     alt=""
-    className="w-[55%] object-contain mx-auto mt-[-200px] relative z-10"
+    className="w-[55%] object-contain mx-auto  relative z-10"
   />
-</div> */}
+</div>
 
       </section>
     </>
