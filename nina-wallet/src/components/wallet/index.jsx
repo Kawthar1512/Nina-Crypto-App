@@ -10,7 +10,8 @@ import logo from "../../assets/wallet-logo2.png";
 import EthPrice from "../EthPrice";
 import SendEth from "../SendEth";
 import Transactions from "../Transactions";
-// import TransactionHistory from "../TransactionHistory";
+import { getEthPrice } from "../../utils/getEthPrice";
+
 
 import {
   FiCopy,
@@ -102,6 +103,25 @@ const Wallet = () => {
     }
   }, [currentUser]);
 
+  // Fetch current ETH price in USD
+  useEffect(() => {
+    async function fetchEthPrice() {
+      const price = await getEthPrice();
+      setEthPrice(price);
+
+      // also calculate USD value based on balance
+      if (balance && price) {
+        setUsdValue((Number(balance) * price).toFixed(2));
+      }
+    }
+
+    fetchEthPrice();
+
+    // optional: update every 60 seconds
+    const interval = setInterval(fetchEthPrice, 60000);
+    return () => clearInterval(interval);
+  }, [balance]); // run again if balance changes
+
   return (
     <>
       <main className="min-h-screen bg-gray-700 text-gray-100">
@@ -157,7 +177,6 @@ const Wallet = () => {
                 {copied && (
                   <span className="text-green-600 text-xs ml-2">Copied!</span>
                 )}
-                
               </div>
             </div>
             {/* right side */}
@@ -272,6 +291,8 @@ const Wallet = () => {
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
 
+                {/* show the markt price for eth */}
+                <p className="text-xs text-gray-300">ETH Price: ${ethPrice}</p>
                 <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
                   <button
                     onClick={() => setShowSendModal(true)}
@@ -335,7 +356,6 @@ const Wallet = () => {
                   </Dialog>
                 </Transition>
               </div>
-            
             </div>
 
             {/* <!-- Transactions --> */}
@@ -369,7 +389,7 @@ const Wallet = () => {
               </div>
             </div> */}
 
-            {/* <!-- Referral --> */}
+            {/* <!-- Referral -->
             <div className="bg-gradient-to-r from-purple-600 to-purple-500 rounded-xl p-4 shadow text-white">
               <div className="flex items-center justify-between">
                 <div className="max-w-[70%]">
@@ -397,7 +417,7 @@ const Wallet = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* <!-- Security / Backup --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
