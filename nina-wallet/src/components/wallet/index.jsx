@@ -9,9 +9,8 @@ import nina from "../../assets/nina.png";
 import logo from "../../assets/wallet-logo2.png";
 import EthPrice from "../EthPrice";
 import SendEth from "../SendEth";
-import Transactions from "./components/Transactions";
+import Transactions from "../Transactions";
 // import TransactionHistory from "../TransactionHistory";
-
 
 import {
   FiCopy,
@@ -405,7 +404,7 @@ const Wallet = () => {
                 <div className="text-sm text-gray-400"> All v</div>
               </div>
 
-              <TransactionHistory address={address} />
+              <Transactions walletAddress={address} />
             </div>
           </section>
 
