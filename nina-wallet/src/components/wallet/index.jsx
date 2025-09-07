@@ -256,8 +256,8 @@ const Wallet = () => {
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
-            <div className=" rounded-2xl p-8 shadow-xl flex items-center justify-between">
-              <div className=" bg-gray-800  rounded-2xl shadow-xl w-full p-9 ">
+            <div className=" rounded-2xl p-8 shadow-2xl flex items-center justify-between">
+              <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
                 <div className="welcome-text text-xs text-left">
                   Welcome!{" "}
                   {currentUser
