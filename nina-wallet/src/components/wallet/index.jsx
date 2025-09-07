@@ -117,7 +117,7 @@ const Wallet = () => {
 
     fetchEthPrice();
 
-    // optional: update every 60 seconds
+    // update every 60 seconds
     const interval = setInterval(fetchEthPrice, 60000);
     return () => clearInterval(interval);
   }, [balance]); // run again if balance changes
@@ -256,8 +256,8 @@ const Wallet = () => {
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
-            <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-400 rounded-2xl p-6 shadow-xl flex items-center justify-between">
-              <div>
+            <div className=" rounded-2xl p-8 shadow-xl flex items-center justify-between">
+              <div className=" bg-gray-800  rounded-2xl shadow-xl w-full p-9 ">
                 <div className="welcome-text text-xs text-left">
                   Welcome!{" "}
                   {currentUser
@@ -290,7 +290,8 @@ const Wallet = () => {
                 <div className="text-[14px] text-[#F3C738]font-bold text-center lg:ml-[-98px]">
                   <EthPrice balance={balance} showBalance={showBalance} />
                 </div>
-
+                      </div>
+            </div>
                 {/* show the markt price for eth */}
                 <p className="text-xs text-gray-300">ETH Price: ${ethPrice}</p>
                 <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
@@ -355,8 +356,7 @@ const Wallet = () => {
                     </div>
                   </Dialog>
                 </Transition>
-              </div>
-            </div>
+              
 
             {/* <!-- Transactions --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
