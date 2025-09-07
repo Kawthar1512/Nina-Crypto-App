@@ -157,13 +157,7 @@ const Wallet = () => {
                 {copied && (
                   <span className="text-green-600 text-xs ml-2">Copied!</span>
                 )}
-                {/* this is for the qr code but not workinng yet */}
-                {/* <button
-                    onclick="showQR()"
-                    className="text-gray-300 hover:text-white"
-                  >
-                    
-                  </button> */}
+                
               </div>
             </div>
             {/* right side */}
@@ -173,7 +167,7 @@ const Wallet = () => {
                 className="p-2 rounded hover:bg-gray-700"
                 title="Notifications"
               >
-                <FiBell className="w-4 h-4 text-white- hover:text-black fill-white" />
+                {/* <FiBell className="w-4 h-4 text-white- hover:text-black fill-white" /> */}
               </button>
               <button
                 onClick={openModal}
@@ -342,53 +336,6 @@ const Wallet = () => {
                 </Transition>
               </div>
             
-            </div>
-
-            <div className="bg-gray-800 rounded-xl p-4 shadow">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-semibold">Assets</h3>
-                <div className="text-sm text-gray-400">
-                  Total tokens: <span id="token-count">2</span>
-                </div>
-              </div>
-
-              <div className="divide-y divide-gray-700">
-                <div className="flex items-center justify-between p-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#F3C738] rounded-full flex items-center justify-center text-black font-bold">
-                      ETH
-                    </div>
-                    <div>
-                      <div className="font-medium">Ethereum</div>
-                      <div className="text-xs text-gray-400">
-                        ETH • 18 decimals
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-medium">0.0000</div>
-                    <div className="text-sm text-gray-400">$0.00</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between p-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#F3C738] rounded-full flex items-center justify-center text-black font-bold">
-                      $
-                    </div>
-                    <div>
-                      <div className="font-medium">USDT (ERC-20)</div>
-                      <div className="text-xs text-gray-400">
-                        USDT • contract
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-medium">0.00</div>
-                    <div className="text-sm text-gray-400">$0.00</div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* <!-- Transactions --> */}
