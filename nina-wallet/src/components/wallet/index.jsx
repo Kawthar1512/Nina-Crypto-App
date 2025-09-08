@@ -259,16 +259,17 @@ const Wallet = () => {
             {/* <!-- Balance Card --> */}
             <div className=" rounded-2xl p-8 shadow-2xl flex items-center justify-between">
               <div className="insd w-full">
-                <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
-                  <div className="welcome-text text-xs text-left">
+                <div className="welcome-text text-xs text-left">
                     Welcome!{" "}
                     {currentUser
                       ? String(currentUser.displayName || currentUser.email)
                       : "Guest"}
                   </div>
-                  <div className="text-sm text-white">
+                  {/* <div className="text-sm text-white">
                     Total portfolio value
-                  </div>
+                  </div> */}
+                <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
+                  
                   <div className="balance-show relative flex justify-center items-center">
                     <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
                       {showBalance
@@ -280,7 +281,7 @@ const Wallet = () => {
 
                     <button
                       onClick={() => setShowBalance((prev) => !prev)}
-                      className="absolute left-[250px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+                      className="absolute left-[250px] bottom-[60px]  lg:left-[570px] flex items-center justify-center text-white  w-7 h-7 mt-[30px] rounded-full"
                       title={showBalance ? "Hide Balance" : "Show Balance"}
                     >
                       {showBalance ? (
@@ -296,8 +297,8 @@ const Wallet = () => {
                   </div>
                 </div>
                 {/* show the markt price for eth */}
-                <div className="market flex">
-                  <p className="text-xs text-gray-300">
+                <div className="market flex  mt-4">
+                  <p className="text-xs text-gray-300 mr-5">
                     ETH Price: ${ethPrice}
                   </p>
                   <EthPriceChart />
