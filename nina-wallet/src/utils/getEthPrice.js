@@ -1,12 +1,13 @@
 export async function getEthPrice() {
   try {
-    const response = await fetch(
-      "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"
-    );
-    const data = await response.json();
-    return data.ethereum.usd;
+    const res = await fetch("http://localhost:5000/api/eth-price"); // your backend route
+    const data = await res.json();
+    if (data.ethereum?.usd) {
+      return data.ethereum.usd;
+    }
+    return null;
   } catch (error) {
-    console.error("Failed to fetch ETH price:", error);
+    console.error("Error fetching ETH price from backend:", error);
     return null;
   }
 }

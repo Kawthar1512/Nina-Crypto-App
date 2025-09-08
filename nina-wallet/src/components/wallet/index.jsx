@@ -11,7 +11,7 @@ import EthPrice from "../EthPrice";
 import SendEth from "../SendEth";
 import Transactions from "../Transactions";
 import { getEthPrice } from "../../utils/getEthPrice";
-
+import EthPriceChart from "../EthPriceChart";
 
 import {
   FiCopy,
@@ -252,111 +252,122 @@ const Wallet = () => {
             </Transition>
           </div>
         </nav>
+
         {/* main section starts here */}
         <main className="max-w-6xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <section className="lg:col-span-2 space-y-6">
             {/* <!-- Balance Card --> */}
             <div className=" rounded-2xl p-8 shadow-2xl flex items-center justify-between">
-              <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
-                <div className="welcome-text text-xs text-left">
-                  Welcome!{" "}
-                  {currentUser
-                    ? String(currentUser.displayName || currentUser.email)
-                    : "Guest"}
-                </div>
-                <div className="text-sm text-white">Total portfolio value</div>
-                <div className="balance-show relative flex justify-center items-center">
-                  <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
-                    {showBalance
-                      ? balance
-                        ? `${balance} ETH`
-                        : "Loading..."
-                      : "****"}
-                  </h1>
+              <div className="insd w-full">
+                <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
+                  <div className="welcome-text text-xs text-left">
+                    Welcome!{" "}
+                    {currentUser
+                      ? String(currentUser.displayName || currentUser.email)
+                      : "Guest"}
+                  </div>
+                  <div className="text-sm text-white">
+                    Total portfolio value
+                  </div>
+                  <div className="balance-show relative flex justify-center items-center">
+                    <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
+                      {showBalance
+                        ? balance
+                          ? `${balance} ETH`
+                          : "Loading..."
+                        : "****"}
+                    </h1>
 
-                  <button
-                    onClick={() => setShowBalance((prev) => !prev)}
-                    className="absolute left-[250px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
-                    title={showBalance ? "Hide Balance" : "Show Balance"}
-                  >
-                    {showBalance ? (
-                      <FiEyeOff className="w-4 h-4" />
-                    ) : (
-                      <FiEye className="w-4 h-4" />
-                    )}
-                  </button>
+                    <button
+                      onClick={() => setShowBalance((prev) => !prev)}
+                      className="absolute left-[250px] lg:left-[600px] bg-white flex items-center justify-center text-gray-600 hover:text-black border border-gray-300 w-8 h-8 mt-[30px] rounded-full"
+                      title={showBalance ? "Hide Balance" : "Show Balance"}
+                    >
+                      {showBalance ? (
+                        <FiEyeOff className="w-4 h-4" />
+                      ) : (
+                        <FiEye className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                  {/* convert  the eth value to usd */}
+                  <div className="text-[14px] text-blue-400 font-bold text-center lg:ml-[-98px]">
+                    <EthPrice balance={balance} showBalance={showBalance} />
+                  </div>
                 </div>
-                {/* convert  the eth value to usd */}
-                <div className="text-[14px] text-blue-400 font-bold text-center lg:ml-[-98px]">
-                  <EthPrice balance={balance} showBalance={showBalance} />
-                </div>
-                      </div>
-            </div>
                 {/* show the markt price for eth */}
-                <p className="text-xs text-gray-300">ETH Price: ${ethPrice}</p>
-                <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
-                  <button
-                    onClick={() => setShowSendModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-                  >
-                    <FiSend className="text-lg" />
-                    Send
-                  </button>
-                  <button
-                    onClick={() => setShowReceiveModal(true)}
-                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
-                  >
-                    <FiDownload className="text-lg" />
-                    Receive
-                  </button>
+                <div className="market flex">
+                  <p className="text-xs text-gray-300">
+                    ETH Price: ${ethPrice}
+                  </p>
+                  <EthPriceChart />
                 </div>
 
-                {/* Send Modal */}
-                <Transition appear show={showSendModal} as={Fragment}>
-                  <Dialog
-                    as="div"
-                    className="dialog-root"
-                    onClose={() => setShowSendModal(false)}
-                  >
-                    <div className="dialog-container">
-                      <Dialog.Panel>
-                        <SendEth
-                          senderAddress={address}
-                          onClose={() => setShowSendModal(false)}
-                        />
-                      </Dialog.Panel>
-                    </div>
-                  </Dialog>
-                </Transition>
+              </div>
+            </div>
 
-                {/* Receive Modal */}
-                <Transition appear show={showReceiveModal} as={Fragment}>
-                  <Dialog
-                    as="div"
-                    className="dialog-root"
-                    onClose={() => setShowReceiveModal(false)}
-                  >
-                    <div className="dialog-container">
-                      <Dialog.Panel>
-                        <Dialog.Title className="dialog-title">
-                          Receive ETH
-                        </Dialog.Title>
-                        <div className="dialog-content">
-                          <p>Your Wallet Address:</p>
-                          {/* <p>{address}</p> */}
-                          <p>{typeof address === "string" ? address : ""}</p>
-                        </div>
-                        <button
-                          className="dialog-close-btn"
-                          onClick={() => setShowReceiveModal(false)}
-                        >
-                          Close
-                        </button>
-                      </Dialog.Panel>
+            <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
+              <button
+                onClick={() => setShowSendModal(true)}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+              >
+                <FiSend className="text-lg" />
+                Send
+              </button>
+              <button
+                onClick={() => setShowReceiveModal(true)}
+                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+              >
+                <FiDownload className="text-lg" />
+                Receive
+              </button>
+            </div>
+
+            {/* Send Modal */}
+            <Transition appear show={showSendModal} as={Fragment}>
+              <Dialog
+                as="div"
+                className="dialog-root"
+                onClose={() => setShowSendModal(false)}
+              >
+                <div className="dialog-container">
+                  <Dialog.Panel>
+                    <SendEth
+                      senderAddress={address}
+                      onClose={() => setShowSendModal(false)}
+                    />
+                  </Dialog.Panel>
+                </div>
+              </Dialog>
+            </Transition>
+
+            {/* Receive Modal */}
+            <Transition appear show={showReceiveModal} as={Fragment}>
+              <Dialog
+                as="div"
+                className="dialog-root"
+                onClose={() => setShowReceiveModal(false)}
+              >
+                <div className="dialog-container">
+                  <Dialog.Panel>
+                    <Dialog.Title className="dialog-title">
+                      Receive ETH
+                    </Dialog.Title>
+                    <div className="dialog-content">
+                      <p>Your Wallet Address:</p>
+                      {/* <p>{address}</p> */}
+                      <p>{typeof address === "string" ? address : ""}</p>
                     </div>
-                  </Dialog>
-                </Transition>
-              
+                    <button
+                      className="dialog-close-btn"
+                      onClick={() => setShowReceiveModal(false)}
+                    >
+                      Close
+                    </button>
+                  </Dialog.Panel>
+                </div>
+              </Dialog>
+            </Transition>
 
             {/* <!-- Transactions --> */}
             <div className="bg-gray-800 rounded-xl p-4 shadow">
