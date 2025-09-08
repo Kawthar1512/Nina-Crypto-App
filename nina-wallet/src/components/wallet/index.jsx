@@ -259,7 +259,7 @@ const Wallet = () => {
             {/* <!-- Balance Card --> */}
             <div className=" rounded-2xl p-8 shadow-2xl flex items-center justify-between">
               <div className="insd w-full">
-                <div className="welcome-text text-xs text-left">
+                <div className="welcome-text text-xs text-left text-gray-300">
                     Welcome!{" "}
                     {currentUser
                       ? String(currentUser.displayName || currentUser.email)
@@ -268,7 +268,7 @@ const Wallet = () => {
                   {/* <div className="text-sm text-white">
                     Total portfolio value
                   </div> */}
-                <div className=" bg-gray-800  rounded-2xl  w-full p-9 ">
+                <div className=" bg-gray-800  rounded-2xl  w-full p-9 my-4">
                   
                   <div className="balance-show relative flex justify-center items-center">
                     <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
@@ -307,17 +307,17 @@ const Wallet = () => {
               </div>
             </div>
 
-            <div className="mt-4  mx-auto flex justify-center gap-4  w-full">
+            <div className="mt-4  mx-auto flex justify-center gap-4   w-full">
               <button
                 onClick={() => setShowSendModal(true)}
-                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                className="flex items-center gap-4 bg-white/10 hover:bg-white/20 px-6 py-6 rounded-lg"
               >
                 <FiSend className="text-lg" />
                 Send
               </button>
               <button
                 onClick={() => setShowReceiveModal(true)}
-                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
+                className="flex items-center gap-4 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-lg"
               >
                 <FiDownload className="text-lg" />
                 Receive
@@ -468,6 +468,8 @@ const Wallet = () => {
       const opt = e.target.options[e.target.selectedIndex].text;
       document.getElementById('network').innerText = opt;
     }); */}
+          <footer className="text-center text-sm">Copyright © 2025 NITRA All Rights Reserved.</footer>
+
       </main>
     </>
   );
