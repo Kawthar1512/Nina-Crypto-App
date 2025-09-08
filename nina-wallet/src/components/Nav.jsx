@@ -11,7 +11,7 @@ export default function Nav() {
           alt="Nitra logo"
           className="w-[100px] h-[100px] object-contain "
         />
-        <h3 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">NITRA WALLET</h3>
+        <h3 className=" nins  font-bold text-[20px] ml-[-10px] text-[#F3C738] w-[180px] ">NITRA WALLET</h3>
       </div>
       <div className="navLinks  text-white  p-6  rounded-full ">
         <a href="">Features </a>
@@ -21,11 +21,11 @@ export default function Nav() {
 
       </div>
       <div className="but self-center">
-        <button className="getStarted text-white bg-inherit px-[40px] py-[15px] cursor-pointer">
+        <button className=" text-white bg-inherit px-[40px] py-[15px] cursor-pointer">
           Log in
         </button>
 
-        <button className="getStarted bg-purple-900 text-[#F3C738] p-[15px] ml-[15px]">
+        <button className="getStarted  text-[#F3C738] p-[15px] ml-[15px]">
           Sign up for free
         </button>
       </div>
