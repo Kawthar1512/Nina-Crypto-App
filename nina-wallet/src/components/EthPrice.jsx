@@ -36,10 +36,10 @@ export default function EthPrice({ balance, showBalance }) {
     }
   }, [balance, ethPrice]);
 
-  if (!showBalance) return <p className="text-yellow-300 font-bold text-center">****</p>;
+  if (!showBalance) return <p className="text-white text-center">****</p>;
 
   return (
-    <div className="text-center text-yellow-300 font-bold">
+    <div className="text-center text-white ">
       {loading || usdValue === null ? "Loading..." : `≈ $${usdValue} USD`}
     </div>
   );

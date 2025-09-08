@@ -126,7 +126,7 @@ const Wallet = () => {
     <>
       <main className="min-h-screen bg-gray-700 text-gray-100">
         {/* <!-- My NAV --> */}
-        <nav className="bg-gray-800/60 backdrop-blur-md border-b border-gray-700 ">
+        <nav className="bg-gray-800 backdrop-blur-md border-b border-gray-700 ">
           <div className="max-w-6xl mx-auto px-4 py-3 grid grid-cols-3 items-center ">
             {/* left side */}
 
@@ -136,8 +136,8 @@ const Wallet = () => {
                 alt="logo"
                 className="w-12 h-12 rounded object-contain"
               />
-              <span className="font-semibold  text-[#F3C738] ml-[-10px] mr-[20px]  nins">
-                NINA WALLET
+              <span className="font-semibold  text-[23px] text-white ml-[-10px] mr-[20px]  nins">
+                NITRA WALLET
               </span>
             </div>
             {/* center */}
@@ -268,7 +268,7 @@ const Wallet = () => {
                   {/* <div className="text-sm text-white">
                     Total portfolio value
                   </div> */}
-                <div className=" bg-gray-800  rounded-2xl  w-full p-9 my-4">
+                <div className=" bg-gray-800  rounded-2xl  w-full p-9 my-4 ">
                   
                   <div className="balance-show relative flex justify-center items-center">
                     <h1 className="text-black-400 text-3xl lg:text-4xl font-semibold font-mono mt-[30px] text-center">
@@ -291,11 +291,17 @@ const Wallet = () => {
                       )}
                     </button>
                   </div>
+
                   {/* convert  the eth value to usd */}
-                  <div className="text-[14px] text-blue-400 font-bold text-center lg:ml-[-98px]">
+                  {/* <div className="text-[14px] font-bold text-center">
                     <EthPrice balance={balance} showBalance={showBalance} />
-                  </div>
+                  </div> */}
+                   <p className="text-center text-red-300">
+                    <EthPrice balance={balance} showBalance={showBalance} />
+                  </p>
+
                 </div>
+
                 {/* show the markt price for eth */}
                 <div className="market flex  mt-4">
                   <p className="text-xs text-gray-300 mr-5">
@@ -468,7 +474,7 @@ const Wallet = () => {
       const opt = e.target.options[e.target.selectedIndex].text;
       document.getElementById('network').innerText = opt;
     }); */}
-          <footer className="text-center text-sm">Copyright © 2025 NITRA All Rights Reserved.</footer>
+          <footer className="text-center text-[0.670rem]">Copyright © 2025 NITRA All Rights Reserved.</footer>
 
       </main>
     </>
