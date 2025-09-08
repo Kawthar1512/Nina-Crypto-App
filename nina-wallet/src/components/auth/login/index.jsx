@@ -76,7 +76,7 @@ const Login = () => {
 
           <h2 className="text-2xl lg:text-3xl font-bold text-center max-w-md">
             Have access to your finances anywhere in the world on
-            <span className="text-[#F3C738] "> Nina Wallet</span>
+            <span className="text-[#F3C738] "> NITRA Wallet</span>
           </h2>
         </div>
 
@@ -91,7 +91,7 @@ const Login = () => {
               />
 
               <div className=" font-bold text-[17px] text-[#F3C738] nins">
-                NINA WALLET
+                NITRA WALLET
               </div>
             </div>
             <h3 className="text-2xl font-bold mb-2">Welcome Back!</h3>

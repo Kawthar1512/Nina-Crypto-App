@@ -10,7 +10,7 @@ export default function Nav() {
           alt="NINA logo"
           className="w-[100px] h-[100px] object-contain "
         />
-        <h3 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">Nina WALLET</h3>
+        <h3 className=" nins  font-bold text-[22px] ml-[-10px] text-[#F3C738] w-[180px] ">NITRA WALLET</h3>
       </div>
       <div className="navLinks  text-white  p-6  rounded-full ">
         <a href="">Features </a>
