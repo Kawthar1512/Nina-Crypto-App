@@ -4,7 +4,7 @@ import { useAuth } from "../../../contexts/authContext";
 import { doCreateUserWithEmailAndPassword } from "../../../firebase/auth";
 import { ethers } from "ethers";
 import "../../../styles/register.css";
-import nina from "../../../assets/nina.png";
+import nitra from "../../../assets/nitra.png";
 import man from "../../../assets/man.png";
 // import "../../../styles/login.css";
 import coin from "../../../assets/coin.png";
@@ -77,9 +77,9 @@ const Register = () => {
           <div className="w-full max-w-md">
             <div className=" flex  items-center mb-5 ml-[-12px]">
               <img
-                src={nina}
-                alt="Nina logo"
-                className="w-10 h-10 object-contain"
+                src={nitra}
+                alt="Nitra logo"
+                className="w-25 h-30 object-contain"
               />
 
               <div className=" font-bold text-[17px] text-[#F3C738] nins">
