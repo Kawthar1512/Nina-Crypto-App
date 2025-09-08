@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ArrowUpIcon, ArrowDownIcon } from "@heroicons/react/24/solid";
 
 function Transactions({ walletAddress }) {
   const [transactions, setTransactions] = useState([]);
@@ -30,14 +31,26 @@ function Transactions({ walletAddress }) {
 
   useEffect(() => {
     if (filter === "All") setFilteredTx(transactions);
-    else if (filter === "Sent") setFilteredTx(transactions.filter(tx => tx.from.toLowerCase() === walletAddress.toLowerCase()));
-    else if (filter === "Received") setFilteredTx(transactions.filter(tx => tx.to.toLowerCase() === walletAddress.toLowerCase()));
+    else if (filter === "Sent")
+      setFilteredTx(
+        transactions.filter(
+          (tx) => tx.from.toLowerCase() === walletAddress.toLowerCase()
+        )
+      );
+    else if (filter === "Received")
+      setFilteredTx(
+        transactions.filter(
+          (tx) => tx.to.toLowerCase() === walletAddress.toLowerCase()
+        )
+      );
   }, [filter, transactions, walletAddress]);
 
   return (
     <div className="bg-gray-800 rounded-xl p-4 shadow-lg mt-4">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-2">
-        <h2 className="text-lg sm:text-xl font-semibold text-white">Transaction History</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-white">
+          Transaction History
+        </h2>
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
@@ -70,21 +83,51 @@ function Transactions({ walletAddress }) {
             </thead>
             <tbody className="divide-y divide-gray-700">
               {filteredTx.map((tx) => {
-                const isSent = tx.from.toLowerCase() === walletAddress.toLowerCase();
+                const isSent =
+                  tx.from.toLowerCase() === walletAddress.toLowerCase();
                 return (
                   <tr key={tx.hash} className="hover:bg-gray-700">
-                    <td className="px-2 py-1 text-blue-400">{tx.hash.slice(0, 8)}...</td>
-                    <td className={`px-2 py-1 font-semibold ${isSent ? 'text-red-400' : 'text-green-400'}`}>
-                      {isSent ? "Sent" : "Received"}
+                    <td className="px-2 py-1 text-blue-400">
+                      {tx.hash.slice(0, 8)}...
                     </td>
-                    <td className="px-2 py-1 text-gray-300">{tx.from.slice(0, 8)}...</td>
-                    <td className="px-2 py-1 text-gray-300">{tx.to.slice(0, 8)}...</td>
-                    <td className="px-2 py-1">{(Number(tx.value) / 1e18).toFixed(4)}</td>
-                    <td className="px-2 py-1">{new Date(tx.timeStamp * 1000).toLocaleString()}</td>
-                    <td className={`px-2 py-1 font-semibold ${tx.isError === "0" ? "text-green-400" : "text-red-500"}`}>
+                    <td className="px-2 py-1 flex items-center gap-1 font-semibold">
+                      {isSent ? (
+                        <>
+                          <ArrowUpIcon className="w-4 h-4 text-red-400" />
+                          <span className="text-red-400">Sent</span>
+                        </>
+                      ) : (
+                        <>
+                          <ArrowDownIcon className="w-4 h-4 text-green-400" />
+                          <span className="text-green-400">Received</span>
+                        </>
+                      )}
+                    </td>
+                    <td className="px-2 py-1 text-gray-300">
+                      {tx.from.slice(0, 8)}...
+                    </td>
+                    <td className="px-2 py-1 text-gray-300">
+                      {tx.to.slice(0, 8)}...
+                    </td>
+                    <td className="px-2 py-1">
+                      {(Number(tx.value) / 1e18).toFixed(4)}
+                    </td>
+                    <td className="px-2 py-1">
+                      {new Date(tx.timeStamp * 1000).toLocaleString()}
+                    </td>
+                    <td
+                      className={`px-2 py-1 font-semibold ${
+                        tx.isError === "0" ? "text-green-400" : "text-red-500"
+                      }`}
+                    >
                       {tx.isError === "0" ? "Success" : "Failed"}
                     </td>
-                    <td className="px-2 py-1">{((Number(tx.gasUsed) * Number(tx.gasPrice)) / 1e18).toFixed(6)} ETH</td>
+                    <td className="px-2 py-1">
+                      {((Number(tx.gasUsed) * Number(tx.gasPrice)) / 1e18).toFixed(
+                        6
+                      )}{" "}
+                      ETH
+                    </td>
                   </tr>
                 );
               })}
