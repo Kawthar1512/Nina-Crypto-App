@@ -1,6 +1,6 @@
-Nina Wallet
+Nitra Wallet
 
-Nina Wallet is a simple crypto wallet web application that allows users to create, send, and receive cryptocurrency.
+Nitra Wallet is a simple crypto wallet web application that allows users to create, send, and receive cryptocurrency.
 This is the first version and it supports the Ethereum network and uses Firebase for authentication.
 
 Features
@@ -51,7 +51,7 @@ A .env file in the backend where I stored private keys (make sure you don't comm
 
 For the Frontend Setup
 
-cd nina-wallet
+cd nitra-wallet
 pnpm install
 pnpm run dev
 
